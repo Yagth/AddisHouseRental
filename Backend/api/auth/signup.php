@@ -26,7 +26,6 @@ if(isset($_POST['submit'])){
                     "name" => $user->name,
                     "email" => $user->email
                 ),
-                "error" => $user->error? $user->error : ""
             ));
         } else{
             echo json_encode(array(
