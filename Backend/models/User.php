@@ -53,7 +53,7 @@ class User{
         try{
             $stmt->execute();
         } catch(mysqli_sql_exception $e){
-            die(($this->conn->error . " " . $this->conn->errno));
+            die(("Error: $e"));
         }
         if($stmt->get_result()->num_rows > 0){
             $row = $stmt->get_result()->fetch_assoc();
