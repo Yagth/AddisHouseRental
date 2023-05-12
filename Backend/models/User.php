@@ -77,7 +77,7 @@ class User{
         }
         
         $this->name = $this->conn->real_escape_string($this->name);
-        $this->password = $this->conn->real_escape_string($this->password);
+        $this->password = md5($this->conn->real_escape_string($this->password));
         $this->email = $this->conn->real_escape_string($this->email);
 
         $stmt->bind_param("sss", $this->name, $this->password, $this->email);
