@@ -25,11 +25,8 @@ if($num > 0){
 
        $user_item = array(
            'id' => $id,
-           'title' => $title,
-           'body' => html_entity_decode($body),
-           'author' => $author,
-           'category_id' => $category_id,
-           'category_name' => $category_name
+           'name' => $name,
+           'email' => html_entity_decode($email)
        );
        
        array_push($user_arr['data'], $user_item);
