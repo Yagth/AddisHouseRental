@@ -13,7 +13,7 @@ if(isset($_POST['submit'])){
     $user->password = md5($_POST['password']);
     $cpass = md5($_POST['cpassword']);
 
-    if($cpass !== $password){
+    if($cpass !== $user->password){
         echo json_encode(array(
             "success" => false,
             "error" => "password not matched")
@@ -23,7 +23,6 @@ if(isset($_POST['submit'])){
             echo json_encode(array(
                 "success" => true,
                 "data"    => array(
-                    "id" => $user->id,
                     "name" => $user->name,
                     "email" => $user->email
                 ),
