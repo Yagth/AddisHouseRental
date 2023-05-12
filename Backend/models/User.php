@@ -10,6 +10,7 @@ class User{
     public $name;
     public $password;
     public $email;
+    public $error;
 
     //Constructor 
 
@@ -39,8 +40,7 @@ class User{
 
     public function get_single_user (){
         //Create query
-        $query = "SELECT * FROM $this->table WHERE email = ?
-            LIMIT 0,1";
+        $query = "SELECT * FROM $this->table WHERE email = ?";
 
         $stmt = $this->conn->stmt_init();
 
@@ -64,7 +64,9 @@ class User{
             $this->name = $row['name'];
             $this->password = $row['password'];
             $this->id = $row['id'];
+
         }
+
     }
 
     public function create_user(){
@@ -75,21 +77,44 @@ class User{
 
         if(!$stmt->prepare($query)){
             die("SQL Error: " . $this->conn->error);
+        }else if($this->email_unique($this->email)){
+            $this->name = $this->conn->real_escape_string($this->name);
+            $this->password = md5($this->conn->real_escape_string($this->password));
+            $this->email = $this->conn->real_escape_string($this->email);
+    
+            $stmt->bind_param("sss", $this->name, $this->password, $this->email);
+            
+            try{
+                $stmt->execute();
+                return true;
+            } catch(mysqli_sql_exception $e){
+                printf ("Error: %s.\n", $e);
+                return false;
+            }
+        }else{
+            $this->error = "Email not unique";
+            return false;
+        }
+    }
+
+    public function email_unique($email){
+        $query = "SELECT * FROM $this->table WHERE email = ?";
+
+        $stmt = $this->conn->stmt_init();
+
+        if(!$stmt->prepare($query)){
+            die("SQL Error: " . $this->conn->error);
         }
         
-        $this->name = $this->conn->real_escape_string($this->name);
-        $this->password = md5($this->conn->real_escape_string($this->password));
-        $this->email = $this->conn->real_escape_string($this->email);
-
-        $stmt->bind_param("sss", $this->name, $this->password, $this->email);
+        $stmt->bind_param("s", $email);
         
         try{
             $stmt->execute();
-            return true;
         } catch(mysqli_sql_exception $e){
-            printf ("Error: %s.\n", $e);
-            return false;
+            die(("Error: $e"));
         }
+        $result = $stmt->get_result();
+        return !($result->num_rows > 0);
     }
 
 }

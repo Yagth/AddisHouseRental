@@ -22,5 +22,6 @@ $success = $user->create_user();
 
 echo json_encode(array(
     "sucess" => $success,
-    "message" => $success ? "user created" : "Failed to create user"
+    "message" => $success ? "user created" : "Failed to create user",
+    "error"   => $user->error ? $user->error : ""
 ));
