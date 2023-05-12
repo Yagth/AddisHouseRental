@@ -93,6 +93,8 @@ class User{
             }
         }else{
             $this->error = "Email not unique";
+            $this->name = null;
+            $this->password = null;
             return false;
         }
     }

@@ -4,21 +4,36 @@ include_once "../../config/Database.php";
 include_once "../../models/User.php";
 
 if(isset($_POST['submit'])){
-    $name = $_POST['name'];
-    $email =$_POST['email'];
-    $password = md5($_POST['password']);
+    $database = new Database();
+    $db = $database->connect();
+    $user = new User($db);
+    
+    $user->name = $_POST['name'];
+    $user->email =$_POST['email'];
+    $user->password = md5($_POST['password']);
     $cpass = md5($_POST['cpassword']);
 
-    if(mysqli_num_rows($result) > 0){
-        $error[] = 'User already exists';
-
-    }else{
-        if($password != $cpass){
-            $error[] = "password not matched";
-        }else{
-            $insert = "INSERT INTO user_two(name, email, password, user_type) VALUES('$name', '$email', '$password', '$user_type')";
-            mysqli_query($conn, $insert);
-            header('location: login_form.php');
+    if($cpass !== $password){
+        echo json_encode(array(
+            "success" => false,
+            "error" => "password not matched")
+        );
+    }else {
+        if($user->create_user()){
+            echo json_encode(array(
+                "success" => true,
+                "data"    => array(
+                    "id" => $user->id,
+                    "name" => $user->name,
+                    "email" => $user->email
+                ),
+                "error" => $user->error? $user->error : ""
+            ));
+        } else{
+            echo json_encode(array(
+                "success" => false,
+                "error" => $user->error? $user->error : "Something went wrong"
+            ));
         }
     }
 }
