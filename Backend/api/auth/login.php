@@ -8,7 +8,7 @@ $db = $database->connect();
 
 $user = new User($db); 
 
-$is_invalid = false;
+$is_valid = false;
 
 if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['password']) && isset ($_POST['email'])){
     $user->email = $_POST['email'];
@@ -29,12 +29,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['password']) && isset ($
                 "email" => $user->email
           )
         ));
+        $is_valid = true;
       }
     }
-
-    echo json_encode(array(
-        "loggedin" => false,
-        "message"  => "Invalid credentials"
-    ));
-
+    if(!$is_valid){
+        echo json_encode(array(
+            "loggedin" => false,
+            "message"  => "Invalid credentials"
+        ));
+    }
   }

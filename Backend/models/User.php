@@ -55,8 +55,9 @@ class User{
         } catch(mysqli_sql_exception $e){
             die(("Error: $e"));
         }
-        if($stmt->get_result()->num_rows > 0){
-            $row = $stmt->get_result()->fetch_assoc();
+        $result = $stmt->get_result();
+        if($result->num_rows > 0){
+            $row = $result->fetch_assoc();
 
             //Set properties
             $this->email = $row['email'];
