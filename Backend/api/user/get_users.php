@@ -18,6 +18,7 @@ if($num > 0){
 
    $user_arr = array();
    $user_arr['data'] = array();
+   $user_arr['success'] = false;
 
    while($row = $result->fetch_assoc()){
        extract($row);
@@ -34,10 +35,15 @@ if($num > 0){
        array_push($user_arr['data'], $user_item);
    }
 
+   $user_arr['success'] = true;
+
    echo json_encode($user_arr);
 
 }else{
    echo json_encode(
-       array('message' => 'No such users')
+       array(
+        'sucess' => false,
+        'message' => 'No users'
+        )
    );
 }
