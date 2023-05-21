@@ -148,7 +148,7 @@ class House {
         }        
     }
 
-    public function get_house_pics(){
+    public function save_house_pics(){
         $query = "INSERT INTO $this->house_pic 
             VALUES (?, ?, ?); ";
 
@@ -160,7 +160,7 @@ class House {
 
             if(!$stmt->prepare($query)){
                 $this->error = $this->conn->error;
-                return null;
+                return false;
             }
             
             $stmt->bind_param("sss", 
@@ -178,6 +178,30 @@ class House {
         }
 
         return true;
+    }
+
+    public function get_house_pic(){
+        $query = "SELECT pic_desc, photo_url FROM $this->house_pic WHERE house_id = $this->id";
+
+        $stmt = $this->conn->stmt_init();
+
+        if(!$stmt->prepare($query)){
+            $this->error = $this->conn->error;
+            return null;
+        }
+
+        try{
+            $stmt->execute();
+            $result = $stmt->get_result();
+        } catch(mysqli_sql_exception $e){
+            $this->error = "Error: $e";
+            return null;
+        }
+
+        if($result->num_rows === 0){
+            return null;
+        }
+        return $result->fetch_assoc();
     }
 
 }
