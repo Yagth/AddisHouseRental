@@ -11,11 +11,12 @@ $user = new User($db);
 $is_valid = false;
 
 if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['password']) && isset ($_POST['email'])){
+    header("Content-Type: application/json");
     $user->email = $_POST['email'];
     $password = md5($_POST['password']);
-    $user->get_single_user();  
+    $user->get_single_user(); 
 
-    if($user->name){
+    if($user->firstname){
       if($password === $user->password){
           session_start();
 
@@ -25,7 +26,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['password']) && isset ($
             "loggedin" => true,
             "data"   => array(
                 "id" => $user->id,
-                "name" => $user->name,
+                "firstname" => $user->firstname,
+                "lastname" => $user->lastname,
                 "email" => $user->email
           )
         ));

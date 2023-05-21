@@ -2,14 +2,21 @@
 class User{
     //DB Stuff
     private $conn;
-    private $table = 'user';
+    private $table = 'User';
 
     //Posts properties
 
     public $id;
-    public $name;
-    public $password;
+    public $firstname;
+    public $lastname;
     public $email;
+    public $password;
+    public $phonenumber;
+    public $telegram_username;
+    public $profile_pic;
+    public $gender;
+    public $status;
+    
     public $error;
 
     //Constructor 
@@ -60,10 +67,16 @@ class User{
             $row = $result->fetch_assoc();
 
             //Set properties
-            $this->email = $row['email'];
-            $this->name = $row['name'];
-            $this->password = $row['password'];
             $this->id = $row['id'];
+            $this->email = $row['email'];
+            $this->firstname = $row['firstname'];
+            $this->lastname = $row['lastname'];
+            $this->password = $row['password'];
+            $this->phonenumber = $row['phonenumber'];
+            $this->telegram_username = $row['telegram_username'];
+            $this->profile_pic = $row['profile_picture'];
+            $this->gender = $row['gender'];
+            $this->status = $row['status'];
 
         }
 
@@ -71,18 +84,31 @@ class User{
 
     public function create_user(){
         $query = "INSERT INTO $this->table 
-                SET name = ?, password = ?, email = ?";
+                SET firstname = ?, lastname = ?, password = ?, email = ?, phonenumber = ?, telegram_username = ?, profile_picture = ?, gender = ?, status = ? ";
 
         $stmt = $this->conn->stmt_init();
 
         if(!$stmt->prepare($query)){
             die("SQL Error: " . $this->conn->error);
         }else if($this->email_unique($this->email)){
-            $this->name = $this->conn->real_escape_string($this->name);
+            $this->firstname = $this->conn->real_escape_string($this->firstname);
+            $this->lastname = $this->conn->real_escape_string($this->lastname);
             $this->password = md5($this->conn->real_escape_string($this->password));
             $this->email = $this->conn->real_escape_string($this->email);
+            $this->phonenumber = $this->conn->real_escape_string($this->phonenumber);
+            $this->telegram_username = $this->conn->real_escape_string($this->telegram_username);
     
-            $stmt->bind_param("sss", $this->name, $this->password, $this->email);
+            $stmt->bind_param("sssssssss", 
+                $this->firstname, 
+                $this->lastname, 
+                $this->password, 
+                $this->email, 
+                $this->phonenumber, 
+                $this->telegram_username, 
+                $this->profile_pic, 
+                $this->gender, 
+                $this->status
+            );
             
             try{
                 $stmt->execute();
@@ -93,8 +119,15 @@ class User{
             }
         }else{
             $this->error = "Email not unique";
-            $this->name = null;
+            $this->firstname = null;
+            $this->lastname = null;
             $this->password = null;
+            $this->phonenumber = null;
+            $this->telegram_username = null;
+            $this->profile_pic = null;
+            $this->gender = null;
+            $this->status = null;
+            
             return false;
         }
     }

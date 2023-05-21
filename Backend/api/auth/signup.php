@@ -4,14 +4,21 @@ include_once "../../config/Database.php";
 include_once "../../models/User.php";
 
 if(isset($_POST['submit'])){
+    header("Content-Type: appliation/json");
     $database = new Database();
     $db = $database->connect();
     $user = new User($db);
     
-    $user->name = $_POST['name'];
+    $user->firstname = $_POST['firstname'];
+    $user->lastname = $_POST['lastname'];
     $user->email =$_POST['email'];
-    $user->password = md5($_POST['password']);
-    $cpass = md5($_POST['cpassword']);
+    $user->password = $_POST['password'];
+    $user->gender = $_POST['gender'];
+    $user->phonenumber = $_POST['phonenumber'];
+    $user->telegram_username = $_POST['telegram_username'];
+    $user->status = $_POST['status'];
+
+    $cpass = $_POST['cpassword'];
 
     if($cpass !== $user->password){
         echo json_encode(array(
@@ -23,7 +30,8 @@ if(isset($_POST['submit'])){
             echo json_encode(array(
                 "success" => true,
                 "data"    => array(
-                    "name" => $user->name,
+                    "firstname" => $user->firstname,
+                    "lastname" => $user->lastname,
                     "email" => $user->email
                 ),
             ));
