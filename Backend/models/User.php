@@ -2,7 +2,7 @@
 class User{
     //DB Stuff
     private $conn;
-    private $table = 'user';
+    private $table = 'User';
 
     //Posts properties
 
