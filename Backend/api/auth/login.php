@@ -15,7 +15,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['password']) && isset ($
     $password = md5($_POST['password']);
     $user->get_single_user();  
 
-    if($user->name){
+    if($user->firstname){
       if($password === $user->password){
           session_start();
 
@@ -25,7 +25,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['password']) && isset ($
             "loggedin" => true,
             "data"   => array(
                 "id" => $user->id,
-                "name" => $user->name,
+                "firstname" => $user->firstname,
+                "lastname" => $user->lastname,
                 "email" => $user->email
           )
         ));
