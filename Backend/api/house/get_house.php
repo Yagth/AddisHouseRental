@@ -35,7 +35,11 @@ if($num > 0){
        $user = new User($db);
        $user->id = $owner_id;
        $user->get_single_user();
-       
+
+       $house->id = $id;
+       $pic_urls = $house->get_house_pic();
+
+       array_push($house_item['pics'], $pic_urls ? $pic_urls : null);
        array_push($house_item['owner'], "$user->firstname $user->lastname" );
        
        array_push($house_arr['data'], $house_item);
@@ -49,7 +53,7 @@ if($num > 0){
    echo json_encode(
        array(
         'sucess' => false,
-        'message' => 'No users'
+        'message' => 'No house'
         )
    );
 }
