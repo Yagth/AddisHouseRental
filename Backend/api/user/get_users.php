@@ -25,7 +25,8 @@ if($num > 0){
 
        $user_item = array(
            'id' => $id,
-           'name' => $name,
+           'firstname' => $firstname,
+           'lastname' => $lastname,
            'email' => html_entity_decode($email)
        );
        
