@@ -1,6 +1,6 @@
-# A website to rent and track rented houses
+# A website to rent and browse houses
 
-## Start up the database as follows
+## Set up the database as follows
 
 Step 1: Start apache server and go to http://localhost:8080/phpmyadmin
 
