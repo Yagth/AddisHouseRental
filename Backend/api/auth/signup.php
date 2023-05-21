@@ -12,13 +12,13 @@ if(isset($_POST['submit'])){
     $user->firstname = $_POST['firstname'];
     $user->lastname = $_POST['lastname'];
     $user->email =$_POST['email'];
-    $user->password = md5($_POST['password']);
+    $user->password = $_POST['password'];
     $user->gender = $_POST['gender'];
     $user->phonenumber = $_POST['phonenumber'];
     $user->telegram_username = $_POST['telegram_username'];
     $user->status = $_POST['status'];
 
-    $cpass = md5($_POST['cpassword']);
+    $cpass = $_POST['cpassword'];
 
     if($cpass !== $user->password){
         echo json_encode(array(
