@@ -94,7 +94,6 @@ class House {
     public function create_house(){
         $query_house = "INSERT INTO $this->house (owner_id, price, house_description, rooms, status) 
             VALUES (? , ? , ? , ? , ?);";
-        $query_rented = "INSERT INTO $this->rented_house (house_id, user_id, end_date) VALUES (?, ?, ?); ";
 
         $stmt = $this->conn->stmt_init();
 
@@ -123,23 +122,29 @@ class House {
     }
 
     public function rent_house(){
-        $query = "SELECT * FROM $this->table WHERE email = ?";
+        $query_rented = "INSERT INTO $this->rented_house (house_id, user_id, end_date) VALUES (?, ?, ?); ";
+
 
         $stmt = $this->conn->stmt_init();
 
-        if(!$stmt->prepare($query)){
-            die("SQL Error: " . $this->conn->error);
+        if(!$stmt->prepare($query_rented)){
+            $this->error = $this->conn->error;
+            return false;
         }
         
-        $stmt->bind_param("s", $email);
+        $stmt->bind_param("sss", 
+            $this->id, 
+            $this->rentee_user_id, 
+            $this->rent_end_day
+    );
         
         try{
             $stmt->execute();
+            return true;
         } catch(mysqli_sql_exception $e){
-            die(("Error: $e"));
-        }
-        $result = $stmt->get_result();
-        return !($result->num_rows > 0);
+            $this->error = $this->$e;
+            return false;
+        }        
     }
 
 }
