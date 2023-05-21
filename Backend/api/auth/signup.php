@@ -8,7 +8,8 @@ if(isset($_POST['submit'])){
     $db = $database->connect();
     $user = new User($db);
     
-    $user->name = $_POST['name'];
+    $user->firstname = $_POST['firstname'];
+    $user->lastname = $_POST['lastname'];
     $user->email =$_POST['email'];
     $user->password = md5($_POST['password']);
     $cpass = md5($_POST['cpassword']);
@@ -23,7 +24,8 @@ if(isset($_POST['submit'])){
             echo json_encode(array(
                 "success" => true,
                 "data"    => array(
-                    "name" => $user->name,
+                    "firstname" => $user->firstname,
+                    "lastname" => $user->lastname,
                     "email" => $user->email
                 ),
             ));
