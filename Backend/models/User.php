@@ -82,6 +82,42 @@ class User{
 
     }
 
+    public function get_single_user_by_id (){
+        //Create query
+        $query = "SELECT * FROM $this->table WHERE id = ?";
+
+        $stmt = $this->conn->stmt_init();
+
+        if(!$stmt->prepare($query)){
+            die("SQL Error: " . $this->conn->error);
+        }
+        
+        $stmt->bind_param("s", $this->id);
+        
+        try{
+            $stmt->execute();
+        } catch(mysqli_sql_exception $e){
+            die(("Error: $e"));
+        }
+        $result = $stmt->get_result();
+        if($result->num_rows > 0){
+            $row = $result->fetch_assoc();
+
+            //Set properties
+            $this->email = $row['email'];
+            $this->firstname = $row['firstname'];
+            $this->lastname = $row['lastname'];
+            $this->password = $row['password'];
+            $this->phonenumber = $row['phonenumber'];
+            $this->telegram_username = $row['telegram_username'];
+            $this->profile_pic = $row['profile_picture'];
+            $this->gender = $row['gender'];
+            $this->status = $row['status'];
+
+        }
+
+    }
+
     public function create_user(){
         $query = "INSERT INTO $this->table 
                 SET firstname = ?, lastname = ?, password = ?, email = ?, phonenumber = ?, telegram_username = ?, profile_picture = ?, gender = ?, status = ? ";
