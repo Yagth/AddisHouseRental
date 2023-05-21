@@ -4,6 +4,7 @@ include_once "../../config/Database.php";
 include_once "../../models/User.php";
 
 if(isset($_POST['submit'])){
+    header("Content-Type: appliation/json");
     $database = new Database();
     $db = $database->connect();
     $user = new User($db);
