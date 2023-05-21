@@ -36,7 +36,7 @@ if($num > 0){
 
        $user = new User($db);
        $user->id = $owner_id;
-       $user->get_single_user();
+       $user->get_single_user_by_id();
 
        $house_item['owner'] = "$user->firstname $user->lastname";
 
