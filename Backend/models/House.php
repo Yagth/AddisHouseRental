@@ -21,6 +21,7 @@ class House {
     public $rent_start_day;
     public $rent_end_day;
     public $pictures;
+    public $house_pics;
     
     public $error;
 
@@ -145,6 +146,38 @@ class House {
             $this->error = $this->$e;
             return false;
         }        
+    }
+
+    public function get_house_pics(){
+        $query = "INSERT INTO $this->house_pic 
+            VALUES (?, ?, ?); ";
+
+        foreach ($this->house_pics as $pic_desc => $pic_url) {
+            $stmt = $this->conn->stmt_init();
+            
+            $pic_desc = $this->conn->real_escape_string($pic_desc);
+            $pic_url  = $this->conn->real_escape_string($pic_url);
+
+            if(!$stmt->prepare($query)){
+                $this->error = $this->conn->error;
+                return null;
+            }
+            
+            $stmt->bind_param("sss", 
+                $this->id,
+                $pic_desc, 
+                $pic_url, 
+            );
+            
+            try{
+                $stmt->execute();
+            }catch(mysqli_sql_exception $e){
+                $this->error = "Got the following error while trying to insert to the table \n error: $e";
+                return false;
+            }      
+        }
+
+        return true;
     }
 
 }
