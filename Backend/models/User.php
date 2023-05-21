@@ -74,7 +74,7 @@ class User{
             $this->password = $row['password'];
             $this->phonenumber = $row['phonenumber'];
             $this->telegram_username = $row['telegram_username'];
-            $this->profile_pic = $row['profile_pic'];
+            $this->profile_pic = $row['profile_picture'];
             $this->gender = $row['gender'];
             $this->status = $row['status'];
 
