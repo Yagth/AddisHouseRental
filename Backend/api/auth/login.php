@@ -13,13 +13,10 @@ $is_valid = false;
 if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['password']) && isset ($_POST['email'])){
     header("Content-Type: application/json");
     $user->email = $_POST['email'];
-    $temp = $_POST['password'];
     $password = md5($_POST['password']);
     $user->get_single_user(); 
 
     if($user->firstname){
-      echo "$temp \n";
-      echo "$password $user->password";
       if($password === $user->password){
           session_start();
 
