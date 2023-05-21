@@ -7,9 +7,16 @@ class User{
     //Posts properties
 
     public $id;
-    public $name;
-    public $password;
+    public $firstname;
+    public $lastname;
     public $email;
+    public $password;
+    public $phonenumber;
+    public $telegram_username;
+    public $profile_pic;
+    public $gender;
+    public $status;
+    
     public $error;
 
     //Constructor 
@@ -60,10 +67,16 @@ class User{
             $row = $result->fetch_assoc();
 
             //Set properties
-            $this->email = $row['email'];
-            $this->name = $row['name'];
-            $this->password = $row['password'];
             $this->id = $row['id'];
+            $this->email = $row['email'];
+            $this->firstname = $row['firstname'];
+            $this->lastname = $row['lastname'];
+            $this->password = $row['password'];
+            $this->phonenumber = $row['phonenumber'];
+            $this->telegram_username = $row['telegram_username'];
+            $this->profile_pic = $row['profile_pic'];
+            $this->gender = $row['gender'];
+            $this->status = $row['status'];
 
         }
 
