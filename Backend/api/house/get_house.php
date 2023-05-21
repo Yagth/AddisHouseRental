@@ -23,24 +23,27 @@ if($num > 0){
 
    while($row = $result->fetch_assoc()){
        extract($row);
-
+        echo $id;
        $house_item = array(
            'id' => $id,
            'price' => $price,
            'house_description' => $house_description,
            'rooms' => $rooms,
-           'status' => $status
+           'status' => $status,
+           'pics' => array(),
+           'owner' => array()
        );
 
        $user = new User($db);
        $user->id = $owner_id;
        $user->get_single_user();
 
+       $house_item['owner'] = "$user->firstname $user->lastname";
+
        $house->id = $id;
        $pic_urls = $house->get_house_pic();
 
-       array_push($house_item['pics'], $pic_urls ? $pic_urls : null);
-       array_push($house_item['owner'], "$user->firstname $user->lastname" );
+       array_push($house_item['pics'], $pic_urls ? $pic_urls : "");
        
        array_push($house_arr['data'], $house_item);
    }
