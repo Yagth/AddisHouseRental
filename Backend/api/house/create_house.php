@@ -39,7 +39,7 @@ function image_upload($image){
                 return null;
             }else{
                 $new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
-                $img_upload_path = "../../img/uploads/".$new_img_name;
+                $img_upload_path = "../../uploads/img/".$new_img_name;
                 move_uploaded_file($tmp_name, $img_upload_path);
 
                 return $img_upload_path;
