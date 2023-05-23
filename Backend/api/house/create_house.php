@@ -48,13 +48,12 @@ function image_upload($image){
     }
 }
 
-
 if(isset($_POST['submit']) && isset($_FILES['main_pic'])){
     header("Content-Type: application/json");
     $house->price = $_POST['price'];
     $house->house_desc = $_POST['house_desc'];
     $house->no_rooms = $_POST['no_rooms'];
-    $house->price = $_POST['price'];
+    $house->owner_id = $_POST['owner_id'];
 
     $house_pics = array();
     $main_pic = $_FILES['main_pic'];
@@ -63,6 +62,7 @@ if(isset($_POST['submit']) && isset($_FILES['main_pic'])){
     if(isset($_FILES['other_pics'])){
         $images = $_FILES['other_pics'];
         foreach ($images as $image) {
+            print_r($image);
             array_push($house_pics, image_upload($image));
         }
 
@@ -72,6 +72,7 @@ if(isset($_POST['submit']) && isset($_FILES['main_pic'])){
     }
 
     $house->house_pics = $house_pics;
+    $house->create_house();
     
     echo json_encode($house_arr);
 } else{
