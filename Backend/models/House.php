@@ -89,7 +89,6 @@ class House {
             $this->rent_end_day = $row['end_date'];
 
         }
-
     }
 
     public function create_house(){
