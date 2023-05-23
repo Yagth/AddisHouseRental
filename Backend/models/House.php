@@ -113,6 +113,7 @@ class House {
             
             try{
                 $stmt->execute();
+                $this->save_house_pics();
                 return true;
             } catch(mysqli_sql_exception $e){
                 printf ("Error: %s.\n", $e);
