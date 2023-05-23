@@ -20,14 +20,13 @@ function image_upload($image){
     $error    = $image["error"];
     
     if($error !== 0){
-        $em = "Unknown error occured";
         unset($_FILES['my_image']);
-        header("Location: index.php?error=$em");
+        return null;
     } else{
         if($size > 1250000){
             $em = "Sorry your image is too large";
             unset($_FILES['my_image']);
-            return json_encode(array("error" => $em, "url" => null));
+            return null;
         }else{
             $img_ex = pathinfo($name, PATHINFO_EXTENSION);
             $img_ex_lc = strtolower($img_ex);
@@ -37,31 +36,44 @@ function image_upload($image){
             if(!in_array($img_ex_lc, $allowed_image_ex)){
                 $em = "This format isn't supported";
                 unset($_FILES['my_image']);
-                return json_encode(array("error" => $em, "url" => null));
+                return null;
             }else{
                 $new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
                 $img_upload_path = "uploads/".$new_img_name;
                 move_uploaded_file($tmp_name, $img_upload_path);
 
-                return json_encode(array("error" => null, "url" => $img_upload_path));;
+                return $img_upload_path;
             }
         }
     }
 }
 
 
-if(isset($_POST['submit'])){
+if(isset($_POST['submit']) && isset($_FILES['main_pic'])){
     header("Content-Type: application/json");
     $house->price = $_POST['price'];
     $house->house_desc = $_POST['house_desc'];
     $house->no_rooms = $_POST['no_rooms'];
-    $main_pic = $_POST['main_pic'];
-    $house->house_pics = 
     $house->price = $_POST['price'];
 
-   
+    $house_pics = array();
+    $main_pic = $_FILES['main_pic'];
+    array_push($house_pics, $main_pic);
 
-   echo json_encode($house_arr);
+    if(isset($_FILES['other_pics'])){
+        $images = $_FILES['other_pics'];
+        foreach ($images as $image) {
+            array_push($house_pics, image_upload($image));
+        }
+
+        $house_pics = array_filter($house_pics, function($v){
+            return $v != null;
+        });
+    }
+
+    $house->house_pics = $house_pics;
+    
+    echo json_encode($house_arr);
 } else{
    echo json_encode(
        array(
