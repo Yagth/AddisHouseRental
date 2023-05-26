@@ -57,12 +57,12 @@ if(isset($_POST['submit']) && isset($_FILES['main_pic'])){
 
     $house_pics = array();
     $main_pic = $_FILES['main_pic'];
-    array_push($house_pics, $main_pic);
+    array_push($house_pics, image_upload($main_pic));
 
     if(isset($_FILES['other_pics'])){
         $images = $_FILES['other_pics'];
         foreach ($images as $image) {
-            print_r($image);
+            echo $image;
             array_push($house_pics, image_upload($image));
         }
 
