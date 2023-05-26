@@ -42,6 +42,7 @@ function image_upload($image){
 
                 $upload_dir = "../../uploads/img/";
 
+                    
                 if(!file_exists($upload_dir)){
                     mkdir($upload_dir, 0744);
                 }
@@ -67,11 +68,11 @@ if(isset($_POST['submit']) && isset($_FILES['main_pic'])){
     array_push($house_pics, image_upload($main_pic));
 
     if(isset($_FILES['other_pics'])){
-        $images = $_FILES['other_pics'];
-        print_r($images);
-        foreach ($images as $image) {
-            array_push($house_pics, image_upload($image));
-        }
+        $image = $_FILES['other_pics'];
+        array_push($house_pics, image_upload($image));
+        // foreach ($images as $image) {
+        //     array_push($house_pics, image_upload($image));
+        // }
 
         $house_pics = array_filter($house_pics, function($v){
             return $v != null;
