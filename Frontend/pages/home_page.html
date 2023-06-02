@@ -5,21 +5,23 @@
     <title>Home </title>
     <link rel="stylesheet" href="home_page.css">
     <meta name="viewport" content="width=device-width ,initial-scale=1.0">
+    <script src="./home_page.js"></script>
 </head>
 
 <body>
-    <div class="first">
+    <div class="curousel">
         <div class="container">
             <ul class="bannerContent">
-                <li><img src="../img/carousel-1.jpg" width="" height=""></li>
-                <!-- <li><img src="../img/carousel-2 (1).jpg" width="" height=""></li> -->
+                <li id="img1" class="slide" ><img src="../img/carousel-1.jpg" width="" height=""></li>
+                <li id="img2" class="slide"><img src="../img/carousel-2 (1).jpg" width="" height=""></li>
+                <li id="img3" class="slide"><img src="https://images8.alphacoders.com/541/541822.jpg" width="" height=""></li>
             </ul>
         </div>
         <div class="scroll">
-            <button class="buttons">&lt;</button><br><br>
-            <button class="buttons">&gt;</button>
+            <button id="forward-button" class="forward-buttons">&lt;</button><br><br>
+            <button id="backward-button" class="backward-buttons">&gt;</button>
         </div>
-        <div class="center_form">
+        <div class="center_form  wid">
             <div class="discription">
                 <h1>Find A Perfect Home To Live With Your Family</h1>
                 <p>Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo
@@ -66,35 +68,56 @@
 
         </div>
     </div>
-    <div class="men">
-        <div class="menus">
-            <div class="menu">
-
-            </div>
-            <div class="menu">
-
-            </div>
-            <div class="menu">
-
-            </div>
-            <div class="menu">
-
-            </div>
-            <div class="menu">
-
-            </div>
-            <div class="menu">
-
-            </div>
-            <div class="menu">
-
-            </div>
-            <div class="menu">
-
-            </div>
-        </div>
-    </div>
-
+   
+            <div class="men">
+                <div class="menus">
+                    <div class="menu">
+                        <div class="icon_div"><img class="icons" src="../img/apartment.png" width="70" height="70"></div>
+                        <p class="icon_label">Apartment</p>
+                        <p class="prorperties">123 properties</p>
+                    </div>
+                    <div class="menu">
+                        <div class="icon_div"> <img class="icons" src="../img/villa.png" width="70" height="70"> </div>
+                        <p class="icon_label">Apartment</p>
+                        <p class="prorperties">123 properties</p>
+        
+                    </div>
+                    <div class="menu">
+                        <div class="icon_div"><img class="icons" src="../img/house.png" width="70" height="70"></div>
+                        <p class="icon_label">Apartment</p>
+                        <p class="prorperties">123 properties</p>
+                    </div>
+                    <div class="menu">
+                        <div class="icon_div"> <img class="icons" src="../img/workspace.png" width="70" height="70"> </div>
+                        <p class="icon_label">Apartment</p>
+                        <p class="prorperties">123 properties</p>
+        
+                    </div>
+                    <div class="menu">
+                        <div class="icon_div"><img class="icons" src="../img/skyline.png" width="70" height="70"></div>
+                        <p class="icon_label">Apartment</p>
+                        <p class="prorperties">123 properties</p>
+                    </div>
+                    <div class="menu">
+                        <div class="icon_div"> <img class="icons" src="../img/townhouse.png" width="70" height="70"> </div>
+                        <p class="icon_label">Apartment</p>
+                        <p class="prorperties">123 properties</p>
+        
+                    </div>
+                    <div class="menu">
+                        <div class="icon_div"> <img class="icons" src="../img/store.png" width="70" height="70"> </div>
+                        <p class="icon_label">Apartment</p>
+                        <p class="prorperties">123 properties</p>
+        
+                    </div>
+                    <div class="menu">
+                        <div class="icon_div"> <img class="icons" src="../img/garage.png" width="70" height="70"> </div> 
+                        <p class="icon_label">Apartment</p>
+                        <p class="prorperties">123 properties</p><div>
+                        </div>
+                    </div>
+                </div>
+        
 
 
     <div class="center_form">
@@ -125,227 +148,149 @@
         <button class="listing"> for Sell</button>
         <button class="listing"> For Rent</button>
     </div>
+   
+<!-- ............................................................................................................... -->
+<div class="card_div">
     <div class="card">
-        <div class="cardimg"> <img src="../img/carousel-1.jpg" height="300" width="400"></div>
+        <div class="cardimg"> <img src="../img/carousel-1.jpg" height="200" width="300"></div>
         <div class="card_discription">
             <h1 class="card_text1">$12,000</h1>
             <h1 class="card_text2">Golden Urban House For Sell</h1>
             <h4 class="card_text3">123 street , new york,usa</h4>
             <div class="card-foot">
 
-                <p class="card-foot-c">1000 Sqft</p>
-                <p class="card-footz-c">3 Bed</p>
-                <p class="card-foot-c">2 Bath</p>
+                <div class="card-foot-c">1000 Sqft</div>
+                <div class="card-foot-c">3 Bed</div>
+                <div class="card-foot-c">2 Bath</div>
 
             </div>
-            <!--          
-            <div class="d"> </div>
-           <div class="d">3 Bed</div>
-           <div class="d">/div> -->
         </div>
-        <div></div>
     </div>
+    <div class="card">
+        <div class="cardimg"> <img src="../img/carousel-1.jpg" height="200" width="300"></div>
+        <div class="card_discription">
+            <h1 class="card_text1">$12,000</h1>
+            <h1 class="card_text2">Golden Urban House For Sell</h1>
+            <h4 class="card_text3">123 street , new york,usa</h4>
+            <div class="card-foot">
 
-<div class="card">
-    <div class="cardimg"> <img src="../img/carousel-1.jpg" height="300" width="400"></div>
-    <div class="card_discription">
-        <h1 class="card_text1">$12,000</h1>
-        <h1 class="card_text2">Golden Urban House For Sell</h1>
-        <h4 class="card_text3">123 street , new york,usa</h4>
-        <div class="card-foot">
+                <div class="card-foot-c">1000 Sqft</div>
+                <div class="card-foot-c">3 Bed</div>
+                <div class="card-foot-c">2 Bath</div>
 
-            <p class="card-foot-c">1000 Sqft</p>
-            <p class="card-footz-c">3 Bed</p>
-            <p class="card-foot-c">2 Bath</p>
-
+            </div>
         </div>
-        <!--          
-        <div class="d"> </div>
-       <div class="d">3 Bed</div>
-       <div class="d">/div> -->
     </div>
-    <div></div>
-</div></div>
-<div class="card">
-    <div class="cardimg"> <img src="../img/carousel-1.jpg" height="300" width="400"></div>
-    <div class="card_discription">
-        <h1 class="card_text1">$12,000</h1>
-        <h1 class="card_text2">Golden Urban House For Sell</h1>
-        <h4 class="card_text3">123 street , new york,usa</h4>
-        <div class="card-foot">
+    <div class="card">
+        <div class="cardimg"> <img src="../img/carousel-1.jpg" height="200" width="300"></div>
+        <div class="card_discription">
+            <h1 class="card_text1">$12,000</h1>
+            <h1 class="card_text2">Golden Urban House For Sell</h1>
+            <h4 class="card_text3">123 street , new york,usa</h4>
+            <div class="card-foot">
 
-            <p class="card-foot-c">1000 Sqft</p>
-            <p class="card-footz-c">3 Bed</p>
-            <p class="card-foot-c">2 Bath</p>
+                <div class="card-foot-c">1000 Sqft</div>
+                <div class="card-foot-c">3 Bed</div>
+                <div class="card-foot-c">2 Bath</div>
 
+            </div>
         </div>
-        <!--          
-        <div class="d"> </div>
-       <div class="d">3 Bed</div>
-       <div class="d">/div> -->
     </div>
-    <div></div>
-</div></div>
-<div class="card">
-    <div class="cardimg"> <img src="../img/carousel-1.jpg" height="300" width="400"></div>
-    <div class="card_discription">
-        <h1 class="card_text1">$12,000</h1>
-        <h1 class="card_text2">Golden Urban House For Sell</h1>
-        <h4 class="card_text3">123 street , new york,usa</h4>
-        <div class="card-foot">
+    <div class="card">
+        <div class="cardimg"> <img src="../img/carousel-1.jpg" height="200" width="300"></div>
+        <div class="card_discription">
+            <h1 class="card_text1">$12,000</h1>
+            <h1 class="card_text2">Golden Urban House For Sell</h1>
+            <h4 class="card_text3">123 street , new york,usa</h4>
+            <div class="card-foot">
 
-            <p class="card-foot-c">1000 Sqft</p>
-            <p class="card-footz-c">3 Bed</p>
-            <p class="card-foot-c">2 Bath</p>
+                <div class="card-foot-c">1000 Sqft</div>
+                <div class="card-foot-c">3 Bed</div>
+                <div class="card-foot-c">2 Bath</div>
 
+            </div>
         </div>
-        <!--          
-        <div class="d"> </div>
-       <div class="d">3 Bed</div>
-       <div class="d">/div> -->
     </div>
-    <div></div>
-</div></div>
-<div class="card">
-    <div class="cardimg"> <img src="../img/carousel-1.jpg" height="300" width="400"></div>
-    <div class="card_discription">
-        <h1 class="card_text1">$12,000</h1>
-        <h1 class="card_text2">Golden Urban House For Sell</h1>
-        <h4 class="card_text3">123 street , new york,usa</h4>
-        <div class="card-foot">
+    <div class="card">
+        <div class="cardimg"> <img src="../img/carousel-1.jpg" height="200" width="300"></div>
+        <div class="card_discription">
+            <h1 class="card_text1">$12,000</h1>
+            <h1 class="card_text2">Golden Urban House For Sell</h1>
+            <h4 class="card_text3">123 street , new york,usa</h4>
+            <div class="card-foot">
 
-            <p class="card-foot-c">1000 Sqft</p>
-            <p class="card-footz-c">3 Bed</p>
-            <p class="card-foot-c">2 Bath</p>
+                <div class="card-foot-c">1000 Sqft</div>
+                <div class="card-foot-c">3 Bed</div>
+                <div class="card-foot-c">2 Bath</div>
 
+            </div>
         </div>
-        <!--          
-        <div class="d"> </div>
-       <div class="d">3 Bed</div>
-       <div class="d">/div> -->
     </div>
-    <div></div>
-</div></div>
-<div class="card">
-    <div class="cardimg"> <img src="../img/carousel-1.jpg" height="300" width="400"></div>
-    <div class="card_discription">
-        <h1 class="card_text1">$12,000</h1>
-        <h1 class="card_text2">Golden Urban House For Sell</h1>
-        <h4 class="card_text3">123 street , new york,usa</h4>
-        <div class="card-foot">
+    <div class="card">
+        <div class="cardimg"> <img src="../img/carousel-1.jpg" height="200" width="300"></div>
+        <div class="card_discription">
+            <h1 class="card_text1">$12,000</h1>
+            <h1 class="card_text2">Golden Urban House For Sell</h1>
+            <h4 class="card_text3">123 street , new york,usa</h4>
+            <div class="card-foot">
 
-            <p class="card-foot-c">1000 Sqft</p>
-            <p class="card-footz-c">3 Bed</p>
-            <p class="card-foot-c">2 Bath</p>
+                <div class="card-foot-c">1000 Sqft</div>
+                <div class="card-foot-c">3 Bed</div>
+                <div class="card-foot-c">2 Bath</div>
 
+            </div>
         </div>
-        <!--          
-        <div class="d"> </div>
-       <div class="d">3 Bed</div>
-       <div class="d">/div> -->
     </div>
-    <div></div>
-</div></div>
-<div class="card">
-    <div class="cardimg"> <img src="../img/carousel-1.jpg" height="300" width="400"></div>
-    <div class="card_discription">
-        <h1 class="card_text1">$12,000</h1>
-        <h1 class="card_text2">Golden Urban House For Sell</h1>
-        <h4 class="card_text3">123 street , new york,usa</h4>
-        <div class="card-foot">
+    <div class="card">
+        <div class="cardimg"> <img src="../img/carousel-1.jpg" height="200" width="300"></div>
+        <div class="card_discription">
+            <h1 class="card_text1">$12,000</h1>
+            <h1 class="card_text2">Golden Urban House For Sell</h1>
+            <h4 class="card_text3">123 street , new york,usa</h4>
+            <div class="card-foot">
 
-            <p class="card-foot-c">1000 Sqft</p>
-            <p class="card-footz-c">3 Bed</p>
-            <p class="card-foot-c">2 Bath</p>
+                <div class="card-foot-c">1000 Sqft</div>
+                <div class="card-foot-c">3 Bed</div>
+                <div class="card-foot-c">2 Bath</div>
 
+            </div>
         </div>
-        <!--          
-        <div class="d"> </div>
-       <div class="d">3 Bed</div>
-       <div class="d">/div> -->
     </div>
-    <div></div>
-</div></div>
-<div class="card">
-    <div class="cardimg"> <img src="../img/carousel-1.jpg" height="300" width="400"></div>
-    <div class="card_discription">
-        <h1 class="card_text1">$12,000</h1>
-        <h1 class="card_text2">Golden Urban House For Sell</h1>
-        <h4 class="card_text3">123 street , new york,usa</h4>
-        <div class="card-foot">
+    <div class="card">
+        <div class="cardimg"> <img src="../img/carousel-1.jpg" height="200" width="300"></div>
+        <div class="card_discription">
+            <h1 class="card_text1">$12,000</h1>
+            <h1 class="card_text2">Golden Urban House For Sell</h1>
+            <h4 class="card_text3">123 street , new york,usa</h4>
+            <div class="card-foot">
 
-            <p class="card-foot-c">1000 Sqft</p>
-            <p class="card-footz-c">3 Bed</p>
-            <p class="card-foot-c">2 Bath</p>
+                <div class="card-foot-c">1000 Sqft</div>
+                <div class="card-foot-c">3 Bed</div>
+                <div class="card-foot-c">2 Bath</div>
 
+            </div>
         </div>
-        <!--          
-        <div class="d"> </div>
-       <div class="d">3 Bed</div>
-       <div class="d">/div> -->
     </div>
-    <div></div>
-</div></div>
-<div class="card">
-    <div class="cardimg"> <img src="../img/carousel-1.jpg" height="300" width="400"></div>
-    <div class="card_discription">
-        <h1 class="card_text1">$12,000</h1>
-        <h1 class="card_text2">Golden Urban House For Sell</h1>
-        <h4 class="card_text3">123 street , new york,usa</h4>
-        <div class="card-foot">
+    <div class="card">
+        <div class="cardimg"> <img src="../img/carousel-1.jpg" height="200" width="300"></div>
+        <div class="card_discription">
+            <h1 class="card_text1">$12,000</h1>
+            <h1 class="card_text2">Golden Urban House For Sell</h1>
+            <h4 class="card_text3">123 street , new york,usa</h4>
+            <div class="card-foot">
 
-            <p class="card-foot-c">1000 Sqft</p>
-            <p class="card-footz-c">3 Bed</p>
-            <p class="card-foot-c">2 Bath</p>
+                <div class="card-foot-c">1000 Sqft</div>
+                <div class="card-foot-c">3 Bed</div>
+                <div class="card-foot-c">2 Bath</div>
 
+            </div>
         </div>
-        <!--          
-        <div class="d"> </div>
-       <div class="d">3 Bed</div>
-       <div class="d">/div> -->
     </div>
-    <div></div>
-</div></div>
-<div class="card">
-    <div class="cardimg"> <img src="../img/carousel-1.jpg" height="300" width="400"></div>
-    <div class="card_discription">
-        <h1 class="card_text1">$12,000</h1>
-        <h1 class="card_text2">Golden Urban House For Sell</h1>
-        <h4 class="card_text3">123 street , new york,usa</h4>
-        <div class="card-foot">
-
-            <p class="card-foot-c">1000 Sqft</p>
-            <p class="card-footz-c">3 Bed</p>
-            <p class="card-foot-c">2 Bath</p>
-
-        </div>
-        <!--          
-        <div class="d"> </div>
-       <div class="d">3 Bed</div>
-       <div class="d">/div> -->
     </div>
-    <div></div>
-</div></div>
-<div class="card">
-    <div class="cardimg"> <img src="../img/carousel-1.jpg" height="300" width="400"></div>
-    <div class="card_discription">
-        <h1 class="card_text1">$12,000</h1>
-        <h1 class="card_text2">Golden Urban House For Sell</h1>
-        <h4 class="card_text3">123 street , new york,usa</h4>
-        <div class="card-foot">
+   
+<!-- .................................................................................................................... -->
 
-            <p class="card-foot-c">1000 Sqft</p>
-            <p class="card-footz-c">3 Bed</p>
-            <p class="card-foot-c">2 Bath</p>
-
-        </div>
-        <!--          
-        <div class="d"> </div>
-       <div class="d">3 Bed</div>
-       <div class="d">/div> -->
-    </div>
-    <div></div>
-</div><br><br> <br> <br> <br> <br> <br>
+    <br><br> <br> <br> <br> <br> <br>
     <footer>
         <div class="f_content">
             <h4 class="white">get in Touch</h4><br>
