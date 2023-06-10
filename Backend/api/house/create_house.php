@@ -91,9 +91,9 @@ if(isset($_POST['submit']) && isset($_FILES['main_pic'])){
     if($house->create_house()){
         $house_array = array("id" => $house->id,
                              "owner_id" => (int)$house->owner_id, 
-                             "price" => $house->price, 
+                             "price" => (double)$house->price, 
                              "desc" =>$house->house_desc, 
-                             "rooms" => $house->no_rooms, 
+                             "rooms" => (int)$house->no_rooms, 
                              "status" => $house->status,
                              "pictures" => $house->house_pics
                             );
