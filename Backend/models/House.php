@@ -154,27 +154,31 @@ class House {
         $query_house = "UPDATE $this->house SET price=?, house_description=?, rooms=? WHERE id=?;";
         $stmt = $this->conn->stmt_init();
 
-    if(!$stmt->prepare($query_house)){
-        $this->error = $this->conn->error;
-        return false;
-    }else {
-        $this->house_desc = $this->conn->real_escape_string($this->house_desc);
-            
-        $stmt->bind_param("dsii", 
-            $this->price, 
-            $this->house_desc, 
-            $this->no_rooms,
-            $id,
-        );
-        
-        try{
-            $stmt->execute();
-            return true;
-        } catch(mysqli_sql_exception $e){
-            printf ("Error: %s.\n", $e);
+        if(!$stmt->prepare($query_house)){
+            $this->error = $this->conn->error;
             return false;
+        }else {
+            $this->house_desc = $this->conn->real_escape_string($this->house_desc);
+                
+            $stmt->bind_param("dsii", 
+                $this->price, 
+                $this->house_desc, 
+                $this->no_rooms,
+                $id,
+            );
+            
+            try{
+                $stmt->execute();
+                return true;
+            } catch(mysqli_sql_exception $e){
+                printf ("Error: %s.\n", $e);
+                return false;
+            }
         }
     }
+
+    public function delete_house($id){
+
     }
 
     public function save_house_pics(){
