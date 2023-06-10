@@ -149,8 +149,40 @@ class House {
         }        
     }
 
+    public function update_house($id){
+        $this->id = $id;
+        $query_house = "UPDATE $this->house WHERE id=? SET price=?, house_description=?, rooms=?;";
+
+
+        $stmt = $this->conn->stmt_init();
+
+    if(!$stmt->prepare($query_house)){
+        $this->error = $this->conn->error;
+        return false;
+    }else {
+        $this->house_desc = $this->conn->real_escape_string($this->house_desc);
+            
+        $stmt->bind_param("idsi", 
+            $this->id, 
+            $this->price, 
+            $this->house_desc, 
+            $this->no_rooms
+        );
+        
+        try{
+            $stmt->execute();
+            $this->id = $stmt->update_id;
+            $this->update_house_pics();
+            return true;
+        } catch(mysqli_sql_exception $e){
+            printf ("Error: %s.\n", $e);
+            return false;
+        }
+    }
+    }
+
     public function save_house_pics(){
-        $query = "INSERT INTO $this->house_pic 
+        $query = "INSERT INTO $this->house_pic(house_id, pic_desc, photo_url)
             VALUES (?, ?, ?); ";
 
         foreach ($this->house_pics as $pic_desc => $pic_url) {
@@ -180,9 +212,37 @@ class House {
 
         return true;
     }
+    public function update_house_pics($pic_id, $pic_desc, $pic_url){
+        $query = "UPDATE WHERE $this->house_pic WHERE pic_id=? SET pic_desc=?, pic_url=? ";
+
+            $stmt = $this->conn->stmt_init();
+            
+            $pic_desc = $this->conn->real_escape_string($pic_desc);
+            $pic_url  = $this->conn->real_escape_string($pic_url);
+            
+            if(!$stmt->prepare($query)){
+                $this->error = $this->conn->error;
+                return false;
+            }
+            
+            $stmt->bind_param("iss", 
+                $pic_id,
+                $pic_desc, 
+                $pic_url, 
+            ); 
+            
+            try{
+                $stmt->execute();
+            }catch(mysqli_sql_exception $e){
+                $this->error = "Got the following error while trying to update to the table \n error: $e";
+                return false;
+            }      
+
+        return true;
+    }
 
     public function get_house_pic(){
-        $query = "SELECT pic_desc, photo_url FROM $this->house_pic WHERE house_id = $this->id";
+        $query = "SELECT pic_id, pic_desc, photo_url FROM $this->house_pic WHERE house_id = $this->id";
 
         $stmt = $this->conn->stmt_init();
 
