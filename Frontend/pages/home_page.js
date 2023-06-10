@@ -15,3 +15,9 @@ forwardButton.addEventListener("click", () => {
     img1.style.opacity = "1";
   }
 });
+
+startButton = document.getElementById("start");
+startButton.addEventListener("click", () => {
+  console.log("inside action listener");
+  window.location.href = "http://127.0.0.1:5500/Frontend/pages/login_page.html";
+});
