@@ -71,15 +71,14 @@ if(isset($_POST['submit']) && isset($_FILES['main_pic'])){
 
     $house_pics = array();
     $main_pic = $_FILES['main_pic'];
-    array_push($house_pics, image_upload($main_pic));
+    $house_pics["main"] = image_upload($main_pic);
 
     if(isset($_FILES['other_pics'])){
         $image = $_FILES['other_pics'];
-        array_push($house_pics, image_upload($image));
-        // foreach ($images as $image) {
-        //     array_push($house_pics, image_upload($image));
-        // }
+        $house_pics['other'] = image_upload($image);
 
+        // We can add here a loop to add multiple images at the same time.
+        
         $house_pics = array_filter($house_pics, function($v){
             return $v != null;
         });
