@@ -262,7 +262,6 @@ class House {
     }
 
     public function image_upload($image){
-    
         $name     = $image["name"];
         $size     = $image["size"];
         $tmp_name = $image["tmp_name"];
@@ -272,10 +271,8 @@ class House {
             unset($_FILES['my_image']);
             return null;
         } else{
-            if($size > 1250000){
                 unset($_FILES['my_image']);
                 return null;
-            }else{
                 $img_ex = pathinfo($name, PATHINFO_EXTENSION);
                 $img_ex_lc = strtolower($img_ex);
     
@@ -296,10 +293,10 @@ class House {
     
                     $img_upload_path = "../../uploads/img/".$new_img_name;
                     move_uploaded_file($tmp_name, $img_upload_path);
-    
+                    
+                    echo $img_upload_path;
                     return $img_upload_path;
                 }
             }
         }
-    }
 }
