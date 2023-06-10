@@ -178,7 +178,25 @@ class House {
     }
 
     public function delete_house($id){
+        $query_house = "DELETE FROM $this->house WHERE id=?;";
+        $stmt = $this->conn->stmt_init();
 
+        if(!$stmt->prepare($query_house)){
+            $this->error = $this->conn->error;
+            return false;
+        }else {
+            $stmt->bind_param("i", 
+                $id,
+            );
+            
+            try{
+                $stmt->execute();
+                return true;
+            } catch(mysqli_sql_exception $e){
+                printf ("Error: %s.\n", $e);
+                return false;
+            }
+        }
     }
 
     public function save_house_pics(){
