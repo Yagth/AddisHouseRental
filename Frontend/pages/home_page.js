@@ -1,8 +1,8 @@
-forwardButton = document.getElementById("forward-button");
+let forwardButton = document.getElementById("forward-button");
 forwardButton.addEventListener("click", () => {
-  img1 = document.getElementById("img1");
-  img2 = document.getElementById("img2");
-  img3 = document.getElementById("img3");
+  let img1 = document.getElementById("img1");
+  let img2 = document.getElementById("img2");
+  let img3 = document.getElementById("img3");
   console.log(img1.style.opacity);
   if (img1.style.opacity == "1") {
     img1.style.opacity = "0";
