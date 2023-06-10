@@ -290,7 +290,6 @@ class House {
                 $img_upload_path = "../../uploads/img/".$new_img_name;
                 move_uploaded_file($tmp_name, $img_upload_path);
                 
-                echo $img_upload_path;
                 return $img_upload_path;
             }
         }
