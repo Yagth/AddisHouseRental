@@ -160,7 +160,7 @@ class House {
     }else {
         $this->house_desc = $this->conn->real_escape_string($this->house_desc);
             
-        $stmt->bind_param("idsi", 
+        $stmt->bind_param("dsii", 
             $this->price, 
             $this->house_desc, 
             $this->no_rooms,
@@ -221,7 +221,8 @@ class House {
                 return false;
             }
             
-            $stmt->bind_param("iss", 
+            echo $pic_desc;
+            $stmt->bind_param("ssi", 
                 $pic_desc, 
                 $pic_url, 
                 $pic_id
