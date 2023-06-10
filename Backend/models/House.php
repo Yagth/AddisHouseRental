@@ -66,7 +66,7 @@ class House {
             die("SQL Error: " . $this->conn->error);
         }
         
-        $stmt->bind_param("s", $house_id);
+        $stmt->bind_param("i", $house_id);
         
         try{
             $stmt->execute();
@@ -150,10 +150,8 @@ class House {
     }
 
     public function update_house($id, $pic_id, $pic_desc, $pic_url){
-        $this->id = $id;
-        $query_house = "UPDATE $this->house WHERE id=? SET price=?, house_description=?, rooms=?;";
-
-
+        
+        $query_house = "UPDATE $this->house SET price=?, house_description=?, rooms=? WHERE id=?;";
         $stmt = $this->conn->stmt_init();
 
     if(!$stmt->prepare($query_house)){
@@ -163,15 +161,14 @@ class House {
         $this->house_desc = $this->conn->real_escape_string($this->house_desc);
             
         $stmt->bind_param("idsi", 
-            $this->id, 
             $this->price, 
             $this->house_desc, 
-            $this->no_rooms
+            $this->no_rooms,
+            $id,
         );
         
         try{
             $stmt->execute();
-            $this->id = $stmt->update_id;
             $this->update_house_pics($pic_id, $pic_desc, $pic_url);
             return true;
         } catch(mysqli_sql_exception $e){
@@ -213,7 +210,7 @@ class House {
         return true;
     }
     public function update_house_pics($pic_id, $pic_desc, $pic_url){
-        $query = "UPDATE WHERE $this->house_pic WHERE pic_id=? SET pic_desc=?, pic_url=? ";
+        $query = "UPDATE $this->house_pic SET pic_desc=?, photo_url=? WHERE pic_id=?";
 
             $stmt = $this->conn->stmt_init();
             
@@ -226,9 +223,9 @@ class House {
             }
             
             $stmt->bind_param("iss", 
-                $pic_id,
                 $pic_desc, 
                 $pic_url, 
+                $pic_id
             ); 
             
             try{
@@ -265,4 +262,45 @@ class House {
         return $result->fetch_assoc();
     }
 
+    public function image_upload($image){
+    
+        $name     = $image["name"];
+        $size     = $image["size"];
+        $tmp_name = $image["tmp_name"];
+        $error    = $image["error"];
+        
+        if($error !== 0){
+            unset($_FILES['my_image']);
+            return null;
+        } else{
+            if($size > 1250000){
+                unset($_FILES['my_image']);
+                return null;
+            }else{
+                $img_ex = pathinfo($name, PATHINFO_EXTENSION);
+                $img_ex_lc = strtolower($img_ex);
+    
+                $allowed_image_ex = array("png", "jpg", "jped");
+    
+                if(!in_array($img_ex_lc, $allowed_image_ex)){
+                    unset($_FILES['my_image']);
+                    return null;
+                }else{
+                    $new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
+    
+                    $upload_dir = "../../uploads/img/";
+    
+                        
+                    if(!file_exists($upload_dir)){
+                        mkdir($upload_dir, 0777, true);
+                    }
+    
+                    $img_upload_path = "../../uploads/img/".$new_img_name;
+                    move_uploaded_file($tmp_name, $img_upload_path);
+    
+                    return $img_upload_path;
+                }
+            }
+        }
+    }
 }
