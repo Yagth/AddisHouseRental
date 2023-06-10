@@ -113,6 +113,7 @@ class House {
             
             try{
                 $stmt->execute();
+                $this->id = $stmt->insert_id;
                 $this->save_house_pics();
                 return true;
             } catch(mysqli_sql_exception $e){
