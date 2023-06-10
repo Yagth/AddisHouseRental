@@ -124,34 +124,41 @@ class House {
     }
 
     public function rent_house(){
-        $query_rented = "INSERT INTO $this->rented_house (house_id, user_id, end_date) VALUES (?, ?, ?); ";
 
+        if($this->status !== "R"){
+                $query_rented = "INSERT INTO $this->rented_house (house_id, user_id, end_date) VALUES (?, ?, ?); ";
 
-        $stmt = $this->conn->stmt_init();
-
-        if(!$stmt->prepare($query_rented)){
-            $this->error = $this->conn->error;
+                $stmt = $this->conn->stmt_init();
+        
+                if(!$stmt->prepare($query_rented)){
+                    $this->error = $this->conn->error;
+                    return false;
+                }
+                
+                $stmt->bind_param("iis", 
+                    $this->id, 
+                    $this->rentee_user_id, 
+                    $this->rent_end_day
+            );
+                
+                try{
+                    $stmt->execute();
+                    $this->status = "R";
+                    $this->update_house($this->id);
+                    return true;
+                } catch(mysqli_sql_exception $e){
+                    $this->error = $this->$e;
+                    return false;
+                }        
+        }else{
             return false;
         }
         
-        $stmt->bind_param("sss", 
-            $this->id, 
-            $this->rentee_user_id, 
-            $this->rent_end_day
-    );
-        
-        try{
-            $stmt->execute();
-            return true;
-        } catch(mysqli_sql_exception $e){
-            $this->error = $this->$e;
-            return false;
-        }        
     }
 
     public function update_house($id){
         
-        $query_house = "UPDATE $this->house SET price=?, house_description=?, rooms=? WHERE id=?;";
+        $query_house = "UPDATE $this->house SET price=?, status=?, house_description=?, rooms=? WHERE id=?;";
         $stmt = $this->conn->stmt_init();
 
         if(!$stmt->prepare($query_house)){
@@ -160,8 +167,9 @@ class House {
         }else {
             $this->house_desc = $this->conn->real_escape_string($this->house_desc);
                 
-            $stmt->bind_param("dsii", 
+            $stmt->bind_param("dssii", 
                 $this->price, 
+                $this->status,
                 $this->house_desc, 
                 $this->no_rooms,
                 $id,
