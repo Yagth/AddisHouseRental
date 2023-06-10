@@ -149,7 +149,7 @@ class House {
         }        
     }
 
-    public function update_house($id, $pic_id, $pic_desc, $pic_url){
+    public function update_house($id){
         
         $query_house = "UPDATE $this->house SET price=?, house_description=?, rooms=? WHERE id=?;";
         $stmt = $this->conn->stmt_init();
@@ -169,7 +169,6 @@ class House {
         
         try{
             $stmt->execute();
-            $this->update_house_pics($pic_id, $pic_desc, $pic_url);
             return true;
         } catch(mysqli_sql_exception $e){
             printf ("Error: %s.\n", $e);
