@@ -263,40 +263,36 @@ class House {
 
     public function image_upload($image){
         $name     = $image["name"];
-        $size     = $image["size"];
         $tmp_name = $image["tmp_name"];
         $error    = $image["error"];
         
         if($error !== 0){
-            unset($_FILES['my_image']);
             return null;
         } else{
+            $img_ex = pathinfo($name, PATHINFO_EXTENSION);
+            $img_ex_lc = strtolower($img_ex);
+
+            $allowed_image_ex = array("png", "jpg", "jped");
+
+            if(!in_array($img_ex_lc, $allowed_image_ex)){
                 unset($_FILES['my_image']);
                 return null;
-                $img_ex = pathinfo($name, PATHINFO_EXTENSION);
-                $img_ex_lc = strtolower($img_ex);
-    
-                $allowed_image_ex = array("png", "jpg", "jped");
-    
-                if(!in_array($img_ex_lc, $allowed_image_ex)){
-                    unset($_FILES['my_image']);
-                    return null;
-                }else{
-                    $new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
-    
-                    $upload_dir = "../../uploads/img/";
-    
-                        
-                    if(!file_exists($upload_dir)){
-                        mkdir($upload_dir, 0777, true);
-                    }
-    
-                    $img_upload_path = "../../uploads/img/".$new_img_name;
-                    move_uploaded_file($tmp_name, $img_upload_path);
+            }else{
+                $new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
+
+                $upload_dir = "../../uploads/img/";
+
                     
-                    echo $img_upload_path;
-                    return $img_upload_path;
+                if(!file_exists($upload_dir)){
+                    mkdir($upload_dir, 0777, true);
                 }
+
+                $img_upload_path = "../../uploads/img/".$new_img_name;
+                move_uploaded_file($tmp_name, $img_upload_path);
+                
+                echo $img_upload_path;
+                return $img_upload_path;
             }
         }
+    }
 }
