@@ -23,7 +23,6 @@ if($num > 0){
 
    while($row = $result->fetch_assoc()){
        extract($row);
-        echo $id;
        $house_item = array(
            'id' => $id,
            'price' => $price,

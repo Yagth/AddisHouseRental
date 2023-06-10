@@ -31,7 +31,6 @@ function image_upload($image){
         return null;
     } else{
         if($size > 1250000){
-            $em = "Sorry your image is too large";
             unset($_FILES['my_image']);
             return null;
         }else{
@@ -41,7 +40,6 @@ function image_upload($image){
             $allowed_image_ex = array("png", "jpg", "jped");
 
             if(!in_array($img_ex_lc, $allowed_image_ex)){
-                $em = "This format isn't supported";
                 unset($_FILES['my_image']);
                 return null;
             }else{
@@ -97,7 +95,7 @@ if(isset($_POST['submit']) && isset($_FILES['main_pic'])){
                              "status" => $house->status,
                              "pictures" => $house->house_pics
                             );
-        echo json_encode($house_array);
+        echo json_encode(array("data" => $house_array, "sucess" => true));
     }else{
         echo $error_json;
     }
