@@ -12,6 +12,13 @@ $db = $database->connect();
 
 $house = new House($db);
 
+$error_json = json_encode(
+    array(
+     'sucess' => false,
+     'message' => 'No house'
+     )
+);
+
 function image_upload($image){
     
     $name     = $image["name"];
@@ -44,7 +51,7 @@ function image_upload($image){
 
                     
                 if(!file_exists($upload_dir)){
-                    mkdir($upload_dir, 0744);
+                    mkdir($upload_dir, 0777, true);
                 }
 
                 $img_upload_path = "../../uploads/img/".$new_img_name;
@@ -62,6 +69,7 @@ if(isset($_POST['submit']) && isset($_FILES['main_pic'])){
     $house->house_desc = $_POST['house_desc'];
     $house->no_rooms = $_POST['no_rooms'];
     $house->owner_id = $_POST['owner_id'];
+    $house->status   = $_POST['status'] ? $_POST['status'] : $house->status; // If submitted data has status use that else use the default. (Default = "NR" which stands for not rented)
 
     $house_pics = array();
     $main_pic = $_FILES['main_pic'];
@@ -80,14 +88,19 @@ if(isset($_POST['submit']) && isset($_FILES['main_pic'])){
     }
 
     $house->house_pics = $house_pics;
-    $house->create_house();
+    if($house->create_house()){
+        $house_array = array("owner" => $house->owner_id, 
+                             "price" => $house->price, 
+                             "desc" =>$house->house_desc, 
+                             "rooms" => $house->no_rooms, 
+                             "status" => $house->status,
+                             "pictures" => $house->house_pics
+                            );
+        echo json_encode($house_array);
+    }else{
+        echo $error_json;
+    }
     
-    echo json_encode($house_arr);
-} else{
-   echo json_encode(
-       array(
-        'sucess' => false,
-        'message' => 'No house'
-        )
-   );
+} else {
+   echo $error_json;
 }

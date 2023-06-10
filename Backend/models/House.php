@@ -16,7 +16,7 @@ class House {
     public $price;
     public $house_desc;
     public $no_rooms;
-    public $status;
+    public $status="NR";
     public $rentee_user_id;
     public $rent_start_day;
     public $rent_end_day;
@@ -101,7 +101,7 @@ class House {
             $this->error = $this->conn->error;
             return false;
         }else {
-            $this->house_desc = md5($this->conn->real_escape_string($this->house_desc));
+            $this->house_desc = $this->conn->real_escape_string($this->house_desc);
                 
             $stmt->bind_param("sssss", 
                 $this->owner_id, 
