@@ -143,7 +143,7 @@ class House {
                 
                 try{
                     $stmt->execute();
-                    $this->status = "R";
+                    $this->status = "R";//The 'R' stands for rented.
                     $this->update_house($this->id);
                     return true;
                 } catch(mysqli_sql_exception $e){
