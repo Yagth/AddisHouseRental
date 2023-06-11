@@ -15,7 +15,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $user->lastname = $_POST['lastname'];
     $user->email = $_POST['email'];
     $user->password = $_POST['password'];
-    $user->gender = $_POST['gender'];
     $user->phonenumber = $_POST['phonenumber'];
     $user->telegram_username = $_POST['telegram_username'];
     $user->status = $_POST['status'];

@@ -42,22 +42,10 @@
           <label>Telegram Username</label>
           <input name="telegram_username" type="text" placeholder="" />
         </div>
-        <div>
-          <label>Gender</label>
-          <div class="radio-group">
-            <label for="male">Male</label>
-            <input
-              id="male"
-              name="gender"
-              value="male"
-              type="radio"
-              placeholder=""
-            />
-            <label for="female">Female</label>
-            <input id="female" name="gender" value="female" type="radio" />
-            <input type="text" name="status" id="" value="normal" hidden />
-          </div>
-        </div>
+        <select name="status" id="status">
+          <option value="N">Rentee</option>
+          <option value="L">Land Lord</option>
+        </select>
         <input class="cbtn" type="button" id="submit" value="Submit" />
       </form>
       <p>

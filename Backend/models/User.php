@@ -14,7 +14,6 @@ class User{
     public $phonenumber;
     public $telegram_username;
     public $profile_pic;
-    public $gender;
     public $status;
     
     public $error;
@@ -75,7 +74,6 @@ class User{
             $this->phonenumber = $row['phonenumber'];
             $this->telegram_username = $row['telegram_username'];
             $this->profile_pic = $row['profile_picture'];
-            $this->gender = $row['gender'];
             $this->status = $row['status'];
 
         }
@@ -111,7 +109,6 @@ class User{
             $this->phonenumber = $row['phonenumber'];
             $this->telegram_username = $row['telegram_username'];
             $this->profile_pic = $row['profile_picture'];
-            $this->gender = $row['gender'];
             $this->status = $row['status'];
 
         }
@@ -120,7 +117,7 @@ class User{
 
     public function create_user(){
         $query = "INSERT INTO $this->table 
-                SET firstname = ?, lastname = ?, password = ?, email = ?, phonenumber = ?, telegram_username = ?, profile_picture = ?, gender = ?, status = ? ";
+                SET firstname = ?, lastname = ?, password = ?, email = ?, phonenumber = ?, telegram_username = ?, profile_picture = ?, status = ? ";
 
         $stmt = $this->conn->stmt_init();
 
@@ -142,7 +139,6 @@ class User{
                 $this->phonenumber, 
                 $this->telegram_username, 
                 $this->profile_pic, 
-                $this->gender, 
                 $this->status
             );
             
@@ -161,7 +157,6 @@ class User{
             $this->phonenumber = null;
             $this->telegram_username = null;
             $this->profile_pic = null;
-            $this->gender = null;
             $this->status = null;
             
             return false;
