@@ -131,7 +131,7 @@ class User{
             $this->phonenumber = $this->conn->real_escape_string($this->phonenumber);
             $this->telegram_username = $this->conn->real_escape_string($this->telegram_username);
     
-            $stmt->bind_param("sssssssss", 
+            $stmt->bind_param("ssssssss", 
                 $this->firstname, 
                 $this->lastname, 
                 $this->password, 
