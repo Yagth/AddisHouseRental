@@ -98,6 +98,7 @@ p {
 @media only screen and (max-width: 630px) {
   .signup-box {
     width: 320px;
+    padding-bottom: 5px;
   }
   form {
     grid-template-columns: 1fr;
@@ -105,5 +106,6 @@ p {
 
   .cbtn {
     grid-column: span 1;
+    width: 220px;
   }
 }
