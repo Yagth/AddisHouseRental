@@ -1,6 +1,10 @@
 body {
   background-color: #d5e8e2;
   font-family: "Roboto", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .signup-box {
