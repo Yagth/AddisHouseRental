@@ -3,8 +3,12 @@
 include_once "../../config/Database.php";
 include_once "../../models/User.php";
 
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Headers: Content-Type');
+header("Content-Type: application/json");
+
 if(isset($_POST['submit'])){
-    header("Content-Type: appliation/json");
     $database = new Database();
     $db = $database->connect();
     $user = new User($db);
