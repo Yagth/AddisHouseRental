@@ -14,39 +14,54 @@
       <h1>Sign Up</h1>
       <h4 id="error_header" class="status"></h4>
       <form id="signup" method="post">
-        <label>First Name</label>
-        <input name="firstname" type="text" placeholder="" />
-        <label>Last Name</label>
-        <input name="lastname" type="text" placeholder="" />
-        <label>Email</label>
-        <input name="email" type="email" placeholder="" />
-        <label>Password</label>
-        <input name="password" type="password" placeholder="" />
-        <label>Confirm Password</label>
-        <input name="cpassword" type="password" placeholder="" />
-        <label>Phonenumber</label>
-        <input name="phonenumber" type="text" placeholder="" />
-        <label>Telegram Username</label>
-        <input name="telegram_username" type="text" placeholder="" />
-        <label>Gender</label>
-        <div class="radio-group">
-          <label for="male">Male</label>
-          <input
-            id="male"
-            name="gender"
-            value="male"
-            type="radio"
-            placeholder=""
-          />
-          <label for="female">Female</label>
-          <input id="female" name="gender" value="female" type="radio" />
-          <input type="text" name="status" id="" value="normal" hidden />
+        <div>
+          <label>First Name</label>
+          <input name="firstname" type="text" placeholder="" />
         </div>
-        <input type="button" id="submit" value="Submit" />
-        <closeform></closeform>
+        <div>
+          <label>Last Name</label>
+          <input name="lastname" type="text" placeholder="" />
+        </div>
+        <div>
+          <label>Email</label>
+          <input name="email" type="email" placeholder="" />
+        </div>
+        <div>
+          <label>Password</label>
+          <input name="password" type="password" placeholder="" />
+        </div>
+        <div>
+          <label>Confirm Password</label>
+          <input name="cpassword" type="password" placeholder="" />
+        </div>
+        <div>
+          <label>Phonenumber</label>
+          <input name="phonenumber" type="text" placeholder="" />
+        </div>
+        <div>
+          <label>Telegram Username</label>
+          <input name="telegram_username" type="text" placeholder="" />
+        </div>
+        <div>
+          <label>Gender</label>
+          <div class="radio-group">
+            <label for="male">Male</label>
+            <input
+              id="male"
+              name="gender"
+              value="male"
+              type="radio"
+              placeholder=""
+            />
+            <label for="female">Female</label>
+            <input id="female" name="gender" value="female" type="radio" />
+            <input type="text" name="status" id="" value="normal" hidden />
+          </div>
+        </div>
+        <input class="cbtn" type="button" id="submit" value="Submit" />
       </form>
       <p>
-        By clicking the Sign Up button,you agree to our <br />
+        By clicking the Sign Up button, you agree to our <br />
         <a href="#">Terms and Condition</a> and <a href="#">Policy Privacy</a>
       </p>
       <p class="para-2">

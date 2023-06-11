@@ -4,7 +4,7 @@ body {
 }
 
 .signup-box {
-  width: 360px;
+  width: 620px;
   min-height: 620px;
   margin: auto;
   background-color: white;
@@ -33,26 +33,29 @@ h4 {
 }
 
 form {
-  width: 300px;
-  margin-left: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  justify-items: center;
+  align-items: center;
 }
 
 form label {
   display: flex;
-  margin-top: 20px;
+  margin-top: 10px;
   font-size: 18px;
 }
 
 form input {
-  width: 100%;
   padding: 7px;
   border: none;
   border: 1px solid gray;
   border-radius: 6px;
   outline: none;
 }
-input[type="button"] {
-  width: 320px;
+.cbtn {
+  grid-column: span 2;
+  width: 50%;
   height: 35px;
   margin-top: 20px;
   border: none;
@@ -86,7 +89,7 @@ p {
 }
 .para-2 {
   text-align: center;
-  color: white;
+  color: black;
   font-size: 15px;
   margin-top: -10px;
 }
