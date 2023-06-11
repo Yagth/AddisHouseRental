@@ -14,10 +14,11 @@ submit.addEventListener("click", async () => {
     const data = await res.json();
     if (data.success) {
       errorHeader.textContent = "Signup successful";
-      console.log(data.data);
+      errorHeader.style.backgroundColor = "green";
+      form.reset();
     } else {
       errorHeader.textContent = data.error;
-      console.log(data.error);
+      errorHeader.style.backgroundColor = "red";
     }
   } catch (error) {
     console.log("error" + error.message);

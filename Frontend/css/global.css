@@ -1,0 +1,9 @@
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2%;
+  margin: 0 5%;
+  border-radius: 6px;
+  color: white;
+}
