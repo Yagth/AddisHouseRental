@@ -3,6 +3,9 @@
 include_once "../../config/Database.php";
 include_once "../../models/User.php";
 
+header('Access-Control-Allow-Origin: *');
+header("Content-Type: application/json");
+
 $database = new Database();
 $db = $database->connect();
 
@@ -10,8 +13,7 @@ $user = new User($db);
 
 $is_valid = false;
 
-if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['password']) && isset ($_POST['email'])){
-    header("Content-Type: application/json");
+if($_SERVER["REQUEST_METHOD"] == "POST"){
     $user->email = $_POST['email'];
     $password = md5($_POST['password']);
     $user->get_single_user(); 
