@@ -1,5 +1,5 @@
-let submit = document.getElementById("submit");
-submit.addEventListener("click", async () => {
+import { setCookie } from "./cookie";
+const submitData = async () => {
   try {
     let form = document.getElementById("signup");
     let errorHeader = document.getElementById("error_header");
@@ -15,6 +15,7 @@ submit.addEventListener("click", async () => {
     if (data.success) {
       errorHeader.textContent = "Signup successful";
       errorHeader.style.backgroundColor = "green";
+      saveCookie("User", data.data);
       form.reset();
     } else {
       errorHeader.textContent = data.error;
@@ -23,4 +24,12 @@ submit.addEventListener("click", async () => {
   } catch (error) {
     console.log("error" + error.message);
   }
-});
+};
+
+const saveCookie = (name, jsonData) => {
+  const stringData = JSON.stringify(jsonData);
+  setCookie(name, stringData, 1);
+};
+
+let submit = document.getElementById("submit");
+submit.addEventListener("click", submitData);
