@@ -13,12 +13,19 @@ body {
 }
 
 .login-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 360px;
-  height: 280px;
+  min-height: 300px;
   margin: auto;
   border-radius: 3px;
   background-color: white;
   border-radius: 15px;
+}
+
+.login-box div {
+  margin-top: 15px;
 }
 
 h1 {
@@ -32,7 +39,7 @@ h4 {
   text-align: center;
 }
 
-form {
+.signup-box form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
@@ -64,8 +71,13 @@ form select {
   margin-top: 20px;
   border: none;
   background-color: #49c1a2;
+  border-radius: 5px;
   color: white;
   font-size: 18px;
+}
+
+.login-box .cbtn {
+  width: 100px;
 }
 
 .radio-group {
@@ -84,6 +96,15 @@ p {
   text-align: center;
   padding-top: 20px;
   font-size: 15px;
+}
+
+.login-box p {
+  padding-top: 0;
+  margin-left: 15px;
+}
+
+.login-box a {
+  color: #49c1a2;
 }
 .para-2 {
   text-align: center;
