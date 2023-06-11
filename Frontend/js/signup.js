@@ -1,4 +1,5 @@
-import { setCookie } from "./cookie";
+import { setCookie } from "./cookie.js";
+
 const submitData = async () => {
   try {
     let form = document.getElementById("signup");
