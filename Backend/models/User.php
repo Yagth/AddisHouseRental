@@ -150,7 +150,7 @@ class User{
                 $stmt->execute();
                 return true;
             } catch(mysqli_sql_exception $e){
-                printf ("Error: %s.\n", $e);
+                // printf ("Error: %s.\n", $e);
                 return false;
             }
         }else{
