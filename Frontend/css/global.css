@@ -7,3 +7,11 @@
   border-radius: 6px;
   color: white;
 }
+
+.hidden {
+  display: none;
+}
+
+.visible-block {
+  display: block;
+}
