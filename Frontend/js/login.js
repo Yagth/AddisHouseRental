@@ -1,4 +1,5 @@
 import { getCookie } from "./cookie.js";
+import { saveCookie } from "./signup.js";
 
 const submitData = async () => {
   try {
@@ -15,11 +16,10 @@ const submitData = async () => {
     );
 
     const data = await res.json();
-    if (data.success) {
-      errorHeader.textContent = "Signup successful";
+    if (data.loggedin) {
+      errorHeader.textContent = "Login successful";
       errorHeader.style.backgroundColor = "green";
-      // saveCookie("User", data.data);
-      form.reset();
+      saveCookie("User", data.data);
     } else {
       errorHeader.textContent = data.error;
       errorHeader.style.backgroundColor = "red";

@@ -34,3 +34,5 @@ const saveCookie = (name, jsonData) => {
 
 let submit = document.getElementById("submit");
 submit.addEventListener("click", submitData);
+
+export { saveCookie };

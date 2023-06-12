@@ -39,7 +39,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
         http_response_code(401);
         echo json_encode(array(
             "loggedin" => false,
-            "message"  => "Invalid credentials"
+            "error"  => "Invalid credentials"
         ));
     }
 }
