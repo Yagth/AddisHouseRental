@@ -40,7 +40,7 @@ class House {
 
     public function get_houses (){
         //Create query
-        $query = "SELECT H.id, H.owner_id, H.price, H.house_description, H.rooms, H.status, RH.user_id, RH.start_date, RH.end_date
+        $query = "SELECT H.id, H.owner_id, H.price, H.house_description, H.rooms, H.bed_rooms, H.bath_rooms, H.location, H.house_tag, H.status, RH.user_id, RH.start_date, RH.end_date
             FROM $this->house as H 
                 LEFT JOIN $this->rented_house as RH ON H.id = RH.house_id; ";
 

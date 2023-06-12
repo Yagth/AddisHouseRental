@@ -30,7 +30,7 @@ if($num > 0){
            'rooms' => $rooms,
            'bed_rooms' => $bed_rooms,
            'bath_rooms' => $bath_rooms,
-           'house_tag'  => $house_tags,
+           'house_tag'  => $house_tag,
            'location'   => $location,
            'status' => $status,
            'pics' => array(),

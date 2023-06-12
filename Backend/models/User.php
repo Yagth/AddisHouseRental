@@ -13,7 +13,6 @@ class User{
     public $password;
     public $phonenumber;
     public $telegram_username;
-    public $profile_pic;
     public $status;
     
     public $error;
@@ -73,7 +72,6 @@ class User{
             $this->password = $row['password'];
             $this->phonenumber = $row['phonenumber'];
             $this->telegram_username = $row['telegram_username'];
-            $this->profile_pic = $row['profile_picture'];
             $this->status = $row['status'];
 
         }
@@ -108,7 +106,6 @@ class User{
             $this->password = $row['password'];
             $this->phonenumber = $row['phonenumber'];
             $this->telegram_username = $row['telegram_username'];
-            $this->profile_pic = $row['profile_picture'];
             $this->status = $row['status'];
 
         }
@@ -117,7 +114,7 @@ class User{
 
     public function create_user(){
         $query = "INSERT INTO $this->table 
-                SET firstname = ?, lastname = ?, password = ?, email = ?, phonenumber = ?, telegram_username = ?, profile_picture = ?, status = ? ";
+                SET firstname = ?, lastname = ?, password = ?, email = ?, phonenumber = ?, telegram_username = ?, status = ? ";
 
         $stmt = $this->conn->stmt_init();
 
@@ -131,14 +128,13 @@ class User{
             $this->phonenumber = $this->conn->real_escape_string($this->phonenumber);
             $this->telegram_username = $this->conn->real_escape_string($this->telegram_username);
     
-            $stmt->bind_param("ssssssss", 
+            $stmt->bind_param("sssssss", 
                 $this->firstname, 
                 $this->lastname, 
                 $this->password, 
                 $this->email, 
                 $this->phonenumber, 
                 $this->telegram_username, 
-                $this->profile_pic, 
                 $this->status
             );
             
@@ -156,7 +152,6 @@ class User{
             $this->password = null;
             $this->phonenumber = null;
             $this->telegram_username = null;
-            $this->profile_pic = null;
             $this->status = null;
             
             return false;
