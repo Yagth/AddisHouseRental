@@ -7,6 +7,8 @@ include_once '../../config/Database.php';
 include_once '../../models/House.php';
 include_once '../../models/User.php';
 
+header("Content-Type: application/json");
+
 $database = new Database();
 $db = $database->connect();
 
@@ -62,13 +64,15 @@ function image_upload($image){
 }
 
 if(isset($_POST['submit']) && isset($_FILES['main_pic'])){
-    header("Content-Type: application/json");
     $house->price = $_POST['price'];
     $house->house_desc = $_POST['house_desc'];
-    $house->no_rooms = $_POST['no_rooms'];
+    $house->no_rooms = isset($_POST['no_rooms']) ? $_POST['no_rooms'] : null;
+    $house->bed_rooms = isset($_POST['bed_rooms']) ? $_POST['bed_rooms'] : null;
+    $house->bath_rooms = isset($_POST['bath_rooms']) ? $_POST['bath_rooms'] : null;
     $house->owner_id = $_POST['owner_id'];
-    $house->status   = $_POST['status'] ? $_POST['status'] : $house->status; // If submitted data has status use that else use the default. (Default = "NR" which stands for not rented)
-
+    $house->$location = isset($_POST['location']) ? $_POST['location'] : null;
+    $house->$house_tag = isset($_POST['house_tag']) ? $_POST['house_tag']: null;
+    
     $house_pics = array();
     $main_pic = $_FILES['main_pic'];
     $house_pics["main"] = image_upload($main_pic);
