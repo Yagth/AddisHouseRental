@@ -22,12 +22,14 @@ const loadHouses = async () => {
           "Golden Urban House For Sell";
         card.querySelector(".card_text3").textContent =
           "123 street , new york,usa";
-        card.querySelectorAll(".card-foot-c")[1].textContent = house.rooms;
+        card.querySelectorAll(".card-foot-c")[1].textContent =
+          house.rooms + " Rooms";
         card.querySelector("img").src =
           "http://127.0.0.1:5500/Backend/uploads/img/houses/" +
           house["pics"][0].photo_url;
         card.classList.add("visible-card");
         container.appendChild(card);
+        card.classList.remove("hidden");
         card = newCard;
       });
       console.log(data.data);
