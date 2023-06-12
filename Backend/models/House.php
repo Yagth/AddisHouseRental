@@ -19,7 +19,7 @@ class House {
     public $house_tag;
     public $bed_rooms;
     public $bath_rooms;
-    public $rooms;
+    public $no_rooms;
     public $pictures;
     public $house_pics;
     
@@ -60,7 +60,7 @@ class House {
 
     public function get_single_house ($house_id){
         //Create query
-        $query = "SELECT H.id, H.owner_id, H.price, H.house_description, H.rooms, H.status, RH.user_id, RH.start_date, RH.end_date 
+        $query = "SELECT H.id, H.owner_id, H.price, H.location,  H.house_description, H.house_tag, H.rooms, H.bed_rooms, H.bath_rooms, H.status, RH.user_id, RH.start_date, RH.end_date 
         FROM $this->house as H 
             LEFT JOIN $this->rented_house as RH ON H.id = RH.house_id
         WHERE id = ? ";
@@ -92,7 +92,7 @@ class House {
             $this->rent_end_day = $row['end_date'];
             $this->location = $row['location'];
             $this->house_tag = $row['house_tag'];
-            $this->rooms = $row['rooms'];
+            $this->no_rooms = $row['rooms'];
             $this->bed_rooms = $row['bed_rooms'];
             $this->bath_rooms = $row['bath_rooms'];
 
@@ -150,7 +150,7 @@ class House {
                     $this->house_desc, 
                     $this->location,
                     $this->house_tag,
-                    $this->rooms
+                    $this->no_rooms
                 );
                 
                 try{
@@ -204,7 +204,7 @@ class House {
 
     public function update_house($id){
         
-        $query_house = "UPDATE $this->house SET price=?, status=?, house_description=?, rooms=? WHERE id=?;";
+        $query_house = "UPDATE $this->house SET price=?, location =?, house_description=?, house_tag=?,  rooms=?, bed_rooms=?, bath_rooms=?, status=? WHERE id=?;";
         $stmt = $this->conn->stmt_init();
 
         if(!$stmt->prepare($query_house)){
@@ -213,11 +213,15 @@ class House {
         }else {
             $this->house_desc = $this->conn->real_escape_string($this->house_desc);
                 
-            $stmt->bind_param("dssii", 
-                $this->price, 
-                $this->status,
+            $stmt->bind_param("dsssiiisi", 
+                $this->price,
+                $this->location,
                 $this->house_desc, 
+                $this->house_tag,
                 $this->no_rooms,
+                $this->bed_rooms,
+                $this->bath_rooms,
+                $this->status,
                 $id,
             );
             
