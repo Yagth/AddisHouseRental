@@ -2,6 +2,7 @@ import { shuffleArray } from "./common.js";
 
 const loadHouses = async () => {
   let container = document.querySelector(".card_div");
+  let card = document.querySelector(".card_div .card");
   try {
     const res = await fetch(
       "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php",
@@ -13,6 +14,19 @@ const loadHouses = async () => {
       if (houses.length > 12) {
         houses = houses.slice(0, 12);
       }
+      houses.forEach((house) => {
+        card.attributes.id = house.id;
+        card.querySelector(".card_text1").textContent = "$" + house.price;
+        card.querySelector(".card_text2").textContent =
+          "Golden Urban House For Sell";
+        card.querySelector(".card_text3").textContent =
+          "123 street , new york,usa";
+        card.querySelectorAll(".card-foot-c")[1].textContent = rooms;
+        card.querySelector("img").attributes.src =
+          "../../Backend/uploads/img/houses" + house["pics"][0].photo_url;
+        house.container.appendChild("");
+        let newCard = card.cloneNode(true);
+      });
       console.log(data.data);
     } else {
       console.log(data.message);
@@ -40,7 +54,7 @@ forwardButton.addEventListener("click", () => {
   }
 });
 
-startButton = document.getElementById("start");
+let startButton = document.getElementById("start");
 startButton.addEventListener("click", () => {
   console.log("inside action listener");
   window.location.href =

@@ -311,17 +311,17 @@ class House {
             }else{
                 $new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
 
-                $upload_dir = "../../uploads/img/";
+                $upload_dir = "../../uploads/img/houses";
 
                     
                 if(!file_exists($upload_dir)){
                     mkdir($upload_dir, 0777, true);
                 }
 
-                $img_upload_path = "../../uploads/img/".$new_img_name;
+                $img_upload_path = "../../uploads/img/houses".$new_img_name;
                 move_uploaded_file($tmp_name, $img_upload_path);
                 
-                return $img_upload_path;
+                return $new_img_name;
             }
         }
     }
