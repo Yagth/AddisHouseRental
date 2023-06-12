@@ -1,7 +1,14 @@
+import { saveCookie } from "./common.js";
 const submitData = async () => {
+  let errorHeader = document.getElementById("error_header");
+
   try {
     let form = document.getElementById("signup");
-    let errorHeader = document.getElementById("error_header");
+    if (!form.checkValidity()) {
+      errorHeader.textContent = "Please make sure to insert valid values first";
+      errorHeader.style.backgroundColor = "red";
+      return;
+    }
     const formData = new FormData(form);
     const res = await fetch(
       "http://localhost:8080/PHP/AddisHouseRental/Backend/api/auth/signup.php",

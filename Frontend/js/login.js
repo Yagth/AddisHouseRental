@@ -1,5 +1,5 @@
 import { getCookie } from "./cookie.js";
-import { saveCookie } from "./signup.js";
+import { saveCookie } from "./common.js";
 
 const submitData = async () => {
   try {
