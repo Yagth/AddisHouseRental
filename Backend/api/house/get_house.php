@@ -28,6 +28,10 @@ if($num > 0){
            'price' => $price,
            'house_description' => $house_description,
            'rooms' => $rooms,
+           'bed_rooms' => $bed_rooms,
+           'bath_rooms' => $bath_rooms,
+           'house_tag'  => $house_tags,
+           'location'   => $location,
            'status' => $status,
            'pics' => array(),
            'owner' => array()

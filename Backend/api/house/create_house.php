@@ -98,6 +98,7 @@ if(isset($_POST['submit']) && isset($_FILES['main_pic'])){
                              "bed_rooms" => (int)isset($house->bed_rooms)?$house->bed_rooms:0,
                              "bath_rooms" => (int)isset($house->bath_rooms)?$house->bath_rooms:0,
                              "house_tag" => $house->house_tag,
+                             "location"  => $house->location,
                              "status" => $house->status,
                              "pictures" => $house->house_pics
                             );
