@@ -11,6 +11,7 @@ $database = new Database();
 $db = $database->connect();
 
 $house = new House($db);
+$updated = False;
 
 if(isset($_POST['submit']) && isset($_POST['house_id'])){
     $house_id = $_POST['house_id'];
