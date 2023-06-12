@@ -20,6 +20,10 @@ const submitData = async () => {
       errorHeader.textContent = "Login successful";
       errorHeader.style.backgroundColor = "green";
       saveCookie("User", data.data);
+      setTimeout(() => {
+        window.location.href =
+          "http://127.0.0.1:5500/Frontend/pages/home_page.html";
+      }, 1500);
     } else {
       errorHeader.textContent = data.error;
       errorHeader.style.backgroundColor = "red";
