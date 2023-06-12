@@ -70,8 +70,8 @@ if(isset($_POST['submit']) && isset($_FILES['main_pic'])){
     $house->bed_rooms = isset($_POST['bed_rooms']) ? $_POST['bed_rooms'] : null;
     $house->bath_rooms = isset($_POST['bath_rooms']) ? $_POST['bath_rooms'] : null;
     $house->owner_id = $_POST['owner_id'];
-    $house->$location = isset($_POST['location']) ? $_POST['location'] : null;
-    $house->$house_tag = isset($_POST['house_tag']) ? $_POST['house_tag']: null;
+    $house->location = isset($_POST['location']) ? $_POST['location'] : null;
+    $house->house_tag = isset($_POST['house_tag']) ? $_POST['house_tag']: null;
     
     $house_pics = array();
     $main_pic = $_FILES['main_pic'];

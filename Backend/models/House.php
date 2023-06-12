@@ -23,7 +23,7 @@ class House {
     public $pictures;
     public $house_pics;
     
-    public $status;
+    public $status="NR";
     public $rentee_user_id;
     public $rent_start_day;
     public $rent_end_day;
@@ -111,14 +111,14 @@ class House {
                 return false;
             }else {
                 $this->house_desc = $this->conn->real_escape_string($this->house_desc);
-                    
+                $this->no_rooms = $this->bed_rooms + $this->bath_rooms; 
                 $stmt->bind_param("ssssssss", 
                     $this->owner_id, 
                     $this->price,
                     $this->house_desc, 
                     $this->location,
                     $this->house_tag,
-                    $this->bed_rooms + $this->bath_rooms,
+                    $this->no_rooms,
                     $this->bed_rooms,
                     $this->bath_rooms
                 );
