@@ -15,13 +15,18 @@ class House {
     public $owner_id;
     public $price;
     public $house_desc;
-    public $no_rooms;
-    public $status="NR";
+    public $location;
+    public $house_tag;
+    public $bed_rooms;
+    public $bath_rooms;
+    public $rooms;
+    public $pictures;
+    public $house_pics;
+    
+    public $status;
     public $rentee_user_id;
     public $rent_start_day;
     public $rent_end_day;
-    public $pictures;
-    public $house_pics;
     
     public $error;
 
@@ -82,45 +87,86 @@ class House {
             $this->owner_id = $row['owner_id'];
             $this->price = $row['price'];
             $this->house_desc = $row['house_description'];
-            $this->no_rooms = $row['rooms'];
-            $this->status = $row['status'];
             $this->rentee_user_id = $row['user_id'];
             $this->rent_start_day = $row['start_date'];
             $this->rent_end_day = $row['end_date'];
+            $this->location = $row['location'];
+            $this->house_tag = $row['house_tag'];
+            $this->rooms = $row['rooms'];
+            $this->bed_rooms = $row['bed_rooms'];
+            $this->bath_rooms = $row['bath_rooms'];
 
         }
     }
 
     public function create_house(){
-        $query_house = "INSERT INTO $this->house (owner_id, price, house_description, rooms, status) 
-            VALUES (? , ? , ? , ? , ?);";
+        if(isset($this->bed_rooms) && isset($this->bath_rooms)){
+            $query_house = "INSERT INTO $this->house (owner_id, price, house_description, location, house_tag, rooms, bed_rooms, bath_rooms) 
+            VALUES (? , ? , ? , ? , ?, ?, ?, ?);";
 
-        $stmt = $this->conn->stmt_init();
+            $stmt = $this->conn->stmt_init();
 
-        if(!$stmt->prepare($query_house)){
-            $this->error = $this->conn->error;
-            return false;
-        }else {
-            $this->house_desc = $this->conn->real_escape_string($this->house_desc);
-                
-            $stmt->bind_param("sssss", 
-                $this->owner_id, 
-                $this->price, 
-                $this->house_desc, 
-                $this->no_rooms, 
-                $this->status
-            );
-            
-            try{
-                $stmt->execute();
-                $this->id = $stmt->insert_id;
-                $this->save_house_pics();
-                return true;
-            } catch(mysqli_sql_exception $e){
-                printf ("Error: %s.\n", $e);
+            if(!$stmt->prepare($query_house)){
+                $this->error = $this->conn->error;
                 return false;
+            }else {
+                $this->house_desc = $this->conn->real_escape_string($this->house_desc);
+                    
+                $stmt->bind_param("ssssssss", 
+                    $this->owner_id, 
+                    $this->price,
+                    $this->house_desc, 
+                    $this->location,
+                    $this->house_tag,
+                    $this->bed_rooms + $this->bath_rooms,
+                    $this->bed_rooms,
+                    $this->bath_rooms
+                );
+                
+                try{
+                    $stmt->execute();
+                    $this->id = $stmt->insert_id;
+                    $this->save_house_pics();
+                    return true;
+                } catch(mysqli_sql_exception $e){
+                    printf ("Error: %s.\n", $e);
+                    return false;
+                }
+            }
+        } else{
+            $query_house = "INSERT INTO $this->house (owner_id, price, house_description, location, house_tag, rooms) 
+            VALUES (? , ? , ? , ? , ?, ?);";
+            $stmt = $this->conn->stmt_init();
+
+            if(!$stmt->prepare($query_house)){
+                $this->error = $this->conn->error;
+                return false;
+            }else {
+                $this->house_desc = $this->conn->real_escape_string($this->house_desc);
+                    
+                $stmt->bind_param("ssssss", 
+                    $this->owner_id, 
+                    $this->price,
+                    $this->house_desc, 
+                    $this->location,
+                    $this->house_tag,
+                    $this->rooms
+                );
+                
+                try{
+                    $stmt->execute();
+                    $this->id = $stmt->insert_id;
+                    $this->save_house_pics();
+                    return true;
+                } catch(mysqli_sql_exception $e){
+                    printf ("Error: %s.\n", $e);
+                    return false;
+                }
             }
         }
+        
+
+        
     }
 
     public function rent_house(){

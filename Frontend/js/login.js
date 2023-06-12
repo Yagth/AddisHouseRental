@@ -5,8 +5,13 @@ const submitData = async () => {
   try {
     let form = document.getElementById("login");
     let errorHeader = document.getElementById("error_header");
-    const formData = new FormData(form);
 
+    if (!form.checkValidity()) {
+      errorHeader.textContent = "Please insert valid values first";
+      errorHeader.style.backgroundColor = "red";
+      return;
+    }
+    const formData = new FormData(form);
     const res = await fetch(
       "http://localhost:8080/PHP/AddisHouseRental/Backend/api/auth/login.php",
       {
