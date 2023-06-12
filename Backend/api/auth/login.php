@@ -6,14 +6,13 @@ include_once "../../models/User.php";
 header('Access-Control-Allow-Origin: *');
 header("Content-Type: application/json");
 
-$database = new Database();
-$db = $database->connect();
+if($_SERVER["REQUEST_METHOD"] === "POST"){
+  
+    $database = new Database();
+    $db = $database->connect();
+    $user = new User($db); 
+    $is_valid = false;
 
-$user = new User($db); 
-
-$is_valid = false;
-
-if($_SERVER["REQUEST_METHOD"] == "POST"){
     $user->email = $_POST['email'];
     $password = md5($_POST['password']);
     $user->get_single_user(); 
@@ -37,9 +36,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       }
     }
     if(!$is_valid){
+        http_response_code(401);
         echo json_encode(array(
             "loggedin" => false,
             "message"  => "Invalid credentials"
         ));
     }
-  }
+}
