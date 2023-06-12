@@ -1,4 +1,4 @@
-import { shuffleArray } from "./common.js";
+import { saveCookie, shuffleArray } from "./common.js";
 
 const loadHouses = async () => {
   let container = document.querySelector(".card_div");
@@ -32,7 +32,7 @@ const loadHouses = async () => {
         card.classList.remove("hidden");
         card = newCard;
       });
-      console.log(data.data);
+      saveCookie("houses", { houseArray: houses });
     } else {
       console.log(data.message);
     }

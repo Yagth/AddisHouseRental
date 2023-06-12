@@ -1,5 +1,3 @@
-import { setCookie } from "./cookie.js";
-
 const submitData = async () => {
   try {
     let form = document.getElementById("signup");
@@ -27,12 +25,5 @@ const submitData = async () => {
   }
 };
 
-const saveCookie = (name, jsonData) => {
-  const stringData = JSON.stringify(jsonData);
-  setCookie(name, stringData, 1);
-};
-
 let submit = document.getElementById("submit");
 submit.addEventListener("click", submitData);
-
-export { saveCookie };

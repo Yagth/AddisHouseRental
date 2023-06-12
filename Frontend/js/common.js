@@ -1,3 +1,5 @@
+import { setCookie } from "./cookie.js";
+
 const shuffleArray = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -6,4 +8,9 @@ const shuffleArray = (array) => {
   return array;
 };
 
-export { shuffleArray };
+const saveCookie = (name, jsonData) => {
+  const stringData = JSON.stringify(jsonData);
+  setCookie(name, stringData, 1);
+};
+
+export { shuffleArray, saveCookie };
