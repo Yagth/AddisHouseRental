@@ -320,7 +320,6 @@ class House {
 
     public function get_house_pic(){
         $query = "SELECT pic_id, pic_desc, photo_url FROM $this->house_pic WHERE house_id = $this->id";
-
         $stmt = $this->conn->stmt_init();
 
         if(!$stmt->prepare($query)){
@@ -339,7 +338,11 @@ class House {
         if($result->num_rows === 0){
             return null;
         }
-        return $result->fetch_assoc();
+        $urls = array();
+        while($row = $result->fetch_assoc()){
+            array_push($urls, $row);
+        }
+        return $urls;
     }
 
     public function image_upload($image){
