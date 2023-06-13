@@ -13,4 +13,14 @@ const saveCookie = (name, jsonData) => {
   setCookie(name, stringData, 1);
 };
 
-export { shuffleArray, saveCookie };
+const getData = async (url, query = "") => {
+  try {
+    const res = await fetch(url + "?" + query, { method: "GET" });
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    return { success: false, error: error };
+  }
+};
+
+export { shuffleArray, saveCookie, getData };
