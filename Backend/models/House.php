@@ -45,27 +45,32 @@ class House {
             case 0://Search by Location
                 $query = "SELECT H.id, H.owner_id, H.price, H.house_description, H.rooms, H.bed_rooms, H.bath_rooms, H.location, H.house_tag, H.status, RH.user_id, RH.start_date, RH.end_date
                 FROM $this->house as H 
-                    LEFT JOIN $this->rented_house as RH ON H.id = RH.house_id WHERE H.location like '%$searchParam%'; ";
+                    LEFT JOIN $this->rented_house as RH ON H.id = RH.house_id WHERE H.location like '%$searchParam%' AND H.status='NR'; ";
                 break;
             case 1://Search by Tagname
                 $query = "SELECT H.id, H.owner_id, H.price, H.house_description, H.rooms, H.bed_rooms, H.bath_rooms, H.location, H.house_tag, H.status, RH.user_id, RH.start_date, RH.end_date
                 FROM $this->house as H 
-                    LEFT JOIN $this->rented_house as RH ON H.id = RH.house_id WHERE H.house_tag='$searchParam'; ";
+                    LEFT JOIN $this->rented_house as RH ON H.id = RH.house_id WHERE H.house_tag='$searchParam' AND H.status='NR'; ";
                 break;
             case 2://Search by price
                 $query = "SELECT H.id, H.owner_id, H.price, H.house_description, H.rooms, H.bed_rooms, H.bath_rooms, H.location, H.house_tag, H.status, RH.user_id, RH.start_date, RH.end_date
                 FROM $this->house as H 
-                    LEFT JOIN $this->rented_house as RH ON H.id = RH.house_id WHERE H.price<=$searchParam; ";
+                    LEFT JOIN $this->rented_house as RH ON H.id = RH.house_id WHERE H.price<=$searchParam AND H.status='NR'; ";
                 break;
             case 3://Owner Id
                 $query = "SELECT H.id, H.owner_id, H.price, H.house_description, H.rooms, H.bed_rooms, H.bath_rooms, H.location, H.house_tag, H.status, RH.user_id, RH.start_date, RH.end_date
                 FROM $this->house as H 
                     LEFT JOIN $this->rented_house as RH ON H.id = RH.house_id WHERE H.owner_id=$searchParam; ";
                 break;
-            default://Default is search by NOTHING
+            case 4://Get all houses
                 $query = "SELECT H.id, H.owner_id, H.price, H.house_description, H.rooms, H.bed_rooms, H.bath_rooms, H.location, H.house_tag, H.status, RH.user_id, RH.start_date, RH.end_date
                 FROM $this->house as H 
                     LEFT JOIN $this->rented_house as RH ON H.id = RH.house_id; ";
+                break;
+            default://Default is search by NOTHING
+                $query = "SELECT H.id, H.owner_id, H.price, H.house_description, H.rooms, H.bed_rooms, H.bath_rooms, H.location, H.house_tag, H.status, RH.user_id, RH.start_date, RH.end_date
+                FROM $this->house as H 
+                    LEFT JOIN $this->rented_house as RH ON H.id = RH.house_id WHERE H.status='NR';";
                 break;
         }        
 
