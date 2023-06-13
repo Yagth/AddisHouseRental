@@ -7,17 +7,19 @@ include_once '../../config/Database.php';
 include_once '../../models/House.php';
 include_once '../../models/User.php';
 
-define("LOCATION", 0);
-define("TAGNAME", 1);
-define("PRICE", 2);
-define("OWNER", 3);
-
 $database = new Database();
 $db = $database->connect();
 
 $house = new House($db);
-$result = $house->get_houses();
 
+if(isset($_GET['option'])){
+    $OPTION = $_GET['op'];//Stands for option
+    $param  = $_GET['q'];//Stands for query
+    $result = $house->get_houses($OPTION, $param);
+
+} else{
+    $result = $house->get_houses();
+}
 $num  = $result->num_rows;
 
 if($num > 0){
