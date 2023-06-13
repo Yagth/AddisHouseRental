@@ -19,7 +19,7 @@ const getData = async (url, query = "") => {
     const data = await res.json();
     return data;
   } catch (error) {
-    return { success: false, error: error };
+    return { success: false, message: error };
   }
 };
 
