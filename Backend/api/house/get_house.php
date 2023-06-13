@@ -12,11 +12,10 @@ $db = $database->connect();
 
 $house = new House($db);
 
-if(isset($_GET['option'])){
+if(isset($_GET['op'])){
     $OPTION = $_GET['op'];//Stands for option
     $param  = $_GET['q'];//Stands for query
     $result = $house->get_houses($OPTION, $param);
-
 } else{
     $result = $house->get_houses();
 }

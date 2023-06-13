@@ -45,12 +45,12 @@ class House {
             case 0://Search by Location
                 $query = "SELECT H.id, H.owner_id, H.price, H.house_description, H.rooms, H.bed_rooms, H.bath_rooms, H.location, H.house_tag, H.status, RH.user_id, RH.start_date, RH.end_date
                 FROM $this->house as H 
-                    LEFT JOIN $this->rented_house as RH ON H.id = RH.house_id WHERE H.location=$searchParam; ";
+                    LEFT JOIN $this->rented_house as RH ON H.id = RH.house_id WHERE H.location like '%$searchParam%'; ";
                 break;
             case 1://Search by Tagname
                 $query = "SELECT H.id, H.owner_id, H.price, H.house_description, H.rooms, H.bed_rooms, H.bath_rooms, H.location, H.house_tag, H.status, RH.user_id, RH.start_date, RH.end_date
                 FROM $this->house as H 
-                    LEFT JOIN $this->rented_house as RH ON H.id = RH.house_id WHERE H.house_tag=$searchParam; ";
+                    LEFT JOIN $this->rented_house as RH ON H.id = RH.house_id WHERE H.house_tag='$searchParam'; ";
                 break;
             case 2://Search by price
                 $query = "SELECT H.id, H.owner_id, H.price, H.house_description, H.rooms, H.bed_rooms, H.bath_rooms, H.location, H.house_tag, H.status, RH.user_id, RH.start_date, RH.end_date
