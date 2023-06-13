@@ -7,6 +7,11 @@ include_once '../../config/Database.php';
 include_once '../../models/House.php';
 include_once '../../models/User.php';
 
+define("LOCATION", 0);
+define("TAGNAME", 1);
+define("PRICE", 2);
+define("OWNER", 3);
+
 $database = new Database();
 $db = $database->connect();
 
