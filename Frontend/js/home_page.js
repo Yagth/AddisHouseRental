@@ -1,5 +1,7 @@
 import { saveCookie, shuffleArray, getData } from "./common.js";
 
+let navbar = document.querySelector(".navbar");
+
 const loadHouses = async () => {
   let container = document.querySelector(".card_div");
   let card = document.querySelector(".card_div .card");
@@ -61,6 +63,10 @@ startButton.addEventListener("click", () => {
   console.log("inside action listener");
   window.location.href =
     "http://127.0.0.1:5500/Frontend/pages/signup_page.html";
+});
+
+window.addEventListener("scroll", () => {
+  navbar.classList.toggle("sticky", window.scrollY > 0);
 });
 
 loadHouses();

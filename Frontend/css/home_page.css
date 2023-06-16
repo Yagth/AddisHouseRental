@@ -273,20 +273,24 @@ form {
   font-weight: 700;
 }
 
+.navbar.sticky {
+  width: 96%;
+}
 .navbar {
-  position: relative;
+  position: sticky;
+  top: 0;
   width: 85%;
+  height: 40px;
   margin: auto;
   z-index: 1;
   display: flex;
   background-color: white;
-  top: 50px;
-  border-radius: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 50px;
   padding: 1% 2%;
+  transition: all 0.3s ease-in;
 }
 .navbar-logo {
   display: flex;
@@ -297,7 +301,8 @@ form {
   height: 40px;
   margin-right: 10px;
 }
-.navbar-title {
+.navbar-title a {
+  text-decoration: none;
   font-size: 20px;
   color: #00b98e;
 }
@@ -341,7 +346,7 @@ form {
 
 main {
   position: relative;
-  top: -80px;
+  top: -130px;
   background-color: white;
 }
 
