@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=s, initial-scale=1.0" />
+    <title>Add House</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
+    />
+  </head>
+  <body>
+    <h1>Create a house</h1>
+    <form
+      action="http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/create_house.php"
+      method="post"
+    >
+      <label for="">Main House picture</label>
+      <input type="file" name="main_pic" />
+      <label for="">Other pictures</label>
+      <input type="file" name="other_pics" multiple />
+      <label for="">Price</label>
+      <input type="text" name="price" />
+      <label for="">House tag</label>
+      <select name="house_tag" id="">
+        <option value="Apartment">Apartment</option>
+        <option value="Villa">Villa</option>
+        <option value="Home" selected>Home</option>
+        <option value="Office">Office</option>
+        <option value="Building">Building</option>
+        <option value="Shop">Shop</option>
+      </select>
+      <label for="">Location</label>
+      <input
+        type="text"
+        name="location"
+        placeholder="4 Kilo|Mexico|Bole"
+      /><br />
+      <label for="">Rooms</label>
+      <input type="number" min="0" name="no_rooms" />
+      <label for="">Bed Rooms</label>
+      <input type="number" min="0" name="bed_rooms" />
+      <label for="">Bath Rooms</label>
+      <input type="number" min="0" name="bath_rooms" />
+      <label for="">Write a house description</label>
+      <textarea name="house_desc" id="desc" cols="30" rows="10"></textarea
+      ><br />
+      <input type="submit" value="Create" />
+    </form>
+  </body>
+</html>
