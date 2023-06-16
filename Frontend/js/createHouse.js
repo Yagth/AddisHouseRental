@@ -34,13 +34,13 @@ const validateForm = () => {
     return { error: true, message: "Price should be in floats" };
   } else if (!locationP.test(location.value)) {
     return { error: true, message: "Wrong location input." };
-  } else if (form.checkValidity()) {
+  } else if (!form.checkValidity()) {
     return { error: true, message: "Invalid or missing input" };
   } else {
     return { error: false };
   }
 };
-form.addEventListener("submit", (event) => {
+form.addEventListener("submit", async (event) => {
   event.preventDefault();
   console.log("prevented default");
   let validForm = validateForm();
@@ -48,14 +48,17 @@ form.addEventListener("submit", (event) => {
   errorHeader.classList.remove("hidden");
   if (!validForm.error) {
     let formData = new FormData(form);
-    res = postData(
+    res = await postData(
       "localhost:8080/PHP/AddisHouseRental/Backend/api/house/create_house.php",
       formData
     );
+    console.log(res);
     errorHeader.style.backgroundColor = res.success ? "green" : "red";
     errorHeader.innerHTML = res.success
       ? "House created successfully"
-      : res.message;
+      : res.message
+      ? res.message
+      : res.error;
   } else {
     errorHeader.style.backgroundColor = validForm.error ? "red" : "green";
     errorHeader.innerHTML = validForm.message;

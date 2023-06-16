@@ -7,7 +7,6 @@ include_once '../../config/Database.php';
 include_once '../../models/House.php';
 include_once '../../models/User.php';
 
-header("Content-Type: application/json");
 
 $database = new Database();
 $db = $database->connect();
