@@ -2,7 +2,10 @@ let roomsI = document.getElementById("no_rooms");
 let bedRoomsI = document.getElementById("bed_rooms");
 let bathRoomsI = document.getElementById("bath_rooms");
 let houseTag = document.getElementsByName("house_tag")[0];
-let email = document.getElementsByName("");
+let price = document.getElementsByName("price")[0];
+let location = document.getElementsByName("location")[0];
+let form = document.getElementsByTagName("form")[0];
+let errorHeader = document.getElementById("error_header");
 
 const houseTagChange = () => {
   switch (houseTag.value) {
@@ -25,11 +28,29 @@ const houseTagChange = () => {
 
 const validateForm = () => {
   //Regex patterns
-  const priceP = "/^d+(.d{1,2})?$/";
-  const locationP = "/^[a-zA-Z0-9 |]+$/";
+  const priceP = /^[0-9]+(\.[0-9]{1,2})?$/;
+  const locationP = /^[a-zA-Z0-9 |]+$/;
 
-  regex.test(str);
+  if (!priceP.test(price.value)) {
+    return { error: true, message: "Price should be in floats" };
+  } else if (!locationP.test(location.value)) {
+    return { error: true, message: "Wrong location input." };
+  } else if (form.checkValidity()) {
+    return { error: true, message: "Invalid or missing input" };
+  } else {
+    return { error: false };
+  }
 };
+//localhost:8080/PHP/AddisHouseRental/Backend/api/house/create_house.php
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  let result = validateForm();
+  errorHeader.classList.remove("hidden");
+  errorHeader.style.backgroundColor = result.error ? "red" : "green";
+  errorHeader.innerHTML = result.message
+    ? result.message
+    : "House added successfully";
+});
 
 //Adding action listener
 houseTag.onchange = houseTagChange;
