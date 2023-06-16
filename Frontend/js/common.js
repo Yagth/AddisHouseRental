@@ -33,4 +33,4 @@ const postData = async (url, body) => {
   }
 };
 
-export { shuffleArray, saveCookie, getData };
+export { shuffleArray, saveCookie, getData, postData };

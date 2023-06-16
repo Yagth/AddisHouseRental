@@ -45,20 +45,24 @@ const validateForm = () => {
 };
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  let validForm = validateForm();
-  let res;
-  errorHeader.classList.remove("hidden");
-  if (validForm) {
-    let formData = new FormData(form);
-    res = postData(
-      "localhost:8080/PHP/AddisHouseRental/Backend/api/house/create_house.php",
-      formData
-    );
-  }
-  errorHeader.style.backgroundColor = validForm.error ? "red" : "green";
-  errorHeader.innerHTML = validForm.message
-    ? validForm.message
-    : "House added successfully";
+  log;
+  //   let validForm = validateForm();
+  //   let res;
+  //   errorHeader.classList.remove("hidden");
+  //   if (validForm) {
+  //     let formData = new FormData(form);
+  //     res = postData(
+  //       "localhost:8080/PHP/AddisHouseRental/Backend/api/house/create_house.php",
+  //       formData
+  //     );
+  //     errorHeader.style.backgroundColor = res.success ? "green" : "red";
+  //     errorHeader.innerHTML = res.success
+  //       ? "House created successfully"
+  //       : res.message;
+  //   } else {
+  //     errorHeader.style.backgroundColor = validForm.error ? "red" : "green";
+  //     errorHeader.innerHTML = validForm.message;
+  //   }
 });
 
 //Adding action listener
