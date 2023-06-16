@@ -4,7 +4,9 @@
 }
 
 body {
-  width: 100%;
+  background-color: #effdf5;
+  width: 85%;
+  margin: auto;
 }
 
 /* this part is the banner part  */
@@ -270,8 +272,67 @@ form {
   font-weight: 700;
 }
 
+.navbar {
+  position: relative;
+  width: 85%;
+  margin: auto;
+  z-index: 1;
+  display: flex;
+  background-color: white;
+  top: 50px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding: 1% 2%;
+}
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+.navbar-logo img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+.navbar-title {
+  font-size: 20px;
+  color: green;
+}
+.navbar-links {
+  display: flex;
+  gap: 10px;
+}
+.navbar-links a {
+  color: black;
+  text-decoration: none;
+  font-size: 16px;
+}
+.link-container {
+  display: flex;
+  width: 450px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar-login {
+  padding: 8px 16px;
+  background-color: green;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
 .form_button {
   background-color: #0e2e50;
+}
+
+main {
+  position: relative;
+  top: -60px;
+  background-color: white;
 }
 
 footer {
