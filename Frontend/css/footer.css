@@ -540,7 +540,7 @@
   margin-right: 0.5rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  background-color: #007bff;
+  background-color: #0e2e50;
   color: #fff;
   border: none;
   cursor: pointer;
@@ -587,11 +587,11 @@
 
 .cont {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 25px;
+  padding-left: 25px;
   margin-right: auto;
   margin-left: auto;
-  background-color: #1a5086;
+  background-color: #0e2e50;
   color: rgba(255, 255, 255, 0.5);
   padding-top: 3rem;
   margin-top: 3rem;
