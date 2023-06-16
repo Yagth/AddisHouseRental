@@ -19,6 +19,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
 
     if($user->firstname){
       if($password === $user->password){
+          $cookieExpiration = time() + (86400 * 1); // 30 days
           session_start();
 
           session_regenerate_id();
@@ -29,7 +30,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
                 "id" => $user->id,
                 "firstname" => $user->firstname,
                 "lastname" => $user->lastname,
-                "email" => $user->email
+                "email" => $user->email,
+                "status" => $user->status
           )
         ));
         $is_valid = true;

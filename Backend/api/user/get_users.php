@@ -22,12 +22,12 @@ if($num > 0){
 
    while($row = $result->fetch_assoc()){
        extract($row);
-
        $user_item = array(
            'id' => $id,
            'firstname' => $firstname,
            'lastname' => $lastname,
-           'email' => html_entity_decode($email)
+           'email' => html_entity_decode($email),
+           'status' => $status
        );
        
        array_push($user_arr['data'], $user_item);
