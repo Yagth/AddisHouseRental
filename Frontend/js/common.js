@@ -23,4 +23,14 @@ const getData = async (url, query = "") => {
   }
 };
 
+const postData = async (url, body) => {
+  try {
+    const res = await fetch(url, { method: "POST", body: body });
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    return { success: false, message: error };
+  }
+};
+
 export { shuffleArray, saveCookie, getData };

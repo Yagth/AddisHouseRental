@@ -1,3 +1,5 @@
+import postData from "./common.js";
+
 let roomsI = document.getElementById("no_rooms");
 let bedRoomsI = document.getElementById("bed_rooms");
 let bathRoomsI = document.getElementById("bath_rooms");
@@ -41,14 +43,21 @@ const validateForm = () => {
     return { error: false };
   }
 };
-//localhost:8080/PHP/AddisHouseRental/Backend/api/house/create_house.php
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  let result = validateForm();
+  let validForm = validateForm();
+  let res;
   errorHeader.classList.remove("hidden");
-  errorHeader.style.backgroundColor = result.error ? "red" : "green";
-  errorHeader.innerHTML = result.message
-    ? result.message
+  if (validForm) {
+    let formData = new FormData(form);
+    res = postData(
+      "localhost:8080/PHP/AddisHouseRental/Backend/api/house/create_house.php",
+      formData
+    );
+  }
+  errorHeader.style.backgroundColor = validForm.error ? "red" : "green";
+  errorHeader.innerHTML = validForm.message
+    ? validForm.message
     : "House added successfully";
 });
 
