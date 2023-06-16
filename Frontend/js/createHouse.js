@@ -14,13 +14,21 @@ const houseTagChange = () => {
     case "Apartment":
     case "Building":
       roomsI.classList.add("hidden");
+      roomsI.ariaRequired = false;
       bedRoomsI.classList.remove("hidden");
+      bedRoomsI.ariaRequired = true;
       bathRoomsI.classList.remove("hidden");
+      bathRoomsI.ariaRequired = true;
+
       break;
     default:
       roomsI.classList.remove("hidden");
+      roomsI.ariaRequired = true;
       bedRoomsI.classList.add("hidden");
       bathRoomsI.classList.add("hidden");
+      bedRoomsI.ariaRequired = false;
+      bathRoomsI.ariaRequired = false;
+
       break;
   }
 };

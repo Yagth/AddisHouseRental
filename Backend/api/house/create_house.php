@@ -16,7 +16,7 @@ $house = new House($db);
 $error_json = json_encode(
     array(
      'sucess' => false,
-     'message' => 'No house'
+     'message' => 'House creation Failed'
      )
 );
 

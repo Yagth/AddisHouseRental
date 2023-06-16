@@ -15,13 +15,13 @@
     <form action="" method="post">
       <h4 id="error_header" class="status hidden"></h4>
       <label for="main_pic">Main House picture</label>
-      <input type="file" name="main_pic" id="main_pic" />
+      <input type="file" name="main_pic" id="main_pic" required />
       <label for="other_pics">Other pictures</label>
       <input type="file" name="other_pics" id="other_pics" multiple />
       <label for="">Price</label>
       <input type="text" name="price" />
       <label for="">House tag</label>
-      <select name="house_tag" id="">
+      <select name="house_tag" id="" required>
         <option value="Apartment">Apartment</option>
         <option value="Villa">Villa</option>
         <option value="Home" selected>Home</option>
@@ -34,6 +34,7 @@
         type="text"
         name="location"
         placeholder="4 Kilo|Mexico|Bole"
+        required
       /><br />
       <div class="hidden" id="no_rooms">
         <label for="">Rooms</label>
@@ -48,7 +49,13 @@
         <input type="number" min="0" name="bath_rooms" />
       </div>
       <label for="">Write a house description</label>
-      <textarea name="house_desc" id="desc" cols="30" rows="10"></textarea
+      <textarea
+        name="house_desc"
+        id="desc"
+        cols="30"
+        rows="10"
+        required
+      ></textarea
       ><br />
       <input type="submit" value="Create" />
     </form>
