@@ -33,7 +33,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 "data" => array(
                     "firstname" => $user->firstname,
                     "lastname" => $user->lastname,
-                    "email" => $user->email
+                    "email" => $user->email,
+                    "status" => $user->status ? $user->status : "A"
                 ),
             ));
         } else {

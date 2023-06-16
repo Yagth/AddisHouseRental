@@ -27,7 +27,8 @@ if($num > 0){
            'id' => $id,
            'firstname' => $firstname,
            'lastname' => $lastname,
-           'email' => html_entity_decode($email)
+           'email' => html_entity_decode($email),
+           'status' => $status
        );
        
        array_push($user_arr['data'], $user_item);
