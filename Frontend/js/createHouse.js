@@ -14,20 +14,20 @@ const houseTagChange = () => {
     case "Apartment":
     case "Building":
       roomsI.classList.add("hidden");
-      roomsI.ariaRequired = false;
+      roomsI.required = false;
       bedRoomsI.classList.remove("hidden");
-      bedRoomsI.ariaRequired = true;
+      bedRoomsI.required = true;
       bathRoomsI.classList.remove("hidden");
-      bathRoomsI.ariaRequired = true;
+      bathRoomsI.required = true;
 
       break;
     default:
       roomsI.classList.remove("hidden");
-      roomsI.ariaRequired = true;
+      roomsI.required = true;
       bedRoomsI.classList.add("hidden");
       bathRoomsI.classList.add("hidden");
-      bedRoomsI.ariaRequired = false;
-      bathRoomsI.ariaRequired = false;
+      bedRoomsI.required = false;
+      bathRoomsI.required = false;
 
       break;
   }
@@ -50,7 +50,6 @@ const validateForm = () => {
 };
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
-  console.log("prevented default");
   let validForm = validateForm();
   let res;
   errorHeader.classList.remove("hidden");
