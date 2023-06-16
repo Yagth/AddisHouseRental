@@ -592,7 +592,6 @@
 }
 
 .cont {
-  width: 100%;
   padding-right: 25px;
   padding-left: 25px;
   margin-right: auto;
@@ -600,14 +599,6 @@
   background-color: #0e2e50;
   color: rgba(255, 255, 255, 0.5);
   padding-top: 3rem;
-  margin-top: 3rem;
-  animation: fadeIn 1s;
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 .end {
   padding-bottom: 2rem;
