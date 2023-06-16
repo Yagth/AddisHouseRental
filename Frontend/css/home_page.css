@@ -50,6 +50,7 @@ body {
   border: none;
   color: aliceblue;
   font-weight: 700;
+  transition: background 0.2s ease-in-out;
 }
 
 .disc_b:hover {
@@ -62,8 +63,8 @@ body {
   border-radius: 100%;
   border: none;
   background-color: #00b98e;
-  font-size: xx-large;
   color: aliceblue;
+  transition: background 0.2s ease-in-out;
 }
 .backward-buttons {
   width: 50px;
@@ -71,8 +72,8 @@ body {
   border-radius: 100%;
   border: none;
   background-color: #00b98e;
-  font-size: xx-large;
   color: aliceblue;
+  transition: background 0.2s ease-in-out;
 }
 #img1 {
   opacity: 1;
