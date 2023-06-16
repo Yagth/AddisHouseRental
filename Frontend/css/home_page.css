@@ -312,6 +312,9 @@ footer {
   height: 40px;
   width: 200px;
   border-radius: 7px;
+  padding: 0 1%;
+  background-color: #0e2e50;
+  color: white;
 }
 
 .texb {
@@ -320,6 +323,7 @@ footer {
   background-color: #00b98e;
   color: aliceblue;
   border-radius: 5px;
+  padding: 0 1%;
 }
 
 .center_form {

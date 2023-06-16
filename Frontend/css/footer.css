@@ -405,7 +405,7 @@
 }
 
 .footer .copyright {
-  padding: 25px 0;
+  padding: 25px;
   font-size: 15px;
   border-top: 1px solid rgba(256, 256, 256, 0.1);
 }
@@ -483,7 +483,7 @@
 
 .custom-image {
   display: block;
-  width: 100px;
+  width: 80px;
   height: 50px;
   border-radius: 0.25rem;
   background-color: #f8f9fa;
@@ -495,16 +495,19 @@
   border: none;
   color: rgba(255, 255, 255, 0.5);
   cursor: pointer;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .s-button {
-  background-color: transparent;
-  border: 1px solid #fff;
   color: #fff;
-  padding: 0.5rem 1rem;
   cursor: pointer;
   text-decoration: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid #fff;
+  padding: 5% 1% 1% 5%;
 }
 
 .s-button:hover {
@@ -513,7 +516,8 @@
 }
 
 .custom-element {
-  margin-bottom: 0.5rem;
+  margin-bottom: 6%;
+  margin-right: 5px;
 }
 
 .s-element {
