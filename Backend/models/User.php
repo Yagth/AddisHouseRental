@@ -13,8 +13,6 @@ class User{
     public $password;
     public $phonenumber;
     public $telegram_username;
-    public $profile_pic;
-    public $gender;
     public $status;
     
     public $error;
@@ -74,8 +72,6 @@ class User{
             $this->password = $row['password'];
             $this->phonenumber = $row['phonenumber'];
             $this->telegram_username = $row['telegram_username'];
-            $this->profile_pic = $row['profile_picture'];
-            $this->gender = $row['gender'];
             $this->status = $row['status'];
 
         }
@@ -110,8 +106,6 @@ class User{
             $this->password = $row['password'];
             $this->phonenumber = $row['phonenumber'];
             $this->telegram_username = $row['telegram_username'];
-            $this->profile_pic = $row['profile_picture'];
-            $this->gender = $row['gender'];
             $this->status = $row['status'];
 
         }
@@ -120,7 +114,7 @@ class User{
 
     public function create_user(){
         $query = "INSERT INTO $this->table 
-                SET firstname = ?, lastname = ?, password = ?, email = ?, phonenumber = ?, telegram_username = ?, profile_picture = ?, gender = ?, status = ? ";
+                SET firstname = ?, lastname = ?, password = ?, email = ?, phonenumber = ?, telegram_username = ?, status = ? ";
 
         $stmt = $this->conn->stmt_init();
 
@@ -134,15 +128,13 @@ class User{
             $this->phonenumber = $this->conn->real_escape_string($this->phonenumber);
             $this->telegram_username = $this->conn->real_escape_string($this->telegram_username);
     
-            $stmt->bind_param("sssssssss", 
+            $stmt->bind_param("sssssss", 
                 $this->firstname, 
                 $this->lastname, 
                 $this->password, 
                 $this->email, 
                 $this->phonenumber, 
                 $this->telegram_username, 
-                $this->profile_pic, 
-                $this->gender, 
                 $this->status
             );
             
@@ -150,7 +142,7 @@ class User{
                 $stmt->execute();
                 return true;
             } catch(mysqli_sql_exception $e){
-                printf ("Error: %s.\n", $e);
+                // printf ("Error: %s.\n", $e);
                 return false;
             }
         }else{
@@ -160,8 +152,6 @@ class User{
             $this->password = null;
             $this->phonenumber = null;
             $this->telegram_username = null;
-            $this->profile_pic = null;
-            $this->gender = null;
             $this->status = null;
             
             return false;

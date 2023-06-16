@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/acc_css.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="login-box">
+      <h1>Login</h1>
+      <h4 id="error_header" class="status"></h4>
+      <form id="login">
+        <div>
+          <label>Email</label>
+          <input
+            class="form-input"
+            name="email"
+            id="email"
+            type="email"
+            required
+            placeholder=""
+          />
+        </div>
+        <div>
+          <label>Password</label>
+          <input
+            class="form-input"
+            id="password"
+            type="password"
+            name="password"
+            required
+            placeholder=""
+          /><br />
+        </div>
+        <input class="cbtn" id="submit" type="button" value="Submit" />
+      </form>
+      <p>
+        Don't have an account?
+        <a href="http://127.0.0.1:5500/Frontend/pages/signup_page.html"
+          >Sign Up Here</a
+        >
+      </p>
+    </div>
+  </body>
+  <script src="../js/login.js" type="module"></script>
+</html>

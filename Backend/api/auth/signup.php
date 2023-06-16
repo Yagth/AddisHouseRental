@@ -1,45 +1,47 @@
-<?php 
+<?php
 
 include_once "../../config/Database.php";
 include_once "../../models/User.php";
 
-if(isset($_POST['submit'])){
-    header("Content-Type: appliation/json");
+header('Access-Control-Allow-Origin: *');
+header("Content-Type: application/json");
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $database = new Database();
     $db = $database->connect();
     $user = new User($db);
-    
+
     $user->firstname = $_POST['firstname'];
     $user->lastname = $_POST['lastname'];
-    $user->email =$_POST['email'];
+    $user->email = $_POST['email'];
     $user->password = $_POST['password'];
-    $user->gender = $_POST['gender'];
     $user->phonenumber = $_POST['phonenumber'];
     $user->telegram_username = $_POST['telegram_username'];
     $user->status = $_POST['status'];
 
     $cpass = $_POST['cpassword'];
 
-    if($cpass !== $user->password){
+    if ($cpass !== $user->password) {
         echo json_encode(array(
             "success" => false,
-            "error" => "password not matched")
-        );
-    }else {
-        if($user->create_user()){
+            "error" => "password not matched"
+        ));
+    } else {
+        if ($user->create_user()) {
             echo json_encode(array(
                 "success" => true,
-                "data"    => array(
+                "data" => array(
                     "firstname" => $user->firstname,
                     "lastname" => $user->lastname,
                     "email" => $user->email
                 ),
             ));
-        } else{
+        } else {
             echo json_encode(array(
                 "success" => false,
-                "error" => $user->error? $user->error : "Something went wrong"
+                "error" => $user->error ? $user->error : "Something went wrong"
             ));
         }
     }
 }
+?>

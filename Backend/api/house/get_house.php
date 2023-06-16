@@ -11,8 +11,14 @@ $database = new Database();
 $db = $database->connect();
 
 $house = new House($db);
-$result = $house->get_houses();
 
+if(isset($_GET['op'])){
+    $OPTION = $_GET['op'];//Stands for option
+    $param  = $_GET['q'];//Stands for query
+    $result = $house->get_houses($OPTION, $param);
+} else{
+    $result = $house->get_houses();
+}
 $num  = $result->num_rows;
 
 if($num > 0){
@@ -23,12 +29,15 @@ if($num > 0){
 
    while($row = $result->fetch_assoc()){
        extract($row);
-        echo $id;
        $house_item = array(
            'id' => $id,
            'price' => $price,
            'house_description' => $house_description,
            'rooms' => $rooms,
+           'bed_rooms' => $bed_rooms,
+           'bath_rooms' => $bath_rooms,
+           'house_tag'  => $house_tag,
+           'location'   => $location,
            'status' => $status,
            'pics' => array(),
            'owner' => array()
