@@ -29,7 +29,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
                 "id" => $user->id,
                 "firstname" => $user->firstname,
                 "lastname" => $user->lastname,
-                "email" => $user->email
+                "email" => $user->email,
+                "status" => $user->status
           )
         ));
         $is_valid = true;

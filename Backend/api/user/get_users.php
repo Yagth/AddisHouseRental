@@ -22,7 +22,6 @@ if($num > 0){
 
    while($row = $result->fetch_assoc()){
        extract($row);
-
        $user_item = array(
            'id' => $id,
            'firstname' => $firstname,

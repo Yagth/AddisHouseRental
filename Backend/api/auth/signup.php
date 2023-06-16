@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     "firstname" => $user->firstname,
                     "lastname" => $user->lastname,
                     "email" => $user->email,
-                    "status" => $user->status ? $user->status : "A"
+                    "status" => $user->status
                 ),
             ));
         } else {
