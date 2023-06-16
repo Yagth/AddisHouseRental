@@ -19,6 +19,7 @@ const submitData = async () => {
         body: formData,
       }
     );
+    // const emailP = "/^[w-]+(.[w-]+)*@([w-]+.)+[a-zA-Z]{2,7}$/";
 
     const data = await res.json();
     if (data.loggedin) {

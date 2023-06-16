@@ -2,6 +2,7 @@ let roomsI = document.getElementById("no_rooms");
 let bedRoomsI = document.getElementById("bed_rooms");
 let bathRoomsI = document.getElementById("bath_rooms");
 let houseTag = document.getElementsByName("house_tag")[0];
+let email = document.getElementsByName("");
 
 const houseTagChange = () => {
   switch (houseTag.value) {
@@ -20,6 +21,14 @@ const houseTagChange = () => {
       console.log("Room visible");
       break;
   }
+};
+
+const validateForm = () => {
+  //Regex patterns
+  const priceP = "/^d+(.d{1,2})?$/";
+  const locationP = "/^[a-zA-Z0-9 |]+$/";
+
+  regex.test(str);
 };
 
 //Adding action listener
