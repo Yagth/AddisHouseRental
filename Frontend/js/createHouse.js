@@ -1,5 +1,4 @@
-import postData from "./common.js";
-
+import { postData } from "./common.js";
 let roomsI = document.getElementById("no_rooms");
 let bedRoomsI = document.getElementById("bed_rooms");
 let bathRoomsI = document.getElementById("bath_rooms");
@@ -17,13 +16,11 @@ const houseTagChange = () => {
       roomsI.classList.add("hidden");
       bedRoomsI.classList.remove("hidden");
       bathRoomsI.classList.remove("hidden");
-      console.log("Room hidden");
       break;
     default:
       roomsI.classList.remove("hidden");
       bedRoomsI.classList.add("hidden");
       bathRoomsI.classList.add("hidden");
-      console.log("Room visible");
       break;
   }
 };
@@ -45,24 +42,24 @@ const validateForm = () => {
 };
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  log;
-  //   let validForm = validateForm();
-  //   let res;
-  //   errorHeader.classList.remove("hidden");
-  //   if (validForm) {
-  //     let formData = new FormData(form);
-  //     res = postData(
-  //       "localhost:8080/PHP/AddisHouseRental/Backend/api/house/create_house.php",
-  //       formData
-  //     );
-  //     errorHeader.style.backgroundColor = res.success ? "green" : "red";
-  //     errorHeader.innerHTML = res.success
-  //       ? "House created successfully"
-  //       : res.message;
-  //   } else {
-  //     errorHeader.style.backgroundColor = validForm.error ? "red" : "green";
-  //     errorHeader.innerHTML = validForm.message;
-  //   }
+  console.log("prevented default");
+  let validForm = validateForm();
+  let res;
+  errorHeader.classList.remove("hidden");
+  if (!validForm.error) {
+    let formData = new FormData(form);
+    res = postData(
+      "localhost:8080/PHP/AddisHouseRental/Backend/api/house/create_house.php",
+      formData
+    );
+    errorHeader.style.backgroundColor = res.success ? "green" : "red";
+    errorHeader.innerHTML = res.success
+      ? "House created successfully"
+      : res.message;
+  } else {
+    errorHeader.style.backgroundColor = validForm.error ? "red" : "green";
+    errorHeader.innerHTML = validForm.message;
+  }
 });
 
 //Adding action listener
