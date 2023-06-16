@@ -1,6 +1,6 @@
-let roomsI = document.getElementsByName("no_rooms")[0];
-let bedRoomsI = document.getElementsByName("bed_rooms")[0];
-let bathRoomsI = document.getElementsByName("bath_rooms")[0];
+let roomsI = document.getElementById("no_rooms");
+let bedRoomsI = document.getElementById("bed_rooms");
+let bathRoomsI = document.getElementById("bath_rooms");
 let houseTag = document.getElementsByName("house_tag")[0];
 
 const houseTagChange = () => {

@@ -37,12 +37,18 @@
         name="location"
         placeholder="4 Kilo|Mexico|Bole"
       /><br />
-      <label for="">Rooms</label>
-      <input type="number" min="0" name="no_rooms" />
-      <label for="">Bed Rooms</label>
-      <input type="number" min="0" name="bed_rooms" />
-      <label for="">Bath Rooms</label>
-      <input type="number" min="0" name="bath_rooms" />
+      <div class="hidden" id="no_rooms">
+        <label for="">Rooms</label>
+        <input type="number" min="0" name="no_rooms" />
+      </div>
+      <div id="bed_rooms">
+        <label for="">Bed Rooms</label>
+        <input type="number" min="0" name="bed_rooms" />
+      </div>
+      <div id="bath_rooms">
+        <label for="">Bath Rooms</label>
+        <input type="number" min="0" name="bath_rooms" />
+      </div>
       <label for="">Write a house description</label>
       <textarea name="house_desc" id="desc" cols="30" rows="10"></textarea
       ><br />
