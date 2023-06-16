@@ -470,6 +470,7 @@
 }
 
 .custom-heading {
+  font-size: larger;
   color: #fff;
   margin-bottom: 1rem;
 }
@@ -491,6 +492,7 @@
 }
 
 .custom-button {
+  margin: 2%;
   background: none;
   border: none;
   color: rgba(255, 255, 255, 0.5);
