@@ -8,7 +8,6 @@ body {
   background-color: #effdf5;
   width: 85%;
   margin: auto;
-  padding: 0;
 }
 
 /* this part is the banner part  */
@@ -342,7 +341,7 @@ form {
 
 main {
   position: relative;
-  top: -60px;
+  top: -80px;
   background-color: white;
 }
 
