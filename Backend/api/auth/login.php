@@ -19,7 +19,12 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
 
     if($user->firstname){
       if($password === $user->password){
+          $cookieExpiration = time() + (86400 * 1); // 30 days
           session_start();
+
+          setcookie("userId", $user->id, $cookieExpiration, "/");
+          setcookie("userEmail", $user->email, $cookieExpiration, "/");
+          setcookie("userStatus", $user->status, $cookieExpiration, "/");
 
           session_regenerate_id();
           $_SESSION["user_id"] = $user->id;
