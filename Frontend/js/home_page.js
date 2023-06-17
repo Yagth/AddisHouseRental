@@ -1,6 +1,8 @@
-import { saveCookie, shuffleArray, getData, getCookie } from "./common.js";
+import { saveCookie, shuffleArray, getData } from "./common.js";
+import { deleteCookie, getCookie } from "./cookie.js";
 
 let navbar = document.querySelector(".navbar");
+let navButton = document.querySelector(".navbar a");
 
 const loadHouses = async () => {
   let container = document.querySelector(".card_div");
@@ -71,6 +73,20 @@ window.addEventListener("scroll", () => {
 
 let user = getCookie("USer");
 
-if(user.)
+if (user.status == "L") {
+  navbar.innerHTML = "Add House";
+  navbar.src = "http://127.0.0.1:5500/Frontend/pages/addHousePage.html";
+} else if (user.status == "N") {
+  navbar.innerHTML = "logout";
+  navbar.addEventListener("click", async (event) => {
+    event.preventDefault();
+    const res = await getData(
+      "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php",
+      ""
+    );
+
+    deleteCookie("User");
+  });
+}
 
 loadHouses();
