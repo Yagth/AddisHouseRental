@@ -9,8 +9,7 @@ let bathRoomsJ = $("#bath_rooms");
 let houseTag = document.getElementsByName("house_tag")[0];
 let price = document.getElementsByName("price")[0];
 let location = document.getElementsByName("location")[0];
-let form = document.getElementsByTagName("form")[0];
-let submit = document.querySelector(".cbtn");
+let form = $("#addHouse");
 let errorHeader = document.getElementById("error_header");
 
 const houseTagChange = () => {
@@ -42,26 +41,23 @@ const validateForm = () => {
   //Regex patterns
   const priceP = /^[0-9]+(\.[0-9]{1,2})?$/;
   const locationP = /^[a-zA-Z0-9 |]+$/;
-
   if (!priceP.test(price.value)) {
     return { error: true, message: "Price should be in floats" };
   } else if (!locationP.test(location.value)) {
     return { error: true, message: "Wrong location input." };
-  } else if (!form.checkValidity()) {
+  } else if (!document.querySelector("#addHouse").checkValidity()) {
     return { error: true, message: "Invalid or missing input" };
   } else {
     return { error: false };
   }
 };
 
-form.addEventListener("submit", (event) => {
+form.submit(async (event) => {
+  console.log("Preventing post");
   event.preventDefault();
-});
-submit.addEventListener("click", async (event) => {
-  // console.log("Preventing post");
+
   let validForm = validateForm();
   let res;
-  errorHeader.classList.remove("hidden");
   if (!validForm.error) {
     let formData = new FormData(form);
     let userId = getCookie("User");
