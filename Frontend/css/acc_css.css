@@ -1,10 +1,25 @@
 body {
   background-color: #d5e8e2;
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  color: #00b98e;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+.login-logo {
+  width: 60px;
+  height: 60px;
+  border: 2px dotted #00b98e;
+  color: #00b98e;
+  border-radius: 50%;
+  padding: 3%;
+  font-size: 50px;
+}
+
+.login-logo a {
+  text-decoration: none;
 }
 
 .signup-box {
@@ -40,7 +55,9 @@ h1 {
 }
 
 h4 {
+  width: 58%;
   text-align: center;
+  font-weight: 500;
 }
 
 .signup-box form {
@@ -74,10 +91,16 @@ form select {
   height: 35px;
   margin-top: 20px;
   border: none;
-  background-color: #49c1a2;
+  background-color: #00b98e;
   border-radius: 5px;
   color: white;
   font-size: 18px;
+  cursor: pointer;
+  transition: background 0.2s ease-in;
+}
+
+.cbtn:hover {
+  background-color: #0e2e50;
 }
 
 .login-box .cbtn {
