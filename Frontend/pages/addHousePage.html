@@ -4,61 +4,90 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=s, initial-scale=1.0" />
     <title>Add House</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
-    />
     <link rel="stylesheet" href="../css/global.css" />
+    <script src="../js/jQuery-3.7.js"></script>
+    <style>
+      /* Modal Container */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+
+      /* Modal Content */
+      .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 400px;
+      }
+    </style>
   </head>
   <body>
-    <h1>Create a house</h1>
-    <form action="" method="post">
-      <h4 id="error_header" class="status hidden"></h4>
-      <label for="main_pic">Main House picture</label>
-      <input type="file" name="main_pic" id="main_pic" />
-      <label for="other_pics">Other pictures</label>
-      <input type="file" name="other_pics" id="other_pics" multiple />
-      <label for="">Price</label>
-      <input type="text" name="price" />
-      <label for="">House tag</label>
-      <select name="house_tag" id="" required>
-        <option value="Apartment">Apartment</option>
-        <option value="Villa">Villa</option>
-        <option value="Home" selected>Home</option>
-        <option value="Office">Office</option>
-        <option value="Building">Building</option>
-        <option value="Shop">Shop</option>
-      </select>
-      <label for="">Location</label>
-      <input
-        type="text"
-        name="location"
-        placeholder="4 Kilo|Mexico|Bole"
-        required
-      /><br />
-      <div class="hidden" id="no_rooms">
-        <label for="">Rooms</label>
-        <input type="number" min="0" name="no_rooms" />
+    <button id="btn">Click Me</button>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h1>Create a house</h1>
+        <h4 id="error_header" class="status hidden"></h4>
+        <form action="" method="post">
+          <label for="">House tag</label>
+          <select name="house_tag" id="" required>
+            <option value="Apartment">Apartment</option>
+            <option value="Villa">Villa</option>
+            <option value="Home" selected>Home</option>
+            <option value="Office">Office</option>
+            <option value="Building">Building</option>
+            <option value="Shop">Shop</option>
+          </select>
+          <label for="">Location</label>
+          <input
+            type="text"
+            name="location"
+            placeholder="4 Kilo|Mexico|Bole"
+            required
+          /><br />
+          <div class="hidden" id="no_rooms">
+            <label for="">Rooms</label>
+            <input type="number" min="0" name="no_rooms" />
+          </div>
+          <div id="bed_rooms">
+            <label for="">Bed Rooms</label>
+            <input type="number" min="0" name="bed_rooms" />
+          </div>
+          <div id="bath_rooms">
+            <label for="">Bath Rooms</label>
+            <input type="number" min="0" name="bath_rooms" />
+          </div>
+          <label for="">Price</label>
+          <input type="text" name="price" />
+          <label for="main_pic">Main House picture</label>
+          <input type="file" name="main_pic" id="main_pic" />
+          <label for="other_pics">Other pictures</label>
+          <input type="file" name="other_pics" id="other_pics" multiple />
+          <label for="">Write a house description</label>
+          <textarea
+            name="house_desc"
+            id="desc"
+            cols="30"
+            rows="10"
+            required
+          ></textarea
+          ><br />
+          <input type="submit" value="Create" />
+        </form>
       </div>
-      <div id="bed_rooms">
-        <label for="">Bed Rooms</label>
-        <input type="number" min="0" name="bed_rooms" />
-      </div>
-      <div id="bath_rooms">
-        <label for="">Bath Rooms</label>
-        <input type="number" min="0" name="bath_rooms" />
-      </div>
-      <label for="">Write a house description</label>
-      <textarea
-        name="house_desc"
-        id="desc"
-        cols="30"
-        rows="10"
-        required
-      ></textarea
-      ><br />
-      <input type="submit" value="Create" />
-    </form>
+    </div>
+
     <script type="module" src="../js/createHouse.js"></script>
+    <script src="../js/modal.js"></script>
   </body>
 </html>
