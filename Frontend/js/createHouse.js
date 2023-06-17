@@ -67,7 +67,8 @@ form.submit(async (event) => {
       "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/create_house.php",
       formData
     );
-    res = JSON.parse(res);
+    // res = JSON.parse(res);
+    console.log(res);
 
     // for (var entry of formData.entries()) {
     //   console.log(entry[0] + ": " + entry[1]);
