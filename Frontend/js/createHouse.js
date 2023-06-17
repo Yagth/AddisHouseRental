@@ -6,7 +6,7 @@ let houseTag = document.getElementsByName("house_tag")[0];
 let price = document.getElementsByName("price")[0];
 let location = document.getElementsByName("location")[0];
 let form = document.getElementsByTagName("form")[0];
-let submit = document.querySelector(".modal .cbtn");
+let submit = document.querySelector(".cbtn");
 let errorHeader = document.getElementById("error_header");
 
 const houseTagChange = () => {
@@ -49,13 +49,12 @@ const validateForm = () => {
     return { error: false };
   }
 };
-form.addEventListener("submit", function (event) {
-  console.log("Preventing propagation");
-  event.stopImmediatePropagation();
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
 });
 submit.addEventListener("click", async (event) => {
-  event.preventDefault();
-  console.log("Preventing submitting of data");
+  // console.log("Preventing post");
   let validForm = validateForm();
   let res;
   errorHeader.classList.remove("hidden");
@@ -77,6 +76,5 @@ submit.addEventListener("click", async (event) => {
     errorHeader.innerHTML = validForm.message;
   }
 });
-
 //Adding action listener
 houseTag.onchange = houseTagChange;
