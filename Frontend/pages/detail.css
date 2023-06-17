@@ -1,0 +1,96 @@
+*{
+    margin:0px;
+    padding:0px;
+
+}
+img{
+    width:100%;
+
+}
+.location{
+    font-weight: 100;
+    color: darkgray;
+    font-size: small;
+    margin: 5px 0px 5px;
+}
+i {
+    font-size: xx-large;
+    color:cadetblue;
+    
+}
+.idescription{
+   display: flex;
+   align-items: center;
+   margin-right: 10px;
+
+}
+#price{
+    font-weight: bold;
+}
+.idescription-container{
+    display: flex;
+    padding: 10px 0px 10px;
+}
+#main-container{
+    margin: 10px 60px 10px;
+}
+#detail-note h2{
+    margin: 10px 0px 10px;
+}
+#detail-note p{
+    width:800px;
+    margin-right: 20px;
+}
+#seller-pic{
+    margin: 20px;
+    height: 120px;
+    width: 120px;
+    border: 2px gray dotted;
+}
+#contact-agent-btn{
+    padding: 10px 20px 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+    background-color: rgba(225, 160, 81, 0.953);
+    border: 0px;
+    color: white;
+    /* width: 100%; */
+}
+#seller-detail-container{
+    width: 300px;
+    border: 2px gray dotted;
+    border-radius: 10px;;
+}
+#seller-detail-container p{
+    margin: 10px 20px;
+}
+#main-container{
+    display: flex;
+    justify-content: space-around;
+}
+#main-container>div{
+    margin-top: 40px;
+}
+#report-error{
+    text-align: center;
+    margin: 15px;
+}
+.feature-title{
+    font-weight: bold;
+}
+.feature-pair{
+    border-bottom: 1px gray dotted;
+    display: flex;
+    justify-content: space-between;
+}
+.group-feature{
+    margin: 20px 0px;
+}
+
+ #feature-container{
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    width: 75%;
+ }
+ 
