@@ -18,7 +18,23 @@ body {
   font-size: 50px;
 }
 
-.login-logo a {
+.signup-logo {
+  margin: auto;
+  margin-top: 5%;
+  width: 60px;
+  height: 60px;
+  border: 2px dotted #00b98e;
+  color: #00b98e;
+  border-radius: 50%;
+  padding: 3%;
+  font-size: 50px;
+}
+
+.signup-logo:hover {
+  color: #49c1a2;
+}
+
+.signup-logo a {
   text-decoration: none;
 }
 
@@ -58,6 +74,11 @@ h4 {
   width: 58%;
   text-align: center;
   font-weight: 500;
+}
+
+.signup-box h4 {
+  width: 82%;
+  margin: auto;
 }
 
 .signup-box form {
@@ -131,6 +152,10 @@ p {
 }
 
 .login-box a {
+  color: #49c1a2;
+}
+
+.signup-box a {
   color: #49c1a2;
 }
 .para-2 {
