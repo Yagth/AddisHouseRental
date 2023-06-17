@@ -1,4 +1,5 @@
 import { postData } from "./common.js";
+import { getCookie } from "./cookie.js";
 let roomsI = document.getElementById("no_rooms");
 let bedRoomsI = document.getElementById("bed_rooms");
 let bathRoomsI = document.getElementById("bath_rooms");
@@ -60,10 +61,15 @@ submit.addEventListener("click", async (event) => {
   errorHeader.classList.remove("hidden");
   if (!validForm.error) {
     let formData = new FormData(form);
+    let userId = getCookie("User");
+    userId = JSON.parse(userId);
+    userId = userId.id;
+    formData.append("owner_id", userId);
     res = await postData(
       "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/create_house.php",
       formData
     );
+    res = JSON.parse(res);
     console.log(res);
     errorHeader.style.backgroundColor = res.success ? "green" : "red";
     errorHeader.innerHTML = res.success
@@ -71,6 +77,7 @@ submit.addEventListener("click", async (event) => {
       : res.message
       ? res.message
       : res.error;
+    form.reset();
   } else {
     errorHeader.style.backgroundColor = validForm.error ? "red" : "green";
     errorHeader.innerHTML = validForm.message;

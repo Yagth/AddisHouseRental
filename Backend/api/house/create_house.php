@@ -15,7 +15,7 @@ $house = new House($db);
 
 $error_json = json_encode(
     array(
-     'sucess' => false,
+     'success' => false,
      'message' => 'House creation Failed'
      )
 );
@@ -101,7 +101,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES['main_pic'])){
                              "status" => $house->status,
                              "pictures" => $house->house_pics
                             );
-        echo json_encode(array("data" => $house_array, "sucess" => true));
+        echo json_encode(array("data" => $house_array, "success" => true));
     }else{
         echo $error_json;
     }
