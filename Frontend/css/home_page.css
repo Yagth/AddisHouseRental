@@ -270,6 +270,10 @@ form {
   overflow: hidden;
 }
 
+.color-white {
+  color: white;
+}
+
 .form_content {
   height: 50px;
   width: 250px;
@@ -463,7 +467,7 @@ h1 {
   }
   .curousel {
     display: flex;
-    height: 79vh;
+    height: 76vh;
   }
 
   .bannerContent {
