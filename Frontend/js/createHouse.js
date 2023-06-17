@@ -49,6 +49,9 @@ const validateForm = () => {
     return { error: false };
   }
 };
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+});
 submit.addEventListener("click", async (event) => {
   event.preventDefault();
   let validForm = validateForm();
