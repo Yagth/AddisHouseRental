@@ -76,6 +76,11 @@ body {
   color: aliceblue;
   transition: background 0.2s ease-in-out;
 }
+
+.bannerContent img {
+  width: 660px;
+}
+
 #img1 {
   opacity: 1;
 }
@@ -454,15 +459,16 @@ h1 {
   .container {
     width: 50%;
     overflow: hidden;
-    height: 600px;
+    height: 660px;
   }
   .curousel {
     display: flex;
+    height: 79vh;
   }
 
   .bannerContent {
     overflow: hidden;
-    height: 600px;
+    min-height: 600px;
   }
 
   .discription {
