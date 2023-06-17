@@ -52,7 +52,7 @@ const validateForm = () => {
   }
 };
 
-form.submit(async (event) => {
+submit.submit(async (event) => {
   event.preventDefault();
 
   let validForm = validateForm();
