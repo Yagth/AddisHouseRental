@@ -1,4 +1,4 @@
-import { saveCookie, shuffleArray, getData } from "./common.js";
+import { saveCookie, shuffleArray, getData, getCookie } from "./common.js";
 
 let navbar = document.querySelector(".navbar");
 
@@ -68,5 +68,9 @@ startButton.addEventListener("click", () => {
 window.addEventListener("scroll", () => {
   navbar.classList.toggle("sticky", window.scrollY > 0);
 });
+
+let user = getCookie("USer");
+
+if(user.)
 
 loadHouses();
