@@ -21,7 +21,7 @@ const submitData = async () => {
     if (data.success) {
       errorHeader.textContent = "Signup successful";
       errorHeader.style.backgroundColor = "green";
-      // saveCookie("User", data.data);
+      saveCookie("email", data.data.email);
       form.reset();
       setTimeout(() => {
         window.location = "http://127.0.0.1:5500/Frontend/pages/home_page.html";

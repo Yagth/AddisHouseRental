@@ -39,12 +39,12 @@ const submitData = async () => {
   }
 };
 
-let user = getCookie("User");
+let email = getCookie("email");
 let submit = document.getElementById("submit");
 submit.addEventListener("click", submitData);
 
 if (user !== "") {
   user = JSON.parse(user);
   let emailField = document.getElementById("email");
-  emailField.value = user.email;
+  emailField.value = email;
 }
