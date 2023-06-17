@@ -1,0 +1,85 @@
+/* Modal Container */
+/* Modal Container */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Modal Content */
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  color: #04a37e;
+  background-color: #fefefe;
+  margin: auto;
+  margin-top: 10%;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  min-height: 500px;
+}
+
+.close {
+  cursor: pointer;
+}
+
+.modal-content h1,
+.modal-content h4 {
+  text-align: center;
+}
+
+.modal-content form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.form-input {
+  padding: 7px;
+  border: none;
+  border: 1px solid gray;
+  border-radius: 6px;
+  outline: none;
+}
+
+form:last-child {
+  grid-column-end: span 2;
+}
+
+.cbtn {
+  grid-column: span 2;
+  height: 35px;
+  margin-top: 20px;
+  border: none;
+  background-color: #00b98e;
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.2s ease-in;
+}
+
+.cbtn:hover {
+  background-color: #0e2e50;
+}

@@ -16,23 +16,27 @@
         <h1>Create a house</h1>
         <h4 id="error_header" class="status hidden"></h4>
         <form id="login" class="" method="post">
-          <label for="">House tag</label>
-          <select class="form-input" name="house_tag" id="" required>
-            <option value="Apartment">Apartment</option>
-            <option value="Villa">Villa</option>
-            <option value="Home" selected>Home</option>
-            <option value="Office">Office</option>
-            <option value="Building">Building</option>
-            <option value="Shop">Shop</option>
-          </select>
-          <label for="">Location</label>
-          <input
-            class="form-input"
-            type="text"
-            name="location"
-            placeholder="4 Kilo|Mexico|Bole"
-            required
-          /><br />
+          <div>
+            <label for="">House tag</label>
+            <select class="form-input" name="house_tag" id="" required>
+              <option value="Apartment">Apartment</option>
+              <option value="Villa">Villa</option>
+              <option value="Home" selected>Home</option>
+              <option value="Office">Office</option>
+              <option value="Building">Building</option>
+              <option value="Shop">Shop</option>
+            </select>
+          </div>
+          <div>
+            <label for="">Location</label>
+            <input
+              class="form-input"
+              type="text"
+              name="location"
+              placeholder="4 Kilo|Mexico|Bole"
+              required
+            /><br />
+          </div>
           <div class="hidden" id="no_rooms">
             <label for="">Rooms</label>
             <input class="form-input" type="number" min="0" name="no_rooms" />
@@ -45,30 +49,43 @@
             <label for="">Bath Rooms</label>
             <input class="form-input" type="number" min="0" name="bath_rooms" />
           </div>
-          <label for="">Price</label>
-          <input class="form-input" type="text" name="price" />
-          <label for="main_pic">Main House picture</label>
-          <input class="form-input" type="file" name="main_pic" id="main_pic" />
-          <label for="other_pics">Other pictures</label>
-          <input
-            class="form-input"
-            type="file"
-            name="other_pics"
-            id="other_pics"
-            multiple
-          />
-          <label for="">Write a house description</label>
-          <textarea
-            class="form-input"
-            name="house_desc"
-            id="desc"
-            cols="30"
-            rows="10"
-            required
-          ></textarea
-          ><br />
+          <div>
+            <label for="">Price</label>
+            <input class="form-input" type="text" name="price" />
+          </div>
+          <div>
+            <label for="main_pic">Main House picture</label>
+            <input
+              class="form-input"
+              type="file"
+              name="main_pic"
+              id="main_pic"
+            />
+          </div>
+          <div>
+            <label for="other_pics">Other pictures</label>
+            <input
+              class="form-input"
+              type="file"
+              name="other_pics"
+              id="other_pics"
+              multiple
+            />
+          </div>
+          <div>
+            <label for="">Write a house description</label>
+            <textarea
+              class="form-input"
+              name="house_desc"
+              id="desc"
+              cols="30"
+              rows="10"
+              required
+            ></textarea
+            ><br />
+          </div>
         </form>
-        <input type="submit" value="Create" />
+        <input class="cbtn" type="submit" value="Create" />
       </div>
     </div>
 
