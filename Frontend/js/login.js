@@ -43,8 +43,6 @@ let email = getCookie("email");
 let submit = document.getElementById("submit");
 submit.addEventListener("click", submitData);
 
-if (user !== "") {
-  user = JSON.parse(user);
-  let emailField = document.getElementById("email");
+if (email !== "") {
   emailField.value = email;
 }

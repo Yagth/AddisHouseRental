@@ -24,7 +24,8 @@ const submitData = async () => {
       saveCookie("email", data.data.email);
       form.reset();
       setTimeout(() => {
-        window.location = "http://127.0.0.1:5500/Frontend/pages/home_page.html";
+        window.location =
+          "http://127.0.0.1:5500/Frontend/pages/login_page.html";
       }, 5);
     } else {
       errorHeader.textContent = data.error;
