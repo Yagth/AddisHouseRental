@@ -23,6 +23,9 @@ const submitData = async () => {
       errorHeader.style.backgroundColor = "green";
       saveCookie("User", data.data);
       form.reset();
+      setTimeout(() => {
+        window.location = "http://127.0.0.1:5500/Frontend/pages/home_page.html";
+      }, 5);
     } else {
       errorHeader.textContent = data.error;
       errorHeader.style.backgroundColor = "red";
