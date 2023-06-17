@@ -266,12 +266,14 @@ form {
 }
 
 .form_content {
-  height: 40px;
+  height: 50px;
   width: 250px;
-  margin: 5px;
+  margin: 0 5px;
   border-radius: 6px;
+  padding: 0 1%;
   border: none;
   color: aliceblue;
+  background-color: white;
   font-weight: 700;
 }
 
@@ -350,7 +352,20 @@ form {
 }
 
 .form_button {
+  font-weight: 500;
+  font-size: 16px;
+  font-weight: bold;
   background-color: #0e2e50;
+  color: white;
+  transition: background 0.2s ease-in-out;
+}
+
+.form_button:hover {
+  background-color: #113c69;
+}
+
+.form_content:focus {
+  outline: none;
 }
 
 main {

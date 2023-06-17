@@ -14,7 +14,7 @@ function showSuccessMessage() {
 function showErrorMessage() {
   alert("Fill again 😡😡");
   if (searchInput.value === "") {
-    searchInput.style.border = "2px solid #FFA500;";
+    searchInput.style.border = "2px solid red";
   }
   if (propertyTypeSelect.value === "") {
     propertyTypeSelect.style.border = "2px solid red";
