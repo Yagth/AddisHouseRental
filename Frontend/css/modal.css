@@ -63,7 +63,7 @@ form div {
   outline: none;
 }
 
-form:last-child {
+form div:last-of-type {
   grid-column-end: span 2;
 }
 
