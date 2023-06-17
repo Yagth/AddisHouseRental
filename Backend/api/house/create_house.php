@@ -62,7 +62,7 @@ function image_upload($image){
     }
 }
 
-if($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_FILES['main_pic'])){
+if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES['main_pic'])){
     $house->price = $_POST['price'];
     $house->house_desc = $_POST['house_desc'];
     $house->no_rooms = isset($_POST['no_rooms']) ? $_POST['no_rooms'] : null;
