@@ -71,13 +71,11 @@ window.addEventListener("scroll", () => {
   navbar.classList.toggle("sticky", window.scrollY > 0);
 });
 
-console.log(getCookie("User"));
-
-// let user = JSON.parse(getCookie("User"));
-
-let user = "";
+let user = getCookie("User");
 
 if (user) {
+  user = JSON.parse(user);
+  console.log(user.status);
   if (user.status == "L") {
     console.log("Add house");
     navButton.innerHTML = "Add House";

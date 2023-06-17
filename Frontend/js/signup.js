@@ -26,7 +26,7 @@ const submitData = async () => {
       setTimeout(() => {
         window.location =
           "http://127.0.0.1:5500/Frontend/pages/login_page.html";
-      }, 5);
+      }, 50);
     } else {
       errorHeader.textContent = data.error;
       errorHeader.style.backgroundColor = "red";
