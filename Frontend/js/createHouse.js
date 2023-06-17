@@ -57,7 +57,7 @@ submit.addEventListener("click", async (event) => {
   if (!validForm.error) {
     let formData = new FormData(form);
     res = await postData(
-      "localhost:8080/PHP/AddisHouseRental/Backend/api/house/create_house.php",
+      "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/create_house.php",
       formData
     );
     console.log(res);
