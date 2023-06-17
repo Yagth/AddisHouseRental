@@ -25,27 +25,28 @@ h1{
 .properties .container{
     width: 100%;
   height: 100px;
- 
   text-align: left;
 }
 .properties .btn-active{
        text-decoration:none; 
+     
         text-align:center; 
         padding:11px 32px;  
         border-radius: 4px; 
         font-weight:bold; 
         color:#E5FFFF; 
         background-color:#00B98E;
-    
+        border:2px solid #00B98E;
+        box-sizing: border-box;
             display: inline-block;
-            vertical-align: middle; /* This centers the buttons vertically */
+          
+          /* vertical-align: middle; This centers the buttons vertically */
             margin-right: 10px; /* This adds some space between the buttons */
 
 }
 .btn-active:hover{
     background-color:transparent;
-    border:2px solid #00B98E;
-    color:black;
+   color:black;
     cursor:pointer;
      
     }
@@ -59,7 +60,7 @@ h1{
           gap:4rem;
           padding:0 50px;
       }
-      .properties-container .box{
+  .properties-container .box{
           background:var(--light);
          padding:10px;
          border-radius: 1rem;
@@ -67,23 +68,23 @@ h1{
          border: 1px solid rgba(0, 185, 142, .3) !important;
          
       }
-      .properties-container .box:hover{
+  .properties-container .box:hover{
       transform:translateY(-5px);
       transition:0.3s;
       
       }
-      .properties-container .box img{
+  .properties-container .box img{
           border-radius: 1rem;
           height:220px;
           object-fit: cover;
           object-position: center;
       }
-      .properties-container .box img:hover{
+    .properties-container .box img:hover{
         transform:scale(1);
         transition:0.5s;
         
         }
-      .properties-container h3{
+    .properties-container h3{
           font-size: 1rem;
           font-weight: 600;
           float:right;
@@ -118,7 +119,7 @@ h1{
 
    /* thiss part is the card part  */
 .card {
-    /* overflow: hidden; */
+    overflow: hidden;
     width: 300px;
     min-height: 350px;
     border-radius: #ffff;
@@ -130,6 +131,7 @@ h1{
     /* padding: 3em; */
     transform:translateY(-5px);
     transition:0.3s;
+    position:relative;
   }
  
  .tr {
@@ -140,15 +142,27 @@ h1{
     display: grid;
     width: 100%;
     gap: 3rem;
-    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-    margin: 50px auto 50px auto;
-    padding:0 50px;
+    grid-template-columns: repeat(auto-fit, minmax(330px,auto));
+    margin: 20px auto 20px auto;
+    padding:0 20px;
    
   }
-  .card.btn{
-    float:left;
-    
+.card button{
+    text-decoration:none; 
+        text-align:center; 
+        padding:5px 12px; 
+        font-weight:bold; 
+        color:#E5FFFF; 
+        background-color:#00B98E;
+       display: inline-block;
+       vertical-align: middle; /* This centers the buttons vertically */
+        margin-right: 10px; /* This adds some space between the button*/
+       position:absolute;
+       top: 200px;
+       left:195px;
+      
   }
+  
   .cardimg {
     overflow: hidden;
     /* height: 300px; */
@@ -165,7 +179,9 @@ h1{
    
   
   .card_discription {
+    
     background-color: white;
+    
 
   }
   
@@ -197,20 +213,35 @@ h1{
     height: 50px;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   }
   
   .card-foot-c {
     width: 32.5%;
-    height: 50px;
+    height: 30px;
   
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
     border-style: groove;
     border-width: 1px;
     border-color: #14e9b7;
     font-weight: 700;
     font-weight: 300;
-    opacity: 50%;
-  }   
+    opacity: 80%;
+    /* font-size: 20px; */
+
+
+  } 
+  .card-foot-c i{
+    font-size: 15px;
+    color: #14e9b7;
+  }
+  .card-foot-c i span{
+    font-size: 15px;
+    color: #14e9b7;
+  }
+  .card-foot-c sup {
+    font-size: 0.8em;
+    
+  }
