@@ -64,23 +64,39 @@
         <div class="form_div center_form">
             <div class="">
                 <form class="formm">
-                    <input class="form_content" type="text" id="" name="" placeholder="Search keyword"><br>
-                    <select class="form_content">
-                        <option>property type 1</option>
-                        <option>property type 2</option>
-                        <option>property type 3</option>
-                        <option>property type 4</option>
+                    <input
+                      class="form_content"
+                      type="text"
+                      id="search"
+                      name="search"
+                      placeholder="Search by Location"
+                    /><br />
+                    <select class="form_content" id="property_type" name="house_tag">
+                      <option></option>
+                      <option>Appartment</option>
+                      <option>Villa</option>
+                      <option>Home</option>
+                      <option>Office</option>
+                      <option>Building</option>
+                      <option>Shop</option>
                     </select>
-                    <br>
-                    <select class="form_content">
-                        <option>location 1</option>
-                        <option>location 2</option>
-                        <option>location 3</option>
-                        <option>location 4</option>
-                    </select>
-                    <br>
-                    <input class="form_content form_button" type="button" name="" id="" value="Search">
-                </form>
+                    <br />
+                    <input
+                      class="form_content"
+                      type="text"
+                      id="price"
+                      name="price"
+                      placeholder="Search by Max Price"
+                    />
+                    <br />
+                    <input
+                      class="form_content form_button"
+                      type="submit"
+                      name="submit"
+                      id="submit"
+                      value="Search"
+                    />
+                  </form>
             </div>
         </div>
     
@@ -284,6 +300,7 @@
         </div>
     </footer>
     <script src="../js/home_page.js" type="module"></script>
+    <script src="../js/search.js"></script>
 
 </body>
 

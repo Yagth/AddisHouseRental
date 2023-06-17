@@ -7,7 +7,6 @@ body {
   background-color: #effdf5;
   width: 85%;
   margin: auto;
-  /* font-family: "Rubik", sans-serif; */
   font-family: "Montserrat", sans-serif;
   font-size: 1em;
 }
@@ -38,6 +37,7 @@ body {
 
 .discription p {
   font-weight: 300;
+  margin-top: 2%;
 }
 
 .disc_b {
