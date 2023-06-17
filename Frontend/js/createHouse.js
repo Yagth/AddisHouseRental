@@ -3,6 +3,9 @@ import { getCookie } from "./cookie.js";
 let roomsI = document.getElementById("no_rooms");
 let bedRoomsI = document.getElementById("bed_rooms");
 let bathRoomsI = document.getElementById("bath_rooms");
+let roomsJ = $("#no_rooms");
+let bedRoomsJ = $("#bed_rooms");
+let bathRoomsJ = $("#bath_rooms");
 let houseTag = document.getElementsByName("house_tag")[0];
 let price = document.getElementsByName("price")[0];
 let location = document.getElementsByName("location")[0];
@@ -15,19 +18,19 @@ const houseTagChange = () => {
     case "Home":
     case "Apartment":
     case "Building":
-      roomsI.classList.add("hidden");
+      roomsJ.hide();
       roomsI.required = false;
-      bedRoomsI.classList.remove("hidden");
+      bedRoomsJ.show();
+      bathRoomsJ.show();
       bedRoomsI.required = true;
-      bathRoomsI.classList.remove("hidden");
       bathRoomsI.required = true;
 
       break;
     default:
-      roomsI.classList.remove("hidden");
+      roomsJ.show();
       roomsI.required = true;
-      bedRoomsI.classList.add("hidden");
-      bathRoomsI.classList.add("hidden");
+      bedRoomsJ.hide();
+      bathRoomsJ.hide();
       bedRoomsI.required = false;
       bathRoomsI.required = false;
 
@@ -89,4 +92,6 @@ submit.addEventListener("click", async (event) => {
   }
 });
 //Adding action listener
-houseTag.onchange = houseTagChange;
+roomsJ.hide();
+roomsI.required = false;
+houseTag.addEventListener("change", houseTagChange);
