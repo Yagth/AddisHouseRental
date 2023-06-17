@@ -70,7 +70,12 @@ submit.addEventListener("click", async (event) => {
       formData
     );
     res = JSON.parse(res);
+
+    // for (var entry of formData.entries()) {
+    //   console.log(entry[0] + ": " + entry[1]);
+    // }
     console.log(res);
+
     errorHeader.style.backgroundColor = res.success ? "green" : "red";
     errorHeader.innerHTML = res.success
       ? "House created successfully"
