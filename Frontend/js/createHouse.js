@@ -6,10 +6,10 @@ let bathRoomsI = document.getElementById("bath_rooms");
 let roomsJ = $("#no_rooms");
 let bedRoomsJ = $("#bed_rooms");
 let bathRoomsJ = $("#bath_rooms");
+let form = $("#addHouse");
 let houseTag = document.getElementsByName("house_tag")[0];
 let price = document.getElementsByName("price")[0];
 let location = document.getElementsByName("location")[0];
-let form = $("#addHouse");
 let errorHeader = document.getElementById("error_header");
 
 const houseTagChange = () => {
@@ -53,13 +53,12 @@ const validateForm = () => {
 };
 
 form.submit(async (event) => {
-  console.log("Preventing post");
   event.preventDefault();
 
   let validForm = validateForm();
   let res;
   if (!validForm.error) {
-    let formData = new FormData(form);
+    let formData = new FormData(document.querySelector("#addHouse"));
     let userId = getCookie("User");
     userId = JSON.parse(userId);
     userId = userId.id;
@@ -81,7 +80,7 @@ form.submit(async (event) => {
       : res.message
       ? res.message
       : res.error;
-    form.reset();
+    document.querySelector("#addHouse").reset();
   } else {
     errorHeader.style.backgroundColor = validForm.error ? "red" : "green";
     errorHeader.innerHTML = validForm.message;
