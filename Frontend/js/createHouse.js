@@ -6,6 +6,7 @@ let houseTag = document.getElementsByName("house_tag")[0];
 let price = document.getElementsByName("price")[0];
 let location = document.getElementsByName("location")[0];
 let form = document.getElementsByTagName("form")[0];
+let submit = document.querySelector(".cbtn");
 let errorHeader = document.getElementById("error_header");
 
 const houseTagChange = () => {
@@ -48,7 +49,7 @@ const validateForm = () => {
     return { error: false };
   }
 };
-form.addEventListener("submit", async (event) => {
+submit.addEventListener("click", async (event) => {
   event.preventDefault();
   let validForm = validateForm();
   let res;

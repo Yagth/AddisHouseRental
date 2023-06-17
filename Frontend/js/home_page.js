@@ -2,7 +2,7 @@ import { saveCookie, shuffleArray, getData } from "./common.js";
 import { deleteCookie, getCookie } from "./cookie.js";
 
 let navbar = document.querySelector(".navbar");
-let navButton = document.querySelector(".navbar-login");
+let navButton = $(".navbar-login");
 
 const loadHouses = async () => {
   let container = document.querySelector(".card_div");
@@ -77,19 +77,33 @@ if (user) {
   user = JSON.parse(user);
   console.log(user.status);
   if (user.status == "L") {
-    console.log("Add house");
-    navButton.innerHTML = "Add House";
-    navButton.src = "http://127.0.0.1:5500/Frontend/pages/addHousePage.html";
+    navButton.html("Add House");
+    navButton.on("click", function () {
+      $("#modal").toggle(".flex");
+    });
+
+    $(".close, .modal").on("click", function () {
+      $("#modal").css("display", "none");
+    });
+
+    $(".modal-content").on("click", function (event) {
+      event.stopPropagation();
+    });
   } else if (user.status == "N") {
-    navButton.innerHTML = "logout";
-    navButton.addEventListener("click", async (event) => {
-      event.preventDefault();
+    navButton("logout");
+    navButton.on("click", async (event) => {
       const res = await getData(
         "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php",
         ""
       );
       deleteCookie("User");
       location.reload();
+    });
+  } else {
+    navButton.html("login");
+    navButton.addEventListener("click", function () {
+      window.location.href =
+        "http://127.0.0.1:5500/Frontend/pages/login_page.html";
     });
   }
 }

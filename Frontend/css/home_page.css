@@ -359,6 +359,8 @@ form {
   border-radius: 5px;
   text-decoration: none;
   font-size: 16px;
+  border: none;
+  cursor: pointer;
   transition: background 0.2s ease-in-out;
 }
 

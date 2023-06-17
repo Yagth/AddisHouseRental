@@ -18,7 +18,7 @@
   justify-content: center;
 }
 
-form div {
+.modal form div {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -49,6 +49,12 @@ form div {
   text-align: center;
 }
 
+.modal-content h4 {
+  width: 50%;
+  margin: auto;
+  padding: 1% 0;
+}
+
 .modal-content form {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -63,7 +69,7 @@ form div {
   outline: none;
 }
 
-form div:last-of-type {
+.modal form div:last-of-type {
   grid-column-end: span 2;
 }
 

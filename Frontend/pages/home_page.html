@@ -14,6 +14,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="../css/footer.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/modal.css" />
+    <script src="../js/jQuery-3.7.js"></script>
 </head>
 
 <body>
@@ -30,10 +32,88 @@
                 <a href="#">About Us</a>
                 <a href="#">Contact Us</a>
               </div>
-              <a href="http://127.0.0.1:5500/Frontend/pages/login_page.html" class="navbar-login">Login</a>
+              <button class="navbar-login">Login</button>
           </div>
           
         </nav>
+        <div id="modal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <h1>Create a house</h1>
+              <h4 id="error_header" class="status"></h4>
+              <form id="login" class="" method="post">
+                <div>
+                  <label for="">House tag</label>
+                  <select class="form-input" name="house_tag" id="" required>
+                    <option value="Apartment">Apartment</option>
+                    <option value="Villa">Villa</option>
+                    <option value="Home" selected>Home</option>
+                    <option value="Office">Office</option>
+                    <option value="Building">Building</option>
+                    <option value="Shop">Shop</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="">Location</label>
+                  <input
+                    class="form-input"
+                    type="text"
+                    name="location"
+                    placeholder="4 Kilo|Mexico|Bole"
+                    required
+                  /><br />
+                </div>
+                <div class="hidden" id="no_rooms">
+                  <label for="">Rooms</label>
+                  <input class="form-input" type="number" min="0" name="no_rooms" />
+                </div>
+                <div id="bed_rooms">
+                  <label for="">Bed Rooms</label>
+                  <input class="form-input" type="number" min="0" name="bed_rooms" />
+                </div>
+                <div id="bath_rooms">
+                  <label for="">Bath Rooms</label>
+                  <input class="form-input" type="number" min="0" name="bath_rooms" />
+                </div>
+                <div>
+                  <label for="">Price</label>
+                  <input class="form-input" type="text" name="price" />
+                </div>
+                <div>
+                  <label for="main_pic">Main House picture</label>
+                  <input
+                    class="form-input"
+                    type="file"
+                    name="main_pic"
+                    id="main_pic"
+                  />
+                </div>
+                <div>
+                  <label for="other_pics">Other pictures</label>
+                  <input
+                    class="form-input"
+                    type="file"
+                    name="other_pics"
+                    id="other_pics"
+                    multiple
+                  />
+                </div>
+                <div>
+                  <label for="">Write a house description</label>
+                  <textarea
+                    class="form-input"
+                    name="house_desc"
+                    id="desc"
+                    cols="30"
+                    rows="5"
+                    required
+                  ></textarea
+                  ><br />
+                </div>
+              </form>
+              <button class="cbtn" type="submit">Create</button>
+            </div>
+          </div>
       <main>
         <div class="curousel">
             <div class="container">
@@ -298,6 +378,7 @@
         </div>
     </footer>
     <script src="../js/home_page.js" type="module"></script>
+    <script type="module" src="../js/createHouse.js"></script>
     <script src="../js/search.js"></script>
 
 </body>
