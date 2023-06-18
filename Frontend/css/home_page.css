@@ -405,7 +405,8 @@ form {
 
 .button-featured {
   margin-left: 5px;
-  padding: 20px;
+  padding: 10px;
+  width: 100px;
   background-color: white;
   color: #00b98e;
   border-radius: 5px;
