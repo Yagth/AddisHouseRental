@@ -26,9 +26,11 @@ const getData = async (url, query = "") => {
 const postData = async (url, formData) => {
   try {
     const res = await fetch(url, { method: "POST", body: formData });
-    const data = await res.text();
+    const data = await res.json();
+    console.log(data);
     return data;
   } catch (error) {
+    console.log(error);
     return { success: false, message: error };
   }
 };
