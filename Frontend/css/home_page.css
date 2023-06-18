@@ -124,6 +124,17 @@ body {
   overflow: hidden;
 }
 
+.tag {
+  max-width: fit-content;
+  padding: 2% 3%;
+  background-color: white;
+  color: #00b98e;
+  opacity: 1;
+  border-radius: 10px;
+  transform: translate(30px, -20px);
+  font-size: 16px;
+}
+
 .cardimg img {
   transition: all 0.2s ease-in-out;
   width: 100%;
