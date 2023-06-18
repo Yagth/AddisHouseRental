@@ -99,10 +99,16 @@ if (user) {
       deleteCookie("User");
       location.reload();
     });
+  } else {
+    navButton.html("login");
+    navButton.click(function () {
+      window.location.href =
+        "http://127.0.0.1:5500/Frontend/pages/login_page.html";
+    });
   }
 } else {
   navButton.html("login");
-  navButton.addEventListener("click", function () {
+  navButton.click(function () {
     window.location.href =
       "http://127.0.0.1:5500/Frontend/pages/login_page.html";
   });
