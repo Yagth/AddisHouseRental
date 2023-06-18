@@ -147,7 +147,6 @@ body {
 }
 .card_discription {
   width: 100%;
-  z-index: 10;
   opacity: 1;
 }
 .tr {
@@ -345,6 +344,7 @@ form {
   height: 50px;
   padding: 1% 2%;
   transition: width 0.3s ease-in;
+  opacity: 1;
 }
 .navbar-logo {
   display: flex;
