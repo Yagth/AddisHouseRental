@@ -78,7 +78,7 @@ form.submit(async (event) => {
       : res.message
       ? res.message
       : res.error;
-    // document.querySelector("#addHouse").reset();
+    document.querySelector("#addHouse").reset();
   } else {
     errorHeader.style.backgroundColor = validForm.error ? "red" : "green";
     errorHeader.innerHTML = validForm.message;
