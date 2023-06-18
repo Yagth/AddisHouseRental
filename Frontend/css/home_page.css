@@ -32,6 +32,10 @@ body {
 
 /* ......................................... */
 .discription {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: start;
 }
 
@@ -41,7 +45,6 @@ body {
 }
 
 .disc_b {
-  float: right;
   height: 60px;
   width: 170px;
   margin-top: 30px;

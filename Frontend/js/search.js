@@ -3,7 +3,7 @@ const searchForm = document.querySelector(".formm");
 const searchInput = document.querySelector("#search");
 const propertyTypeSelect = document.querySelector("#property_type");
 const priceInput = document.querySelector("#price");
-const searchButton = document.querySelector("#submit");
+const searchButton = document.querySelector("#searchSumbit");
 
 // Function to show a success message popup
 function showSuccessMessage() {
