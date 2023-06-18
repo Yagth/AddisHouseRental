@@ -90,7 +90,7 @@ if (user) {
       event.stopPropagation();
     });
   } else if (user.status == "N") {
-    navButton("logout");
+    navButton.html("logout");
     navButton.on("click", async (event) => {
       const res = await getData(
         "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php",
@@ -108,7 +108,7 @@ if (user) {
   }
 } else {
   navButton.html("login");
-  navButton.click(function () {
+  navButton.on("click", function () {
     window.location.href =
       "http://127.0.0.1:5500/Frontend/pages/login_page.html";
   });
