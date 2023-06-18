@@ -203,6 +203,7 @@ body {
   display: inline;
   border-style: solid;
   border-color: rgb(230, 255, 247);
+  border-radius: 10px;
   margin: auto;
   display: flex;
   align-items: center;
@@ -211,11 +212,12 @@ body {
   transition: background 0.2s ease-in;
 }
 .menu:hover {
-  background: rgb(230, 255, 247);
+  background: #00b98e;
   color: white;
 }
 
-.men {
+.menu .men {
+  padding-top: 3%;
   width: 90%;
   margin: auto;
 }
@@ -229,10 +231,10 @@ body {
   border: 2px dotted #14e9b7;
   background-color: white;
   border-radius: 50%;
-  opacity: 60%;
+  opacity: 1;
 }
 .prorperties {
-  color: #00b98e;
+  color: #0e2e50;
   font-size: 15px;
 }
 .icon_label {
@@ -240,7 +242,6 @@ body {
   font-size: 15px;
   font-weight: 600;
 }
-
 /* ....................................................... */
 /* this one is the form part  */
 form {
