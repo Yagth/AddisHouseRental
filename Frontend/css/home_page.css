@@ -133,6 +133,7 @@ body {
   border-radius: 10px;
   transform: translate(30px, -20px);
   font-size: 16px;
+  font-family: "Heebo", sans-serif;
 }
 
 .cardimg img {
