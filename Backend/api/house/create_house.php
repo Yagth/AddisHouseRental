@@ -13,12 +13,14 @@ $db = $database->connect();
 
 $house = new House($db);
 
-$error_json = json_encode(
-    array(
-     'success' => false,
-     'message' => 'House creation Failed'
-     )
-);
+function error_disp($message='House creation Failed'){
+    return json_encode(
+        array(
+         'success' => false,
+         'message' => $message
+         )
+    );
+}
 
 function image_upload($image){
     
@@ -103,9 +105,13 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES['main_pic'])){
                             );
         echo json_encode(array("data" => $house_array, "success" => true));
     }else{
-        echo $error_json;
+        echo error_disp("Database error on creating house");
     }
     
 } else {
-   echo $error_json;
+    if(!isset($_FILES['main_pic'])){
+        echo error_disp("Image upload failed");
+    } else{
+        echo error_disp();
+    }
 }
