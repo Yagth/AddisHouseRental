@@ -290,7 +290,7 @@ form {
   margin: 40px 0 40px 0;
 }
 
-.listing {
+/* .listing {
   width: 100px;
   height: 30px;
 
@@ -303,15 +303,7 @@ form {
 .listing:hover {
   background-color: #00b98e;
   color: aliceblue;
-}
-
-.butns {
-  /* display: inline-block; */
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+} */
 
 .form_div {
   background-color: #00b98e;
@@ -409,6 +401,32 @@ form {
 
 .navbar-login:hover {
   background-color: #0e2e50;
+}
+
+.button-featured {
+  margin-left: 5px;
+  padding: 20px;
+  background-color: white;
+  color: #00b98e;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  border: 1px solid #00b98e;
+  transition: background 0.2s ease-in-out;
+}
+
+.button-featured:hover,
+.button-featured:active {
+  background-color: #00b98e;
+  color: white;
+}
+
+.butns {
+  /* display: inline-block; */
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin-right: 3%;
 }
 
 .form_button {
