@@ -1,5 +1,7 @@
 import { getCookie } from "./cookie.js";
-import { saveCookie } from "./common.js";
+import { postData, saveCookie } from "./common.js";
+
+let emailField = document.querySelector("#email");
 
 const submitData = async () => {
   try {
