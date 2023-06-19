@@ -14,6 +14,7 @@ const propertyTypeSelect = document.querySelector("#property_type");
 const priceInput = document.querySelector("#price");
 const searchButton = document.querySelector("#searchSubmit");
 let container = document.querySelector(".card_div");
+let tagName = document.querySelector(".tag");
 let card = document.querySelector(".card_div .card");
 
 const clearContainer = () => {
@@ -42,6 +43,7 @@ const searchAndLoad = async (option = 4, query = "") => {
       card.querySelector(".card_text1").textContent = "$" + house.price;
       card.querySelector(".card_text2").textContent = house.house_description;
       card.querySelector(".card_text3 span").textContent = house.location;
+      tagName.textContent = house.house_tag;
       let foots = card.querySelectorAll(".card-foot-c span");
       foots[0].textContent =
         (isHouse ? house.bed_rooms + house.bath_rooms : house.rooms) + " Rooms";
@@ -136,6 +138,7 @@ apartmentB.on("click", (event) => {
   villaB.removeClass("button-active").addClass("button-featured");
   houseB.removeClass("button-active").addClass("button-featured");
   apartmentB.addClass("button-active").removeClass("button-featured");
+  yourPropsB.removeClass("button-active").addClass("button-featured");
 
   filterHousesByTag("Apartment");
 });
@@ -144,6 +147,7 @@ villaB.on("click", () => {
   apartmentB.removeClass("button-active").addClass("button-featured");
   houseB.removeClass("button-active").addClass("button-featured");
   villaB.addClass("button-active").removeClass("button-featured");
+  yourPropsB.removeClass("button-active").addClass("button-featured");
 
   filterHousesByTag("Villa");
 });
@@ -152,6 +156,7 @@ houseB.on("click", () => {
   apartmentB.removeClass("button-active").addClass("button-featured");
   villaB.removeClass("button-active").addClass("button-featured");
   houseB.addClass("button-active").removeClass("button-featured");
+  yourPropsB.removeClass("button-active").addClass("button-featured");
 
   filterHousesByTag("House");
 });
@@ -159,7 +164,10 @@ houseB.on("click", () => {
 yourPropsB.on("click", () => {
   let userId = getCookie("User");
   userId = JSON.parse(userId).id;
-  yourPropsB.addClass("button-active");
+  yourPropsB.addClass("button-active").removeClass("button-featured");
+  houseB.removeClass("button-active").addClass("button-featured");
+  apartmentB.removeClass("button-active").addClass("button-featured");
+  villaB.removeClass("button-active").addClass("button-featured");
   searchAndLoad(3, userId);
 });
 
