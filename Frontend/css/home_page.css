@@ -413,7 +413,7 @@ form {
   font-size: 16px;
   cursor: pointer;
   border: 1px solid #00b98e;
-  transition: background 0.2s ease-in-out;
+  transition: background 0.2s ease-in;
 }
 
 .button-active {
@@ -424,7 +424,7 @@ form {
   font-size: 16px;
   cursor: pointer;
   border: 1px solid #00b98e;
-  transition: background 0.2s ease-in-out;
+  transition: background 0.2s ease-in;
   background-color: #00b98e;
   color: white;
 }
