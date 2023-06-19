@@ -25,8 +25,8 @@ const loadHouses = async () => {
       card.attributes.id = house.id;
       card.querySelector(".card_text1").textContent = "$" + house.price;
       card.querySelector(".card_text2").textContent = house.house_description;
-      card.querySelector(".card_text3").textContent = house.location;
-      let foots = card.querySelectorAll(".card-foot-c");
+      card.querySelector(".card_text3 span").textContent = house.location;
+      let foots = card.querySelectorAll(".card-foot-c span");
       foots[0].textContent =
         (isHouse ? house.bed_rooms + house.bath_rooms : house.rooms) + " Rooms";
       foots[1].textContent = house.bed_rooms + " Beds";
