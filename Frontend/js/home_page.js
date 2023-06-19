@@ -46,30 +46,22 @@ const loadHouses = async () => {
   }
 };
 
-console.log("adding action listener");
-
-apartmentB.on("click", () => {
-  console.log("Clicked");
-  villaB.removeClass("button-hover").addClass("button-featured");
-  houseB.removeClass("button-hover").addClass("button-featured");
-
-  $(this).addClass("button-hover").removeClass("button-featured");
+apartmentB.on("click", (event) => {
+  villaB.removeClass("button-active").addClass("button-featured");
+  houseB.removeClass("button-active").addClass("button-featured");
+  apartmentB.addClass("button-active").removeClass("button-featured");
 });
 
 villaB.on("click", () => {
-  apartmentB.removeClass("button-hover").addClass("button-featured");
-  houseB.removeClass("button-hover").addClass("button-featured");
-
-  $(this).addClass("button-hover").removeClass("button-featured");
-
-  $(this).addClass("button-hover").removeClass("button-featured");
+  apartmentB.removeClass("button-active").addClass("button-featured");
+  houseB.removeClass("button-active").addClass("button-featured");
+  villaB.addClass("button-active").removeClass("button-featured");
 });
 
 houseB.on("click", () => {
-  apartmentB.removeClass("button-hover").addClass("button-featured");
-  villaB.removeClass("button-hover").addClass("button-featured");
-
-  $(this).addClass("button-hover").removeClass("button-featured");
+  apartmentB.removeClass("button-active").addClass("button-featured");
+  villaB.removeClass("button-active").addClass("button-featured");
+  houseB.addClass("button-active").removeClass("button-featured");
 });
 
 let startButton = document.getElementById("start");
