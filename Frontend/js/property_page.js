@@ -153,7 +153,13 @@ houseB.on("click", () => {
   filterHousesByTag("House");
 });
 
+searchButton.on;
+
 searchButton.addEventListener("click", handleSearchSubmit);
+searchInput.addEventListener("change", () => {
+  console.log("Change");
+  searchInput.style.border = "";
+});
 
 window.addEventListener("scroll", () => {
   navbar.classList.toggle("sticky", window.scrollY > 0);
