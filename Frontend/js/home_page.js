@@ -34,7 +34,7 @@ const loadHouses = async () => {
       foots[2].textContent = house.bath_rooms + " Baths";
       card.querySelector("img").src =
         "http://127.0.0.1:5500/Backend/uploads/img/houses/" +
-        house.pics[0][0].photo_url;
+        house.pics[0][0]?.photo_url;
       card.classList.add("visible-card");
       container.appendChild(card);
       card.classList.remove("hidden");
@@ -46,8 +46,10 @@ const loadHouses = async () => {
   }
 };
 
+console.log("adding action listener");
+
 apartmentB.on("click", () => {
-  console.log("Clickec");
+  console.log("Clicked");
   villaB.removeClass("button-hover").addClass("button-featured");
   houseB.removeClass("button-hover").addClass("button-featured");
 
