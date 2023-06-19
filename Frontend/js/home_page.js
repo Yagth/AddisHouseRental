@@ -6,7 +6,6 @@ let navButton = $(".navbar-login");
 let apartmentB = $("#apartment");
 let villaB = $("#villa");
 let houseB = $("#house");
-let housesDiv = $(".card_div");
 
 const loadHouses = async () => {
   let container = document.querySelector(".card_div");
@@ -46,22 +45,44 @@ const loadHouses = async () => {
   }
 };
 
+const filterHousesByTag = (tag) => {
+  let housesDiv = document.querySelector(".card_div");
+  let houseElements = housesDiv.children;
+
+  for (let i = 0; i < houseElements.length; i++) {
+    let house = houseElements[i];
+    let houseTag = house.querySelector(".tag").textContent;
+
+    if (houseTag !== tag) {
+      house.classList.add("hidden");
+    } else {
+      house.classList.remove("hidden");
+    }
+  }
+};
+
 apartmentB.on("click", (event) => {
   villaB.removeClass("button-active").addClass("button-featured");
   houseB.removeClass("button-active").addClass("button-featured");
   apartmentB.addClass("button-active").removeClass("button-featured");
+
+  filterHousesByTag("Apartment");
 });
 
 villaB.on("click", () => {
   apartmentB.removeClass("button-active").addClass("button-featured");
   houseB.removeClass("button-active").addClass("button-featured");
   villaB.addClass("button-active").removeClass("button-featured");
+
+  filterHousesByTag("Villa");
 });
 
 houseB.on("click", () => {
   apartmentB.removeClass("button-active").addClass("button-featured");
   villaB.removeClass("button-active").addClass("button-featured");
   houseB.addClass("button-active").removeClass("button-featured");
+
+  filterHousesByTag("House");
 });
 
 let startButton = document.getElementById("start");
