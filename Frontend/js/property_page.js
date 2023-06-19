@@ -24,9 +24,11 @@ const clearContainer = () => {
 
 const searchAndLoad = async (option = 4, query = "") => {
   // Add event listener to the search button
+  query = "op=" + option + "&q=" + query;
+  console.log(query);
   let data = await getData(
     "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php",
-    "op=" + option + "&q=" + query
+    query
   );
   if (data.success) {
     let houses = shuffleArray(data.data);
@@ -60,9 +62,9 @@ const searchAndLoad = async (option = 4, query = "") => {
 function successHandler(option) {
   let temp = [searchInput.value, priceInput.value, propertyTypeSelect.value];
   let values = [];
-  for (let value in temp) {
-    if (value != "") {
-      values.push(value);
+  for (let i = 0; i < temp.length; i++) {
+    if (temp[i] != "") {
+      values.push(temp[i]);
     }
   }
   let query = values.join(",");
@@ -153,12 +155,21 @@ houseB.on("click", () => {
   filterHousesByTag("House");
 });
 
-searchButton.on;
-
 searchButton.addEventListener("click", handleSearchSubmit);
+
 searchInput.addEventListener("change", () => {
   console.log("Change");
   searchInput.style.border = "";
+});
+
+propertyTypeSelect.addEventListener("change", () => {
+  console.log("Change");
+  propertyTypeSelect.style.border = "";
+});
+
+priceInput.addEventListener("change", () => {
+  console.log("Change");
+  priceInput.style.border = "";
 });
 
 window.addEventListener("scroll", () => {
