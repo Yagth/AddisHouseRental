@@ -416,8 +416,16 @@ form {
   transition: background 0.2s ease-in-out;
 }
 
-.button-featured:hover,
-.button-featured:active {
+.button-active {
+  background-color: #00b98e;
+  color: white;
+}
+
+.button-active:hover {
+  background-color: white;
+  color: #00b98e;
+}
+.button-featured:hover {
   background-color: #00b98e;
   color: white;
 }

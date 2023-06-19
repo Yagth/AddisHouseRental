@@ -3,6 +3,10 @@ import { deleteCookie, getCookie } from "./cookie.js";
 
 let navbar = document.querySelector(".navbar");
 let navButton = $(".navbar-login");
+let apartmentB = $("#apartment");
+let villaB = $("#villa");
+let houseB = $("#house");
+let housesDiv = $(".card_div");
 
 const loadHouses = async () => {
   let container = document.querySelector(".card_div");
@@ -41,6 +45,30 @@ const loadHouses = async () => {
     console.log(data.message);
   }
 };
+
+apartmentB.on("click", () => {
+  villaB.removeClass("button-hover").addClass("button-featured");
+
+  $(this).addClass("button-hover").removeClass("button-featured");
+});
+
+villaB.on("click", () => {
+  let fButtons = $(".butns .button-featured");
+  fButtons.forEach((fbutton) => {
+    fbutton.removeClass("button-hover").addClass("button-featured");
+  });
+
+  $(this).addClass("button-hover").removeClass("button-featured");
+});
+
+houseB.on("click", () => {
+  let fButtons = $(".butns .button-featured");
+  fButtons.forEach((fbutton) => {
+    fbutton.removeClass("button-hover").addClass("button-featured");
+  });
+
+  $(this).addClass("button-hover").removeClass("button-featured");
+});
 
 let forwardButton = document.getElementById("forward-button");
 forwardButton.addEventListener("click", () => {
