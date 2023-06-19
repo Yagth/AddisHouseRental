@@ -6,6 +6,7 @@ let navButton = $(".navbar-login");
 let apartmentB = $("#apartment");
 let villaB = $("#villa");
 let houseB = $("#house");
+let yourPropsB = $("#yourprops");
 
 const searchForm = document.querySelector(".formm");
 const searchInput = document.querySelector("#search");
@@ -31,6 +32,7 @@ const searchAndLoad = async (option = 4, query = "") => {
     query
   );
   if (data.success) {
+    clearContainer();
     let houses = shuffleArray(data.data);
     houses.forEach((house) => {
       let newCard = card.cloneNode(true);
@@ -107,7 +109,6 @@ function handleSearchSubmit() {
 
   // Show success message if only one or three fields are filled, and the selected option is not empty
   if (filledCount === 1 || filledCount === 3) {
-    clearContainer();
     successHandler(option);
   } else {
     // Otherwise show error message and highlight empty fields in red
@@ -153,6 +154,12 @@ houseB.on("click", () => {
   houseB.addClass("button-active").removeClass("button-featured");
 
   filterHousesByTag("House");
+});
+
+yourPropsB.on("click", () => {
+  let userId = getCookie("User");
+  userId = userId.id;
+  searchAndLoad(3, userId);
 });
 
 searchButton.addEventListener("click", handleSearchSubmit);
