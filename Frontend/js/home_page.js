@@ -47,45 +47,27 @@ const loadHouses = async () => {
 };
 
 apartmentB.on("click", () => {
+  console.log("Clickec");
   villaB.removeClass("button-hover").addClass("button-featured");
+  houseB.removeClass("button-hover").addClass("button-featured");
 
   $(this).addClass("button-hover").removeClass("button-featured");
 });
 
 villaB.on("click", () => {
-  let fButtons = $(".butns .button-featured");
-  fButtons.forEach((fbutton) => {
-    fbutton.removeClass("button-hover").addClass("button-featured");
-  });
+  apartmentB.removeClass("button-hover").addClass("button-featured");
+  houseB.removeClass("button-hover").addClass("button-featured");
+
+  $(this).addClass("button-hover").removeClass("button-featured");
 
   $(this).addClass("button-hover").removeClass("button-featured");
 });
 
 houseB.on("click", () => {
-  let fButtons = $(".butns .button-featured");
-  fButtons.forEach((fbutton) => {
-    fbutton.removeClass("button-hover").addClass("button-featured");
-  });
+  apartmentB.removeClass("button-hover").addClass("button-featured");
+  villaB.removeClass("button-hover").addClass("button-featured");
 
   $(this).addClass("button-hover").removeClass("button-featured");
-});
-
-let forwardButton = document.getElementById("forward-button");
-forwardButton.addEventListener("click", () => {
-  let img1 = document.getElementById("img1");
-  let img2 = document.getElementById("img2");
-  let img3 = document.getElementById("img3");
-  console.log(img1.style.opacity);
-  if (img1.style.opacity == "1") {
-    img1.style.opacity = "0";
-    img2.style.opacity = "1";
-  } else if (img2.style.opacity == "1") {
-    img2.style.opacity = "0";
-    img3.style.opacity = "1";
-  } else if (img3.style.opacity == "1") {
-    img3.style.opacity = "0";
-    img1.style.opacity = "1";
-  }
 });
 
 let startButton = document.getElementById("start");
