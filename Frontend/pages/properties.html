@@ -1,151 +1,475 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>property List</title>
-    <link rel="stylesheet" href="../css/styleproperty.css">
-    <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width ,initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="../css/home_page.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link href="img/favicon.html" rel="icon" />
 
-</head>
-<body>
-    <section class="properties container" id="properties">  
-         <h1>Property Listing</h1>
-         <a href="" class="btn-active">Featured</a>
-         <a href="" class="btn-active">For Sell</a>
-         <a href="" class="btn-active">For Rent</a>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;500;900&family=Montserrat:wght@300;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-        <div class="heading">
-            <h2> Our Featured properties</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque, numquam! Autem totam rem id voluptates commodi ut ducimus delectus eligendi cupiditate labore in hic minima, nemo placeat odit laudantium amet?</p>
-    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link href="../css/footer.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/modal.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+  </head>
+
+  <body>
+    <div style="height: 50px; position: relative; opacity: 0"></div>
+    <nav class="navbar">
+      <div class="navbar-logo">
+        <img src="../img/store.png" alt="Logo" />
+        <h1 class="navbar-title"><a href="#">Addis House</a></h1>
+      </div>
+      <div class="link-container">
+        <div class="navbar-links">
+          <a href="http://127.0.0.1:5500/Frontend/pages/home_page.html">Home</a>
+          <a href="http://127.0.0.1:5500/Frontend/pages/properties.html"
+            >House Lists</a
+          >
+          <a href="http://127.0.0.1:5500/Frontend/pages/home_page.html"
+            >About Us</a
+          >
+          <a href="http://127.0.0.1:5500/Frontend/pages/home_page.html"
+            >Contact Us</a
+          >
         </div>
-        <div class="properties-container">
-            <!-- box 1 -->
-            <div class="box">
-                <img src="img/h11.jpg" alt="">
-                <h3>$12,999</h3>
-                <div class="content">
-                    <div class="text">
-                        <h3>The Golden Urban House</h3>
-                        <i class='bx bxs-location-plus'></i>
-                        <p>London,Uk</p>
-                        
-                        
-                        
-                    </div>
-                    <div class="icon">
-                        <i class="bx bx-bed"><span>5</span></i>
-                        <i class="bx bx-bath"><span>2</span></i>
-                    </div>
-                </div>
-            </div>
-              <!-- box 2 -->
-              <div class="box">
-                <img src="img/h13.jpg" alt="">
-                <h3>$10,999</h3>
-                <div class="content">
-                    <div class="text">
-                        <h3>The Palace</h3>
-                        <p>London,Uk</p>
-                    </div>
-                    <div class="icon">
-                        <i class="bx bx-bed"><span>5</span></i>
-                        <i class="bx bx-bath"><span>2</span></i>
-                    </div>
-                </div>
-            </div>  <!-- box 3 -->
-            <div class="box">
-                <img src="img/h10.jpg" alt="">
-                <h3>$11,999</h3>
-                <div class="content">
-                    <div class="text">
-                        <h3>The Palace</h3>
-                        <p>London,Uk</p>
-                    </div>
-                    <div class="icon">
-                        <i class="bx bx-bed"><span>5</span></i>
-                        <i class="bx bx-bath"><span>2</span></i>
-                    </div>
-                </div>
-            </div>
-              <!-- box 1 -->
-              <div class="box">
-                <img src="img/h13.jpg" alt="">
-                <h3>$9,999</h3>
-                <div class="content">
-                    <div class="text">
-                        <h3>The Palace</h3>
-                        <p>London,Uk</p>
-                    </div>
-                    <div class="icon">
-                        <i class="bx bx-bed"><span>5</span></i>
-                        <i class="bx bx-bath"><span>2</span></i>
-                    </div>
-                </div>
-            </div>
-              <!-- box 4 -->
-              <div class="box">
-                <img src="img/h1.jpg" alt="">
-                <h3>$10,999</h3>
-                <div class="content">
-                    <div class="text">
-                        <h3>The Palace</h3>
-                        <p>London,Uk</p>
-                    </div>
-                    <div class="icon">
-                        <i class="bx bx-bed"><span>5</span></i>
-                        <i class="bx bx-bath"><span>2</span></i>
-                    </div>
-                </div>
-            </div>
-             <!-- box 4 -->
-             <div class="box">
-                <img src="img/property-4.jpg" alt="">
-                <h3>$10,999</h3>
-                <div class="content">
-                    <div class="text">
-                        <h3>The Palace</h3>
-                        <p>London,Uk</p>
-                    </div>
-                    <div class="icon">
-                        <i class="bx bx-bed"><span>5</span></i>
-                        <i class="bx bx-bath"><span>2</span></i>
-                    </div>
-                </div>
-            </div>
-             <!-- box 4 -->
-             <div class="box">
-                <img src="img/property-3.jpg" alt="">
-                <h3>$10,999</h3>
-                <div class="content">
-                    <div class="text">
-                        <h3>The Palace</h3>
-                        <p>London,Uk</p>
-                    </div>
-                    <div class="icon">
-                        <i class="bx bx-bed"><span>5</span></i>
-                        <i class="bx bx-bath"><span>2</span></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card hidden">
-                <div class="cardimg"> <img src="" height="200" width="300"></div>
-                <div class="card_discription">
-                    <h1 class="card_text1">$12,000</h1>
-                    <h1 class="card_text2">Golden Urban House For Sell</h1>
-                    <h4 class="card_text3">123 street , new york,usa</h4>
-                    <div class="card-foot">
-                        <div class="card-foot-c">1000 Sqft</div>
-                        <div class="card-foot-c">3 Bed</div>
-                        <div class="card-foot-c">2 Bath</div>
-                    </div>
-                </div>
-    
+        <button class="navbar-login">Login</button>
+      </div>
+    </nav>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h1>Create a house</h1>
+        <h4 id="error_header" class="status"></h4>
+        <form id="addHouse" class="">
+          <div>
+            <label for="">House tag</label>
+            <select class="form-input" name="house_tag" id="" required>
+              <option value="Apartment">Apartment</option>
+              <option value="Villa">Villa</option>
+              <option value="Home" selected>Home</option>
+              <option value="Office">Office</option>
+              <option value="Building">Building</option>
+              <option value="Shop">Shop</option>
+            </select>
+          </div>
+          <div>
+            <label for="">Location</label>
+            <input
+              class="form-input"
+              type="text"
+              name="location"
+              placeholder="4 Kilo|Mexico|Bole"
+              required
+            /><br />
+          </div>
+          <div class="hidden" id="no_rooms">
+            <label for="">Rooms</label>
+            <input class="form-input" type="number" min="0" name="no_rooms" />
+          </div>
+          <div id="bed_rooms">
+            <label for="">Bed Rooms</label>
+            <input class="form-input" type="number" min="0" name="bed_rooms" />
+          </div>
+          <div id="bath_rooms">
+            <label for="">Bath Rooms</label>
+            <input class="form-input" type="number" min="0" name="bath_rooms" />
+          </div>
+          <div>
+            <label for="">Price</label>
+            <input class="form-input" type="text" name="price" />
+          </div>
+          <div>
+            <label for="main_pic">Main House picture</label>
+            <input
+              class="form-input"
+              type="file"
+              name="main_pic"
+              id="main_pic"
+            />
+          </div>
+          <div>
+            <label for="other_pics">Other pictures</label>
+            <input
+              class="form-input"
+              type="file"
+              name="other_pics"
+              id="other_pics"
+              multiple
+            />
+          </div>
+          <div>
+            <label for="">Write a house description</label>
+            <textarea
+              class="form-input"
+              name="house_desc"
+              id="desc"
+              cols="30"
+              rows="5"
+              required
+            ></textarea
+            ><br />
+          </div>
+          <input id="submit" class="cbtn" type="submit" value="Create" />
+        </form>
+      </div>
+    </div>
+    <main>
+      <div class="form_div center_form">
+        <div class="">
+          <form class="formm">
+            <input
+              class="form_content"
+              type="text"
+              id="search"
+              name="search"
+              placeholder="Search by Location"
+              value=""
+            /><br />
+            <select class="form_content" id="property_type" name="house_tag">
+              <option value="">Choose house type</option>
+              <option value="Appartment">Appartment</option>
+              <option value="Villa">Villa</option>
+              <option value="Home">Home</option>
+              <option value="Office">Office</option>
+              <option value="Building">Building</option>
+              <option value="Shop">Shop</option>
+            </select>
+            <br />
+            <input
+              class="form_content"
+              type="text"
+              id="price"
+              name="price"
+              placeholder="Max Price Boundary"
+            />
+            <br />
+            <input
+              class="form_content form_button"
+              type="submit"
+              name="submit"
+              id="searchSubmit"
+              value="Search"
+            />
+          </form>
         </div>
-    </section>
-    
-</body>
+      </div>
+      <div class="butns">
+        <button id="apartment" class="button-featured">Apartment</button>
+        <button id="villa" class="button-featured">Villa</button>
+        <button id="house" class="button-featured">House</button>
+      </div>
+
+      <!-- ............................................................................................................... -->
+      <div class="card_div">
+        <div class="card hidden">
+          <div class="cardimg"><img src="" height="" width="" /></div>
+          <div class="card_discription">
+            <div class="tag">Apartment</div>
+            <h1 class="card_text1">$12,000</h1>
+            <h1 class="card_text2">Golden Urban House For Sell</h1>
+            <h4 class="card_text3">123 street , new york,usa</h4>
+            <div class="card-foot">
+              <div class="card-foot-c">1000 Sqft</div>
+              <div class="card-foot-c">3 Bed</div>
+              <div class="card-foot-c">2 Bath</div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="cardimg">
+            <img src="../img/property-3 copy.jpg" height="" width="" />
+          </div>
+          <div class="card_discription">
+            <div class="tag">Apartment</div>
+            <h1 class="card_text1">$12,000</h1>
+            <h1 class="card_text2">Golden Urban House For Sell</h1>
+            <h4 class="card_text3">
+              <i
+                class="fa-sharp fa-solid fa-location-dot small-icons bigger-icons"
+              ></i
+              >123 street , new york,usa
+            </h4>
+            <div class="card-foot">
+              <div class="card-foot-c">
+                <i class="fa-solid fa-ruler-combined small-icons"></i>1000 Sqft
+              </div>
+              <div class="card-foot-c">
+                <i class="fa-sharp fa-solid fa-bed small-icons"></i>3 Bed
+              </div>
+              <div class="card-foot-c">
+                <i class="fa-solid fa-bath small-icons"></i>2 Bath
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="cardimg">
+            <img src="../img/property-4 copy.jpg" height="" width="" />
+          </div>
+          <div class="card_discription">
+            <div class="tag">Villa</div>
+            <h1 class="card_text1">$12,000</h1>
+            <h1 class="card_text2">Golden Urban House For Sell</h1>
+            <h4 class="card_text3">
+              <i
+                class="fa-sharp fa-solid fa-location-dot small-icons bigger-icons"
+              ></i
+              >123 street , new york,usa
+            </h4>
+            <div class="card-foot">
+              <div class="card-foot-c">
+                <i class="fa-solid fa-ruler-combined small-icons"></i>1000 Sqft
+              </div>
+              <div class="card-foot-c">
+                <i class="fa-sharp fa-solid fa-bed small-icons"></i>3 Bed
+              </div>
+              <div class="card-foot-c">
+                <i class="fa-solid fa-bath small-icons"></i>2 Bath
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="cardimg">
+            <img src="../img/property-5.jpg" height="" width="" />
+          </div>
+          <div class="card_discription">
+            <div class="tag">Villa</div>
+            <h1 class="card_text1">$12,000</h1>
+            <h1 class="card_text2">Golden Urban House For Sell</h1>
+            <h4 class="card_text3">
+              <i
+                class="fa-sharp fa-solid fa-location-dot small-icons bigger-icons"
+              ></i
+              >123 street , new york,usa
+            </h4>
+            <div class="card-foot">
+              <div class="card-foot-c">
+                <i class="fa-solid fa-ruler-combined small-icons"></i>1000 Sqft
+              </div>
+              <div class="card-foot-c">
+                <i class="fa-sharp fa-solid fa-bed small-icons"></i>3 Bed
+              </div>
+              <div class="card-foot-c">
+                <i class="fa-solid fa-bath small-icons"></i>2 Bath
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cardimg">
+            <img src="../img/property-6.jpg" height="" width="" />
+          </div>
+          <div class="card_discription">
+            <div class="tag">Villa</div>
+            <h1 class="card_text1">$12,000</h1>
+            <h1 class="card_text2">Golden Urban House For Sell</h1>
+            <h4 class="card_text3">
+              <i
+                class="fa-sharp fa-solid fa-location-dot small-icons bigger-icons"
+              ></i
+              >123 street , new york,usa
+            </h4>
+            <div class="card-foot">
+              <div class="card-foot-c">
+                <i class="fa-solid fa-ruler-combined small-icons"></i>1000 Sqft
+              </div>
+              <div class="card-foot-c">
+                <i class="fa-sharp fa-solid fa-bed small-icons"></i>3 Bed
+              </div>
+              <div class="card-foot-c">
+                <i class="fa-solid fa-bath small-icons"></i>2 Bath
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- .................................................................................................................... -->
+    <footer>
+      <div class="cont">
+        <div class="f-container">
+          <div class="m-row">
+            <div style="margin-right: 0; width: 200px">
+              <dl>
+                <dd>
+                  <h5 class="custom-heading">Get In Touch</h5>
+                </dd>
+                <dd>
+                  <p class="custom-element">
+                    <i class="fa fa-map-marker-alt" style="margin-right: 2%"></i
+                    >AddisAbaba, Ethiopia
+                  </p>
+                </dd>
+                <dd>
+                  <p class="custom-element">
+                    <i class="fa fa-phone-alt" style="margin-right: 2%"></i>+251
+                    345 67890
+                  </p>
+                </dd>
+                <dd>
+                  <p class="custom-element">
+                    <i class="fa fa-envelope" style="margin-right: 2%"></i
+                    >info@example.com
+                  </p>
+                </dd>
+              </dl>
+              <div class="">
+                <a href="#"><i class="fab fa-twitter s-button"></i></a>
+                <a href="#"><i class="fab fa-facebook-f s-button"></i></a>
+                <a href="#"><i class="fab fa-youtube s-button"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in s-button"></i></a>
+              </div>
+            </div>
+            <div class="">
+              <dl>
+                <dd>
+                  <h5 class="custom-heading">Quick Links</h5>
+                </dd>
+                <dd>
+                  <a class="custom-button" href="#">
+                    <i
+                      class="fas fa-chevron-right"
+                      style="font-size: 12px; margin-right: 2%"
+                    ></i>
+                    About Us</a
+                  >
+                </dd>
+                <dd>
+                  <a class="custom-button" href="#"
+                    ><i
+                      class="fas fa-chevron-right"
+                      style="font-size: 12px; margin-right: 2%"
+                    ></i>
+                    Contact Us</a
+                  >
+                </dd>
+                <dd>
+                  <a class="custom-button" href="#"
+                    ><i
+                      class="fas fa-chevron-right"
+                      style="font-size: 12px; margin-right: 2%"
+                    ></i>
+                    Our Services</a
+                  >
+                </dd>
+                <dd>
+                  <a class="custom-button" href="#"
+                    ><i
+                      class="fas fa-chevron-right"
+                      style="font-size: 12px; margin-right: 2%"
+                    ></i>
+                    Privacy Policy</a
+                  >
+                </dd>
+                <dd>
+                  <a class="custom-button" href="#"
+                    ><i
+                      class="fas fa-chevron-right"
+                      style="font-size: 12px; margin-right: 2%"
+                    ></i>
+                    Terms & Condition</a
+                  >
+                </dd>
+              </dl>
+            </div>
+            <div>
+              <h5 class="custom-heading">Photo Gallery</h5>
+              <div class="image-container">
+                <div class="">
+                  <img
+                    class="custom-image"
+                    src="../img/property-1.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="">
+                  <img
+                    class="custom-image"
+                    src="../img/property-2.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="">
+                  <img
+                    class="custom-image"
+                    src="../img/property-3.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="">
+                  <img
+                    class="custom-image"
+                    src="../img/property-4.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="">
+                  <img
+                    class="custom-image"
+                    src="../img/property-5.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="">
+                  <img
+                    class="custom-image"
+                    src="../img/property-6.jpg"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div>
+              <h5 class="custom-heading">Newsletter</h5>
+              <div class="">
+                <p>SignUp for our newsletter to get updates daily.</p>
+                <br />
+                <input class="tex" type="text" placeholder="Your email" />
+                <button class="tex texb">SignUp</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="end">
+          <div class="copyright">
+            <div class="">
+              <div>
+                <hr />
+                <div style="padding-top: 2%; margin: auto; width: 700px">
+                  &copy;
+                  <a href="#" style="color: aliceblue">AddisHouseRental</a>, All
+                  Right Reserved. Designed By
+                  <a href="#" style="color: aliceblue">Ebsa Tsegaye</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="../js/home_page.js" type="module"></script>
+    <script type="module" src="../js/createHouse.js"></script>
+    <script src="../js/jQuery-3.7.js"></script>
+  </body>
 </html>
