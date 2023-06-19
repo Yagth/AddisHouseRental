@@ -18,6 +18,9 @@ const searchHouses = async (query) => {
   );
   if (data.success) {
     let houses = shuffleArray(data.data);
+    if (houses.length > 6) {
+      houses = houses.slice(0, 6); //Take the first 6 elements of the array
+    }
     houses.forEach((house) => {
       let newCard = card.cloneNode(true);
       let isHouse = ["Apartment", "Villa", "Home"].includes(house.house_tag);
@@ -25,21 +28,20 @@ const searchHouses = async (query) => {
       card.attributes.id = house.id;
       card.querySelector(".card_text1").textContent = "$" + house.price;
       card.querySelector(".card_text2").textContent = house.house_description;
-      card.querySelector(".card_text3").textContent = house.location;
-      let foots = card.querySelectorAll(".card-foot-c");
+      card.querySelector(".card_text3 span").textContent = house.location;
+      let foots = card.querySelectorAll(".card-foot-c span");
       foots[0].textContent =
         (isHouse ? house.bed_rooms + house.bath_rooms : house.rooms) + " Rooms";
       foots[1].textContent = house.bed_rooms + " Beds";
       foots[2].textContent = house.bath_rooms + " Baths";
       card.querySelector("img").src =
         "http://127.0.0.1:5500/Backend/uploads/img/houses/" +
-        house.pics[0][0].photo_url;
+        house.pics[0][0]?.photo_url;
       card.classList.add("visible-card");
       container.appendChild(card);
       card.classList.remove("hidden");
       card = newCard;
     });
-    saveCookie("houses", { houseArray: houses });
   } else {
     console.log(data.message);
   }

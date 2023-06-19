@@ -41,7 +41,6 @@ const loadHouses = async () => {
       card.classList.remove("hidden");
       card = newCard;
     });
-    saveCookie("houses", { houseArray: houses });
   } else {
     console.log(data.message);
   }
