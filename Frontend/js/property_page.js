@@ -198,6 +198,7 @@ if (user) {
   user = JSON.parse(user);
   console.log(user.status);
   if (user.status == "L") {
+    yourPropsB.show();
     navButton.html("Add House");
     navButton.on("click", function () {
       $("#modal").toggle(".flex");
