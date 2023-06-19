@@ -11,7 +11,7 @@ const searchForm = document.querySelector(".formm");
 const searchInput = document.querySelector("#search");
 const propertyTypeSelect = document.querySelector("#property_type");
 const priceInput = document.querySelector("#price");
-const searchButton = document.querySelector("#searchSumbit");
+const searchButton = document.querySelector("#searchSubmit");
 let container = document.querySelector(".card_div");
 let card = document.querySelector(".card_div .card");
 
