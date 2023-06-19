@@ -5,9 +5,8 @@ const searchInput = document.querySelector("#search");
 const propertyTypeSelect = document.querySelector("#property_type");
 const priceInput = document.querySelector("#price");
 const searchButton = document.querySelector("#searchSumbit");
-const form = document.querySelector("#searchForm");
 
-const searchHouses = async (query) => {
+const searchHouses = async (option, query) => {
   let container = document.querySelector(".card_div");
   let card = document.querySelector(".card_div .card");
 
@@ -48,13 +47,21 @@ const searchHouses = async (query) => {
 };
 
 // Function to show a success message popup
-function showSuccessMessage() {
-  alert("U have submitted successfully My coder😘😍");
+function successHandler(option) {
+  let temp = [searchInput.value, priceInput.value, house_tag.value];
+  let values = [];
+  for (let value in temp) {
+    if (value != "") {
+      values.push(value);
+    }
+  }
+  let query = values.join(",");
+  searchHouses(option, query);
 }
 
 // Function to show an error message and highlight the empty fields in red
-function showErrorMessage() {
-  alert("Fill again 😡😡");
+function errorHandler() {
+  // alert("Fill again 😡😡");
   if (searchInput.value === "") {
     searchInput.style.border = "2px solid red";
   }
@@ -69,23 +76,30 @@ function showErrorMessage() {
 // Function to handle the form submission
 function handleSearchSubmit() {
   // Check how many form elements are filled
+  let option;
   let filledCount = 0;
   if (searchInput.value !== "") {
-    filledCount++;
-  }
-  if (priceInput.value !== "") {
+    option = 0;
     filledCount++;
   }
   if (propertyTypeSelect.value !== "") {
+    option = 1;
     filledCount++;
+  }
+  if (priceInput.value !== "") {
+    option = 2;
+    filledCount++;
+  }
+  if (filledCount === 3) {
+    option = 5;
   }
 
   // Show success message if only one or three fields are filled, and the selected option is not empty
   if (filledCount === 1 || filledCount === 3) {
-    showSuccessMessage();
+    successHandler();
   } else {
     // Otherwise show error message and highlight empty fields in red
-    showErrorMessage();
+    errorHandler();
   }
 }
 
