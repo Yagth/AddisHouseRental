@@ -1,10 +1,20 @@
 import { saveCookie, shuffleArray, getData } from "./common.js";
 
-const loadHouses = async () => {
+const searchForm = document.querySelector(".formm");
+const searchInput = document.querySelector("#search");
+const propertyTypeSelect = document.querySelector("#property_type");
+const priceInput = document.querySelector("#price");
+const searchButton = document.querySelector("#searchSumbit");
+const form = document.querySelector("#searchForm");
+
+const searchHouses = async (searchParams) => {
   let container = document.querySelector(".card_div");
   let card = document.querySelector(".card_div .card");
+
+  // Add event listener to the search button
   let data = await getData(
-    "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php"
+    "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php",
+    ""
   );
   if (data.success) {
     let houses = shuffleArray(data.data);
@@ -37,3 +47,47 @@ const loadHouses = async () => {
     console.log(data.message);
   }
 };
+
+// Function to show a success message popup
+function showSuccessMessage() {
+  alert("U have submitted successfully My coder😘😍");
+}
+
+// Function to show an error message and highlight the empty fields in red
+function showErrorMessage() {
+  alert("Fill again 😡😡");
+  if (searchInput.value === "") {
+    searchInput.style.border = "2px solid red";
+  }
+  if (propertyTypeSelect.value === "") {
+    propertyTypeSelect.style.border = "2px solid red";
+  }
+  if (priceInput.value === "") {
+    priceInput.style.border = "2px solid red";
+  }
+}
+
+// Function to handle the form submission
+function handleSearchSubmit() {
+  // Check how many form elements are filled
+  let filledCount = 0;
+  if (searchInput.value !== "") {
+    filledCount++;
+  }
+  if (priceInput.value !== "") {
+    filledCount++;
+  }
+  if (propertyTypeSelect.value !== "") {
+    filledCount++;
+  }
+
+  // Show success message if only one or three fields are filled, and the selected option is not empty
+  if (filledCount === 1 || filledCount === 3) {
+    showSuccessMessage();
+  } else {
+    // Otherwise show error message and highlight empty fields in red
+    showErrorMessage();
+  }
+}
+
+searchButton.addEventListener("click", handleSearchSubmit);
