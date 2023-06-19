@@ -30,15 +30,11 @@ const searchAndLoad = async (option = 4, query = "") => {
   );
   if (data.success) {
     let houses = shuffleArray(data.data);
-    if (houses.length > 6) {
-      houses = houses.slice(0, 6); //Take the first 6 elements of the array
-    }
     houses.forEach((house) => {
       let newCard = card.cloneNode(true);
       let isHouse = ["Apartment", "Villa", "Home"].includes(house.house_tag);
 
       card.attributes.id = house.id;
-      console.log(card);
       card.querySelector(".card_text1").textContent = "$" + house.price;
       card.querySelector(".card_text2").textContent = house.house_description;
       card.querySelector(".card_text3 span").textContent = house.location;
