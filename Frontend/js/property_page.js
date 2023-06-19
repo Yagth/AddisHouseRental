@@ -1,4 +1,4 @@
-import { saveCookie, shuffleArray, getData } from "./common.js";
+import { shuffleArray, getData } from "./common.js";
 import { deleteCookie, getCookie } from "./cookie.js";
 
 let navbar = document.querySelector(".navbar");
@@ -158,7 +158,8 @@ houseB.on("click", () => {
 
 yourPropsB.on("click", () => {
   let userId = getCookie("User");
-  userId = userId.id;
+  userId = JSON.parse(userId).id;
+  yourPropsB.addClass("button-active");
   searchAndLoad(3, userId);
 });
 
