@@ -5,15 +5,21 @@ const searchInput = document.querySelector("#search");
 const propertyTypeSelect = document.querySelector("#property_type");
 const priceInput = document.querySelector("#price");
 const searchButton = document.querySelector("#searchSumbit");
+let container = document.querySelector(".card_div");
+let card = document.querySelector(".card_div .card");
 
-const searchHouses = async (option, query) => {
-  let container = document.querySelector(".card_div");
-  let card = document.querySelector(".card_div .card");
+const clearContainer = () => {
+  while (container.childElementCount > 1) {
+    container.removeChild(container.lastChild);
+  }
+  container.children[0].classList.add("hidden");
+};
 
+const searchAndLoad = async (option = 4, query = "") => {
   // Add event listener to the search button
   let data = await getData(
     "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php",
-    query
+    "op=" + option + "&q=" + query
   );
   if (data.success) {
     let houses = shuffleArray(data.data);
@@ -56,12 +62,11 @@ function successHandler(option) {
     }
   }
   let query = values.join(",");
-  searchHouses(option, query);
+  searchAndLoad(option, query);
 }
 
 // Function to show an error message and highlight the empty fields in red
 function errorHandler() {
-  // alert("Fill again 😡😡");
   if (searchInput.value === "") {
     searchInput.style.border = "2px solid red";
   }
@@ -96,6 +101,7 @@ function handleSearchSubmit() {
 
   // Show success message if only one or three fields are filled, and the selected option is not empty
   if (filledCount === 1 || filledCount === 3) {
+    clearContainer();
     successHandler();
   } else {
     // Otherwise show error message and highlight empty fields in red
@@ -103,4 +109,5 @@ function handleSearchSubmit() {
   }
 }
 
+searchAndLoad();
 searchButton.addEventListener("click", handleSearchSubmit);
