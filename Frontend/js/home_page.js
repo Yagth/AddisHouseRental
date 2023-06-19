@@ -6,6 +6,8 @@ let navButton = $(".navbar-login");
 let apartmentB = $("#apartment");
 let villaB = $("#villa");
 let houseB = $("#house");
+let browseB = $(".button-div .button-active");
+let startButton = document.getElementById("start");
 
 const loadHouses = async () => {
   let container = document.querySelector(".card_div");
@@ -85,11 +87,14 @@ houseB.on("click", () => {
   filterHousesByTag("House");
 });
 
-let startButton = document.getElementById("start");
 startButton.addEventListener("click", () => {
-  console.log("inside action listener");
   window.location.href =
     "http://127.0.0.1:5500/Frontend/pages/signup_page.html";
+});
+
+browseB.click(() => {
+  console.log("inside button");
+  window.location.href = "http://127.0.0.1:5500/Frontend/pages/properties.html";
 });
 
 window.addEventListener("scroll", () => {

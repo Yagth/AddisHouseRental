@@ -160,7 +160,6 @@ body {
   box-sizing: border-box;
   grid-template-columns: repeat(3, minmax(280px, 1fr));
   margin: 50px auto;
-  padding-bottom: 10%;
 }
 
 .card_text1 {
@@ -331,6 +330,14 @@ form {
   top: 120px;
 }
 
+.button-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+}
+
 .search-bar {
   display: flex;
   justify-content: end;
@@ -446,8 +453,7 @@ form {
 }
 
 .button-active:hover {
-  background-color: white;
-  color: #00b98e;
+  background-color: #1adfb1;
 }
 .button-featured:hover {
   background-color: #00b98e;
