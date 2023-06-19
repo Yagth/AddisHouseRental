@@ -332,7 +332,12 @@ form {
 }
 
 .search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: sticky;
+  width: 100%;
+  margin: auto;
   top: 70px;
   z-index: 10;
 }
@@ -587,10 +592,6 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  .form_div {
-    width: 100%;
   }
   .form_content {
     width: 155px;
