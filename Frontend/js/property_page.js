@@ -58,7 +58,7 @@ const searchAndLoad = async (option = 4, query = "") => {
 
 // Function to show a success message popup
 function successHandler(option) {
-  let temp = [searchInput.value, priceInput.value, house_tag.value];
+  let temp = [searchInput.value, priceInput.value, propertyTypeSelect.value];
   let values = [];
   for (let value in temp) {
     if (value != "") {
