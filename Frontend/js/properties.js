@@ -7,20 +7,17 @@ const priceInput = document.querySelector("#price");
 const searchButton = document.querySelector("#searchSumbit");
 const form = document.querySelector("#searchForm");
 
-const searchHouses = async (searchParams) => {
+const searchHouses = async (query) => {
   let container = document.querySelector(".card_div");
   let card = document.querySelector(".card_div .card");
 
   // Add event listener to the search button
   let data = await getData(
     "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php",
-    ""
+    query
   );
   if (data.success) {
     let houses = shuffleArray(data.data);
-    if (houses.length > 12) {
-      houses = houses.slice(0, 12);
-    }
     houses.forEach((house) => {
       let newCard = card.cloneNode(true);
       let isHouse = ["Apartment", "Villa", "Home"].includes(house.house_tag);
