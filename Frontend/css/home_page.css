@@ -326,6 +326,17 @@ form {
   font-weight: 700;
 }
 
+.property-navbar {
+  position: sticky;
+  top: 120px;
+}
+
+.search-bar {
+  position: sticky;
+  top: 70px;
+  z-index: 10;
+}
+
 .navbar.sticky {
   width: 96%;
 }
