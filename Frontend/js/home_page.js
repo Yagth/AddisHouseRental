@@ -16,7 +16,7 @@ const loadHouses = async () => {
   if (data.success) {
     let houses = shuffleArray(data.data);
     if (houses.length > 6) {
-      houses = houses.slice(0, 12);
+      houses = houses.slice(0, 6); //Take the first 6 elements of the array
     }
     houses.forEach((house) => {
       let newCard = card.cloneNode(true);
