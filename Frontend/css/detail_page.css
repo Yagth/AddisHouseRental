@@ -5,9 +5,12 @@ body {
 
 .navbar {
   width: 91%;
+  margin: auto;
+  transform: translate(-30px, 0);
 }
 
 .detail-container {
+  box-sizing: border-box;
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 500px;

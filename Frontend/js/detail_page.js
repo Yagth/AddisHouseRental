@@ -10,6 +10,7 @@ let rentButton = $(".toggle-switch");
 let rentedP = $("#rented");
 let house = JSON.parse(getCookie("House"));
 let rented = house.status === "R";
+let detailContainer = document.querySelector(".detail-container");
 
 if (rented) {
   rentButton.toggleClass("active");
