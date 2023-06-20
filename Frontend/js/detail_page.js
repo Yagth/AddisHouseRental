@@ -1,4 +1,5 @@
 import { deleteCookie, getCookie } from "./cookie.js";
+import { getData } from "./common.js";
 
 let container = document.querySelector(".card_div");
 let card = document.querySelector(".card_div .card");
@@ -6,7 +7,6 @@ let card = document.querySelector(".card_div .card");
 const searchAndLoad = async (option = 4, query = "") => {
   // Add event listener to the search button
   query = "op=" + option + "&q=" + query;
-  console.log(query);
   let data = await getData(
     "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php",
     query
@@ -41,10 +41,66 @@ const searchAndLoad = async (option = 4, query = "") => {
   }
 };
 
+const getOwner = async (ownerId) => {
+  let data = await getData(
+    "http://localhost:8080/PHP/AddisHouseRental/Backend/api/user/get_users.php",
+    ownerId
+  );
+  if (data.success) {
+    return data.data;
+  } else {
+    return null;
+  }
+};
+
+if (user) {
+  user = JSON.parse(user);
+  console.log(user.status);
+  if (user.status == "L") {
+    yourPropsB.show();
+    navButton.html("Add House");
+    navButton.on("click", function () {
+      $("#modal").toggle(".flex");
+    });
+
+    $(".close, .modal").on("click", function () {
+      $("#modal").css("display", "none");
+    });
+
+    $(".modal-content").on("click", function (event) {
+      event.stopPropagation();
+    });
+  } else if (user.status == "N") {
+    navButton.html("logout");
+    navButton.on("click", async (event) => {
+      const res = await getData(
+        "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php",
+        ""
+      );
+      deleteCookie("User");
+      location.reload();
+    });
+  } else {
+    navButton.html("login");
+    navButton.click(function () {
+      window.location.href =
+        "http://127.0.0.1:5500/Frontend/pages/login_page.html";
+    });
+  }
+} else {
+  navButton.html("login");
+  navButton.on("click", function () {
+    window.location.href =
+      "http://127.0.0.1:5500/Frontend/pages/login_page.html";
+  });
+}
+
 let house = getCookie("House");
 house = JSON.parse(house);
 
 let ownerId = house.owner_id;
+let owner = getOwner(ownerId);
+
 //Filling in the information of the house from the cookie stored.
 document.querySelector("houseDesc").textContent = house.house_description
   .split(" ")
@@ -58,8 +114,9 @@ document.querySelector("price").textContent = house.price;
 document.querySelector("no_rooms").textContent = house.no_rooms;
 document.querySelector("bed_rooms").textContent = house.bed_rooms;
 document.querySelector("bath_rooms").textContent = house.bath_rooms;
-document.querySelector("phonenumber").textContent = house.phonenumber;
-document.querySelector("username").textContent = house.username;
-document.querySelector("name").textContent = house.name;
+document.querySelector("phonenumber").textContent = owner.phonenumber;
+document.querySelector("username").textContent = owner.username;
+document.querySelector("name").textContent = house.owner;
+document.querySelector(".property-div h1").textContent += " " + house.owner;
 
 searchAndLoad(3, ownerId);
