@@ -5,6 +5,7 @@ let navButton = $(".navbar-login");
 let container = document.querySelector(".card_div");
 let card = document.querySelector(".card_div .card");
 let tagName = document.querySelector(".tag");
+let imageDiv = document.querySelector("image-div");
 
 const searchAndLoad = async (option = 4, query = "") => {
   // Add event listener to the search button
@@ -107,8 +108,8 @@ if (user) {
 
 let house = getCookie("House");
 
-console.log(house);
 house = JSON.parse(house);
+console.log(house);
 
 let ownerId = house.owner_id;
 let owner = await getOwner(ownerId);

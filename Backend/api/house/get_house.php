@@ -20,7 +20,7 @@ if(isset($_GET['op'])){
     $id = $_GET['id'];
     $result = $house->get_single_house($id);
     if(isset($house->id)){
-        $house_info = array(
+        $house_item = array(
             'id' => $house->id,
             'owner_id' => $house->owner_id,
             'price' => $house->price,
@@ -29,10 +29,22 @@ if(isset($_GET['op'])){
             'house_tag' => $house->house_tag,
             'rooms' => $house->no_rooms,
             'bed_rooms' => $house->bed_rooms,
-            'bath_rooms' => $house->bath_rooms
+            'bath_rooms' => $house->bath_rooms,
+            'pics' => array(),
+            'owner' => array()
         );
-
-        echo json_encode(array('success' => true, 'data' => $house_info));
+        $user = new User($db);
+        $user->id = $house->owner_id;
+        $user->get_single_user_by_id();
+ 
+        $house_item['owner'] = "$user->firstname $user->lastname";
+ 
+        $house->id = $id;
+        $pic_urls = $house->get_house_pic();
+ 
+        array_push($house_item['pics'], $pic_urls ? $pic_urls : "");
+        
+        echo json_encode(array('success' => true, 'data' => $house_item));
     }else{
         echo json_encode(
             array(
