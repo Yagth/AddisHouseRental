@@ -70,7 +70,10 @@ if (user) {
   user = JSON.parse(user);
   console.log(user.status);
   if (user.status == "L") {
-    navButton.html("Logout");
+    navButton.html("Add House");
+    navButton.on("click", function () {
+      $("#modal").toggle(".flex");
+    });
     editButton.show();
     deleteButton.show();
     navButton.html("logout");

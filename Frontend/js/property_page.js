@@ -206,9 +206,10 @@ if (user) {
   console.log(user.status);
   if (user.status == "L") {
     yourPropsB.show();
-    navButton.html("Add House");
-    navButton.on("click", function () {
-      $("#modal").toggle(".flex");
+    navButton.html("logout");
+    navButton.on("click", async (event) => {
+      deleteCookie("User");
+      location.reload();
     });
 
     $(".close, .modal").on("click", function () {
@@ -221,10 +222,6 @@ if (user) {
   } else if (user.status == "N") {
     navButton.html("logout");
     navButton.on("click", async (event) => {
-      const res = await getData(
-        "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php",
-        ""
-      );
       deleteCookie("User");
       location.reload();
     });
