@@ -120,7 +120,8 @@ document.querySelector("#no_rooms").textContent = house.no_rooms;
 document.querySelector("#bed_rooms").textContent = house.bed_rooms;
 document.querySelector("#bath_rooms").textContent = house.bath_rooms;
 document.querySelector("#phonenumber").textContent = owner.phonenumber;
-document.querySelector("#username").textContent = owner.username;
+document.querySelector("#email").textContent = owner.email;
+document.querySelector("#username").textContent = "@" + owner.telegram_username;
 document.querySelector("#name").textContent =
   owner.firstname + " " + owner.lastname;
 document.querySelector(".property-div h1").textContent += " " + house.owner;

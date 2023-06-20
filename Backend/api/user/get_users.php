@@ -25,6 +25,7 @@ if(isset($_GET['id'])){
                'lastname' => $user->lastname,
                'email' => $user->email,
                'telegram_username' => $user->telegram_username,
+               'phonenumber' => $user->phonenumber,
                'status' => $user->status
            );
            
