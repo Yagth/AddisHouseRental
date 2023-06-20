@@ -75,6 +75,7 @@ if (user) {
 
     $(".close, .modal").on("click", function () {
       $("#modal").css("display", "none");
+      loadInformation();
     });
 
     $(".modal-content").on("click", function (event) {
@@ -101,8 +102,43 @@ if (user) {
   });
 }
 
-let house = getCookie("House");
+const loadInformation = () => {
+  //Filling in the information of the house from the cookie stored.
+  document.querySelector("#houseDesc").textContent = house.house_description
+    .split(" ")
+    .splice(0, 4)
+    .join(" "); //Take the# first four words from the house description
 
+  document.querySelector(".detail-container #description").textContent =
+    house.house_description;
+  document.querySelector(".detail-container #location").textContent =
+    house.location;
+  document.querySelector(".detail-container #tag").textContent =
+    house.house_tag;
+  document.querySelector(".detail-container #price").textContent = house.price;
+  document.querySelector(".detail-container #no_rooms").textContent =
+    house.no_rooms;
+  document.querySelector(".detail-container #bed_rooms").textContent =
+    house.bed_rooms;
+  document.querySelector(".detail-container #bath_rooms").textContent =
+    house.bath_rooms;
+  document.querySelector(".detail-container #phonenumber").textContent =
+    owner.phonenumber;
+  document.querySelector(".detail-container #email").textContent = owner.email;
+  document.querySelector(".detail-container #username").textContent =
+    "@" + owner.telegram_username;
+  document.querySelector(".detail-container #name").textContent = owner_name;
+  document.querySelector(".detail-container #image").src =
+    "http://127.0.0.1:5500/Backend/uploads/img/houses/" + picUrls[0]?.photo_url;
+  console.log(
+    "http://127.0.0.1:5500/Backend/uploads/img/houses/" + picUrls[0]?.photo_url
+  );
+
+  document.querySelector(".property-div h1").textContent += " " + owner_name;
+};
+
+let house = getCookie("House");
+console.log(house);
 house = JSON.parse(house);
 let picUrls = house.pics[0];
 console.log(house.pics[0]);
@@ -113,38 +149,7 @@ owner = owner[0];
 let owner_name = owner.firstname + " " + owner.lastname;
 console.log(house);
 
-//Filling in the information of the house from the cookie stored.
-document.querySelector("#houseDesc").textContent = house.house_description
-  .split(" ")
-  .splice(0, 4)
-  .join(" "); //Take the# first four words from the house description
-
-document.querySelector(".detail-container #description").textContent =
-  house.house_description;
-document.querySelector(".detail-container #location").textContent =
-  house.location;
-document.querySelector(".detail-container #tag").textContent = house.house_tag;
-document.querySelector(".detail-container #price").textContent = house.price;
-document.querySelector(".detail-container #no_rooms").textContent =
-  house.no_rooms;
-document.querySelector(".detail-container #bed_rooms").textContent =
-  house.bed_rooms;
-document.querySelector(".detail-container #bath_rooms").textContent =
-  house.bath_rooms;
-document.querySelector(".detail-container #phonenumber").textContent =
-  owner.phonenumber;
-document.querySelector(".detail-container #email").textContent = owner.email;
-document.querySelector(".detail-container #username").textContent =
-  "@" + owner.telegram_username;
-document.querySelector(".detail-container #name").textContent = owner_name;
-document.querySelector(".detail-container #image").src =
-  "http://127.0.0.1:5500/Backend/uploads/img/houses/" + picUrls[0]?.photo_url;
-console.log(
-  "http://127.0.0.1:5500/Backend/uploads/img/houses/" + picUrls[0]?.photo_url
-);
-
-document.querySelector(".property-div h1").textContent += " " + owner_name;
-
+loadInformation();
 searchAndLoad(3, ownerId);
 
 //Filling the form for editing the house
