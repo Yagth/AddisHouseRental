@@ -55,7 +55,7 @@ if(isset($_GET['op'])){
     }
     exit;
 } else{
-    $house->get_houses();
+    $result = $house->get_houses();
 
 }
 $num  = $result->num_rows;

@@ -4,7 +4,6 @@ import { getData, saveCookie } from "./common.js";
 let navButton = $(".navbar-login");
 let container = document.querySelector(".card_div");
 let card = document.querySelector(".card_div .card");
-let tagName = document.querySelector(".tag");
 
 const searchAndLoad = async (option = 4, query = "") => {
   // Add event listener to the search button
@@ -23,7 +22,8 @@ const searchAndLoad = async (option = 4, query = "") => {
       card.querySelector(".card_text1").textContent = "$" + house.price;
       card.querySelector(".card_text2").textContent = house.house_description;
       card.querySelector(".card_text3 span").textContent = house.location;
-      tagName.textContent = house.house_tag;
+      card.querySelector(".tag").textContent = house.house_tag;
+
       let foots = card.querySelectorAll(".card-foot-c span");
       foots[0].textContent =
         (isHouse ? house.bed_rooms + house.bath_rooms : house.rooms) + " Rooms";
@@ -115,7 +115,7 @@ let ownerId = house.owner_id;
 let owner = await getOwner(ownerId);
 owner = owner[0];
 let owner_name = owner.firstname + " " + owner.lastname;
-console.log(owner);
+console.log(house);
 
 //Filling in the information of the house from the cookie stored.
 document.querySelector("#houseDesc").textContent = house.house_description
@@ -142,9 +142,15 @@ document.querySelector(".detail-container #username").textContent =
   "@" + owner.telegram_username;
 document.querySelector(".detail-container #name").textContent = owner_name;
 document.querySelector(".detail-container #image").src =
-  "http://127.0.0.1:5500/Backend/uploads/img/houses/" + picUrls[0].photo_url;
-console.log("Updated image");
+  "http://127.0.0.1:5500/Backend/uploads/img/houses/" + picUrls[0]?.photo_url;
+console.log(
+  "http://127.0.0.1:5500/Backend/uploads/img/houses/" + picUrls[0]?.photo_url
+);
 
 document.querySelector(".property-div h1").textContent += " " + owner_name;
 
 searchAndLoad(3, ownerId);
+
+//Filling the form for editing the house
+document.querySelector("#modal #house_tag #" + house.house_tag).selected = true;
+console.log("#modal #house_tag #" + house.house_tag);

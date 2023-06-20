@@ -24,10 +24,11 @@ const loadHouses = async () => {
       let newCard = card.cloneNode(true);
       let isHouse = ["Apartment", "Villa", "Home"].includes(house.house_tag);
 
-      card.attributes.id = house.id;
       card.querySelector(".card_text1").textContent = "$" + house.price;
       card.querySelector(".card_text2").textContent = house.house_description;
       card.querySelector(".card_text3 span").textContent = house.location;
+      card.querySelector(".tag").textContent = house.house_tag;
+
       let foots = card.querySelectorAll(".card-foot-c span");
       foots[0].textContent =
         (isHouse ? house.bed_rooms + house.bath_rooms : house.rooms) + " Rooms";

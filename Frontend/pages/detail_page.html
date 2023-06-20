@@ -57,18 +57,18 @@
     <div id="modal" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
-        <h1>Create a house</h1>
+        <h1>Edit this house</h1>
         <h4 id="error_header" class="status"></h4>
         <form id="addHouse" class="">
           <div>
             <label for="">House tag</label>
-            <select class="form-input" name="house_tag" id="" required>
-              <option value="Apartment">Apartment</option>
-              <option value="Villa">Villa</option>
-              <option value="Home" selected>Home</option>
-              <option value="Office">Office</option>
-              <option value="Building">Building</option>
-              <option value="Shop">Shop</option>
+            <select class="form-input" name="house_tag" id="house_tag" required>
+              <option id="Apartment" value="Apartment">Apartment</option>
+              <option id="Villa" value="Villa">Villa</option>
+              <option id="Home" value="Home" selected>Home</option>
+              <option id="Office" value="Office">Office</option>
+              <option id="Building" value="Building">Building</option>
+              <option id="Shop" value="Shop">Shop</option>
             </select>
           </div>
           <div>
@@ -151,8 +151,8 @@
               <dl>
                 <dt id="location">Location</dt>
                 <dd>Addis ababa</dd>
-                <dt id="tag">House type</dt>
-                <dd>Apartment</dd>
+                <dt>House type</dt>
+                <dd >Apartment</dd>
                 <dt id="price">Price</dt>
                 <dd>$3000</dd>
                 <dt id="no_rooms">Rooms:</dt>

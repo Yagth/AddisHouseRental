@@ -41,7 +41,7 @@ const searchAndLoad = async (option = 4, query = "") => {
       card.querySelector(".card_text1").textContent = "$" + house.price;
       card.querySelector(".card_text2").textContent = house.house_description;
       card.querySelector(".card_text3 span").textContent = house.location;
-      tagName.textContent = house.house_tag;
+      card.querySelector(".tag").textContent = house.house_tag;
       let foots = card.querySelectorAll(".card-foot-c span");
       foots[0].textContent =
         (isHouse ? house.bed_rooms + house.bath_rooms : house.rooms) + " Rooms";
