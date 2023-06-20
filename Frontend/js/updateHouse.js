@@ -12,6 +12,8 @@ let price = document.getElementsByName("price")[0];
 let locationT = document.getElementsByName("location")[0];
 let errorHeader = document.getElementById("error_header");
 
+houseTag.disabled = true;
+
 const houseTagChange = () => {
   switch (houseTag.value) {
     case "Home":
