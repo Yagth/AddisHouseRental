@@ -206,10 +206,9 @@ if (user) {
   console.log(user.status);
   if (user.status == "L") {
     yourPropsB.show();
-    navButton.html("logout");
-    navButton.on("click", async (event) => {
-      deleteCookie("User");
-      location.reload();
+    navButton.html("Add House");
+    navButton.on("click", function () {
+      $("#modal").toggle(".flex");
     });
 
     $(".close, .modal").on("click", function () {

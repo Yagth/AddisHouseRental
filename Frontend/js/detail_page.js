@@ -70,9 +70,10 @@ if (user) {
   user = JSON.parse(user);
   console.log(user.status);
   if (user.status == "L") {
-    navButton.html("Add House");
-    navButton.on("click", function () {
-      $("#add-modal").toggle(".flex");
+    navButton.html("logout");
+    navButton.on("click", async (event) => {
+      deleteCookie("User");
+      location.reload();
     });
     editButton.show();
     deleteButton.show();
@@ -109,11 +110,11 @@ if (user) {
     });
 
     editButton.on("click", function () {
-      $("#edit-modal").toggle(".flex");
+      $("#modal").toggle(".flex");
     });
 
     $(".close, .modal").on("click", function () {
-      $("#edit-modal").css("display", "none");
+      $("#modal").css("display", "none");
       loadInformation();
     });
 
