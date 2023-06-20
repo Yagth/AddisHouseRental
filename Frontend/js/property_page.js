@@ -1,4 +1,4 @@
-import { shuffleArray, getData } from "./common.js";
+import { shuffleArray, getData, saveCookie } from "./common.js";
 import { deleteCookie, getCookie } from "./cookie.js";
 
 let navbar = document.querySelector(".navbar");
@@ -22,6 +22,20 @@ const clearContainer = () => {
     container.removeChild(container.lastChild);
   }
   container.children[0].classList.add("hidden");
+};
+
+const addListnerToCards = () => {
+  for (let i = 0; i < container.childElementCount; i++) {
+    let tempCard = container.children[i];
+    tempCard.addEventListener("click", async () => {
+      const data = await getData(
+        "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php",
+        card.attributes.id
+      );
+      saveCookie("House", data.data);
+      window.href;
+    });
+  }
 };
 
 const searchAndLoad = async (option = 4, query = "") => {
