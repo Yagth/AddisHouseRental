@@ -1,5 +1,5 @@
 import { deleteCookie, getCookie } from "./cookie.js";
-import { getData } from "./common.js";
+import { getData, saveCookie } from "./common.js";
 
 let navButton = $(".navbar-login");
 let container = document.querySelector(".card_div");
@@ -35,6 +35,15 @@ const searchAndLoad = async (option = 4, query = "") => {
       card.classList.add("visible-card");
       container.appendChild(card);
       card.classList.remove("hidden");
+      card.addEventListener("click", async () => {
+        const data = await getData(
+          "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php",
+          "id=" + house.id
+        );
+        saveCookie("House", data.data);
+        window.location.href =
+          "http://127.0.0.1:5500/Frontend/pages/detail_page.html";
+      });
       card = newCard;
     });
   } else {
@@ -98,8 +107,8 @@ if (user) {
 
 let house = getCookie("House");
 
-house = JSON.parse(house);
 console.log(house);
+house = JSON.parse(house);
 
 let ownerId = house.owner_id;
 let owner = await getOwner(ownerId);

@@ -38,7 +38,6 @@ const searchAndLoad = async (option = 4, query = "") => {
       let newCard = card.cloneNode(true);
       let isHouse = ["Apartment", "Villa", "Home"].includes(house.house_tag);
 
-      card.attributes.id = house.id;
       card.querySelector(".card_text1").textContent = "$" + house.price;
       card.querySelector(".card_text2").textContent = house.house_description;
       card.querySelector(".card_text3 span").textContent = house.location;
@@ -57,7 +56,7 @@ const searchAndLoad = async (option = 4, query = "") => {
       card.addEventListener("click", async () => {
         const data = await getData(
           "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php",
-          "id=" + card.attributes.id
+          "id=" + house.id
         );
         saveCookie("House", data.data);
         window.location.href =
