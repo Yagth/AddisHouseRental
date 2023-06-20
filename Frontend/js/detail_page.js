@@ -194,7 +194,7 @@ const loadInformation = async () => {
   let owner_name = owner.firstname + " " + owner.lastname;
   document.querySelector("#houseDesc").textContent = house.house_description
     .split(" ")
-    .splice(0, 4)
+    .splice(0, 6)
     .join(" "); //Take the# first four words from the house description
 
   document.querySelector(".detail-container #description").textContent =
