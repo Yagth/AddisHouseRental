@@ -1,4 +1,13 @@
 import { saveCookie, shuffleArray, getData } from "./common.js";
+import { deleteCookie, getCookie } from "./cookie.js";
+
+let navbar = document.querySelector(".navbar");
+let navButton = $(".navbar-login");
+let apartmentB = $("#apartment");
+let villaB = $("#villa");
+let houseB = $("#house");
+let browseB = $(".button-div .button-active");
+let startButton = document.getElementById("start");
 
 const loadHouses = async () => {
   let container = document.querySelector(".card_div");
@@ -8,59 +17,140 @@ const loadHouses = async () => {
   );
   if (data.success) {
     let houses = shuffleArray(data.data);
-    if (houses.length > 12) {
-      houses = houses.slice(0, 12);
+    if (houses.length > 6) {
+      houses = houses.slice(0, 6); //Take the first 6 elements of the array
     }
     houses.forEach((house) => {
       let newCard = card.cloneNode(true);
       let isHouse = ["Apartment", "Villa", "Home"].includes(house.house_tag);
 
-      card.attributes.id = house.id;
       card.querySelector(".card_text1").textContent = "$" + house.price;
-      card.querySelector(".card_text2").textContent = house.house_description;
-      card.querySelector(".card_text3").textContent = house.location;
-      let foots = card.querySelectorAll(".card-foot-c");
+      card.querySelector(".card_text2").textContent =
+        house.house_description.split(" ").splice(0, 6).join(" ") + "...";
+      card.querySelector(".card_text3 span").textContent = house.location;
+      card.querySelector(".tag").textContent = house.house_tag;
+
+      let foots = card.querySelectorAll(".card-foot-c span");
       foots[0].textContent =
         (isHouse ? house.bed_rooms + house.bath_rooms : house.rooms) + " Rooms";
       foots[1].textContent = house.bed_rooms + " Beds";
       foots[2].textContent = house.bath_rooms + " Baths";
       card.querySelector("img").src =
-        "http://127.0.0.1:5500/Backend/uploads/img/houses/" +
-        house.pics[0][0].photo_url;
+        "http://127.0.0.1:8080/PHP/AddisHouseRental/Backend//uploads/img/houses/" +
+        house.pics[0][0]?.photo_url;
       card.classList.add("visible-card");
       container.appendChild(card);
       card.classList.remove("hidden");
+      card.addEventListener("click", async () => {
+        const data = await getData(
+          "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php",
+          "id=" + house.id
+        );
+        saveCookie("House", data.data);
+        window.location.href =
+          "http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend//pages/detail_page.html";
+      });
       card = newCard;
     });
-    saveCookie("houses", { houseArray: houses });
   } else {
+    console.log(data);
     console.log(data.message);
   }
 };
 
-let forwardButton = document.getElementById("forward-button");
-forwardButton.addEventListener("click", () => {
-  let img1 = document.getElementById("img1");
-  let img2 = document.getElementById("img2");
-  let img3 = document.getElementById("img3");
-  console.log(img1.style.opacity);
-  if (img1.style.opacity == "1") {
-    img1.style.opacity = "0";
-    img2.style.opacity = "1";
-  } else if (img2.style.opacity == "1") {
-    img2.style.opacity = "0";
-    img3.style.opacity = "1";
-  } else if (img3.style.opacity == "1") {
-    img3.style.opacity = "0";
-    img1.style.opacity = "1";
+const filterHousesByTag = (tag) => {
+  let housesDiv = document.querySelector(".card_div");
+  let houseElements = housesDiv.children;
+
+  for (let i = 0; i < houseElements.length; i++) {
+    let house = houseElements[i];
+    let houseTag = house.querySelector(".tag").textContent;
+
+    if (houseTag !== tag) {
+      house.classList.add("hidden");
+    } else {
+      house.classList.remove("hidden");
+    }
   }
+};
+
+apartmentB.on("click", (event) => {
+  villaB.removeClass("button-active").addClass("button-featured");
+  houseB.removeClass("button-active").addClass("button-featured");
+  apartmentB.addClass("button-active").removeClass("button-featured");
+
+  filterHousesByTag("Apartment");
 });
 
-let startButton = document.getElementById("start");
-startButton.addEventListener("click", () => {
-  console.log("inside action listener");
-  window.location.href =
-    "http://127.0.0.1:5500/Frontend/pages/signup_page.html";
+villaB.on("click", () => {
+  apartmentB.removeClass("button-active").addClass("button-featured");
+  houseB.removeClass("button-active").addClass("button-featured");
+  villaB.addClass("button-active").removeClass("button-featured");
+
+  filterHousesByTag("Villa");
 });
+
+houseB.on("click", () => {
+  apartmentB.removeClass("button-active").addClass("button-featured");
+  villaB.removeClass("button-active").addClass("button-featured");
+  houseB.addClass("button-active").removeClass("button-featured");
+
+  filterHousesByTag("House");
+});
+
+startButton.addEventListener("click", () => {
+  window.location.href =
+    "http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend//pages/signup_page.html";
+});
+
+browseB.click(() => {
+  console.log("inside button");
+  window.location.href =
+    "http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend//pages/properties.html";
+});
+
+window.addEventListener("scroll", () => {
+  navbar.classList.toggle("sticky", window.scrollY > 0);
+});
+
+let user = getCookie("User");
+
+if (user) {
+  user = JSON.parse(user);
+  console.log(user.status);
+  if (user.status == "L") {
+    navButton.html("logout");
+    navButton.on("click", async (event) => {
+      deleteCookie("User");
+      location.reload();
+    });
+
+    $(".close, .modal").on("click", function () {
+      $("#modal").css("display", "none");
+    });
+
+    $(".modal-content").on("click", function (event) {
+      event.stopPropagation();
+    });
+  } else if (user.status == "N") {
+    navButton.html("logout");
+    navButton.on("click", async (event) => {
+      deleteCookie("User");
+      location.reload();
+    });
+  } else {
+    navButton.html("login");
+    navButton.click(function () {
+      window.location.href =
+        "http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend//pages/login_page.html";
+    });
+  }
+} else {
+  navButton.html("login");
+  navButton.on("click", function () {
+    window.location.href =
+      "http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend//pages/login_page.html";
+  });
+}
 
 loadHouses();

@@ -10,38 +10,72 @@ $database = new Database();
 $db = $database->connect();
 
 $user = new User($db);
-$result = $user->get_user();
 
-$num  = $result->num_rows;
-
-if($num > 0){
-
-   $user_arr = array();
-   $user_arr['data'] = array();
-   $user_arr['success'] = false;
-
-   while($row = $result->fetch_assoc()){
-       extract($row);
-
-       $user_item = array(
-           'id' => $id,
-           'firstname' => $firstname,
-           'lastname' => $lastname,
-           'email' => html_entity_decode($email)
+if(isset($_GET['id'])){
+    $user->id = $_GET['id'];
+    $result = $user->get_single_user_by_id();
+    if(isset($user->email)){
+    
+        $user_arr = array();
+        $user_arr['data'] = array();
+        $user_arr['success'] = false;
+        $user_item = array(
+               'id' => $user->id,
+               'firstname' => $user->firstname,
+               'lastname' => $user->lastname,
+               'email' => $user->email,
+               'telegram_username' => $user->telegram_username,
+               'phonenumber' => $user->phonenumber,
+               'status' => $user->status
+           );
+           
+        array_push($user_arr['data'], $user_item);
+        $user_arr['success'] = true;
+    
+        echo json_encode($user_arr);
+    }else{
+       echo json_encode(
+           array(
+            'sucess' => false,
+            'message' => 'No users'
+            )
        );
-       
-       array_push($user_arr['data'], $user_item);
-   }
+    }
+}
+else{
+    $result = $user->get_user();
 
-   $user_arr['success'] = true;
-
-   echo json_encode($user_arr);
-
-}else{
-   echo json_encode(
-       array(
-        'sucess' => false,
-        'message' => 'No users'
-        )
-   );
+    $num  = $result->num_rows;
+    
+    if($num > 0){
+    
+       $user_arr = array();
+       $user_arr['data'] = array();
+       $user_arr['success'] = false;
+    
+       while($row = $result->fetch_assoc()){
+           extract($row);
+           $user_item = array(
+               'id' => $id,
+               'firstname' => $firstname,
+               'lastname' => $lastname,
+               'email' => html_entity_decode($email),
+               'status' => $status
+           );
+           
+           array_push($user_arr['data'], $user_item);
+       }
+    
+       $user_arr['success'] = true;
+    
+       echo json_encode($user_arr);
+    
+    }else{
+       echo json_encode(
+           array(
+            'sucess' => false,
+            'message' => 'No users'
+            )
+       );
+    }
 }

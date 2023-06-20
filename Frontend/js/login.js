@@ -1,5 +1,7 @@
 import { getCookie } from "./cookie.js";
-import { saveCookie } from "./common.js";
+import { postData, saveCookie } from "./common.js";
+
+let emailField = document.querySelector("#email");
 
 const submitData = async () => {
   try {
@@ -19,6 +21,7 @@ const submitData = async () => {
         body: formData,
       }
     );
+    // const emailP = "/^[w-]+(.[w-]+)*@([w-]+.)+[a-zA-Z]{2,7}$/";
 
     const data = await res.json();
     if (data.loggedin) {
@@ -27,7 +30,7 @@ const submitData = async () => {
       saveCookie("User", data.data);
       setTimeout(() => {
         window.location.href =
-          "http://127.0.0.1:5500/Frontend/pages/home_page.html";
+          "http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend//pages/home_page.html";
       }, 1500);
     } else {
       errorHeader.textContent = data.error;
@@ -38,12 +41,10 @@ const submitData = async () => {
   }
 };
 
-let user = getCookie("User");
+let email = getCookie("email");
 let submit = document.getElementById("submit");
 submit.addEventListener("click", submitData);
 
-if (user !== "") {
-  user = JSON.parse(user);
-  let emailField = document.getElementById("email");
-  emailField.value = user.email;
+if (email !== "") {
+  emailField.value = email;
 }

@@ -10,6 +10,11 @@ function setCookie(name, value, days) {
   document.cookie = name + "=" + cookieValue;
 }
 
+function deleteCookie(cookieName) {
+  document.cookie =
+    cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
+
 function getCookie(name) {
   const cookieName = name + "=";
   const decodedCookie = decodeURIComponent(document.cookie);
@@ -27,4 +32,4 @@ function getCookie(name) {
   return "";
 }
 
-export { setCookie, getCookie };
+export { setCookie, getCookie, deleteCookie };

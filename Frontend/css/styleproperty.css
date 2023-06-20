@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@500&display=swap");
+* {
+  margin: 0;
+  font-family: "Heebo", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #666565;
+  /* background-color: #EFFDF5; */
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+:root {
+  --primary: #00b98e;
+  --secondary: #ff6922;
+  --light: #effdf5;
+  --dark: #0e2e50;
+}
+h1 {
+  color: #0e2e50;
+  font-size: 3rem;
+  font-weight: bolder;
+}
+.properties .container {
+  width: 100%;
+  height: 100px;
+  text-align: left;
+}
+.properties .btn-active {
+  text-decoration: none;
+
+  text-align: center;
+  padding: 11px 32px;
+  border-radius: 4px;
+  font-weight: bold;
+  color: #e5ffff;
+  background-color: #00b98e;
+  border: 2px solid #00b98e;
+  box-sizing: border-box;
+  display: inline-block;
+
+  /* vertical-align: middle; This centers the buttons vertically */
+  margin-right: 10px; /* This adds some space between the buttons */
+}
+.btn-active:hover {
+  background-color: transparent;
+  color: black;
+  cursor: pointer;
+}
+
+/* thiss part is the card part  */
+.card {
+  overflow: hidden;
+  width: 300px;
+  min-height: 350px;
+  border-radius: #ffff;
+  /* box-shadow:inset; */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+
+  /* text-align: center; */
+  /* background: #000; */
+  /* padding: 3em; */
+  transform: translateY(-5px);
+  transition: 0.3s;
+  position: relative;
+}
+
+.tr {
+  width: 30%;
+}
+
+.card_div {
+  display: grid;
+  width: 100%;
+  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(330px, auto));
+  margin: 20px auto 20px auto;
+  padding: 0 20px;
+}
+.card button {
+  text-decoration: none;
+  text-align: center;
+  padding: 5px 12px;
+  font-weight: bold;
+  color: #e5ffff;
+  background-color: #00b98e;
+  display: inline-block;
+  vertical-align: middle; /* This centers the buttons vertically */
+  margin-right: 10px; /* This adds some space between the button*/
+  position: absolute;
+  top: 200px;
+  left: 195px;
+}
+
+.cardimg {
+  overflow: hidden;
+  /* height: 300px; */
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+  z-index: -1;
+  position: relative;
+}
+.cardimg:hover {
+  transform: scale(1.2);
+}
+
+.card_discription {
+  background-color: white;
+}
+
+.card_text1 {
+  color: #00b98e;
+  padding: 5px 0 5px 0;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.card_text2 {
+  color: #0e2e50;
+  font-size: 20px;
+  padding: 5px 0 5px 0;
+  margin-left: 10px;
+  font-weight: 600;
+}
+
+.card_text3 {
+  padding: 5px 0 10px 0;
+  margin-left: 10px;
+  opacity: 60%;
+  font-weight: 600;
+}
+
+.card-foot {
+  display: flex;
+  flex-wrap: wrap;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.card-foot-c {
+  width: 32.5%;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  border-style: groove;
+  border-width: 1px;
+  border-color: #14e9b7;
+  font-weight: 700;
+  font-weight: 300;
+  opacity: 80%;
+  /* font-size: 20px; */
+}
+.card-foot-c i {
+  font-size: 15px;
+  color: #14e9b7;
+}
+.card-foot-c i span {
+  font-size: 15px;
+  color: #14e9b7;
+}
+.card-foot-c sup {
+  font-size: 0.8em;
+}

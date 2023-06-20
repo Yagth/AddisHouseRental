@@ -14,7 +14,7 @@ $house = new House($db);
 $updated = False;
 $rented  = False;
 
-if(isset($_POST['submit']) && isset($_POST['house_id'])){
+if(isset($_POST['house_id'])){
     $house_id = $_POST['house_id'];
     $house->get_single_house($house_id);
     
@@ -26,7 +26,7 @@ if(isset($_POST['submit']) && isset($_POST['house_id'])){
 if($rented){
    echo json_encode(
     array(
-     'sucess' => True,
+     'success' => True,
      'message' => 'Rent Successfull'
     )
 );
@@ -34,7 +34,7 @@ if($rented){
 }else{
    echo json_encode(
        array(
-        'sucess' => False,
+        'success' => False,
         'message' => 'Renting Failed. Possibly because house already rented'
         )
    );

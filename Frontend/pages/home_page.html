@@ -1,223 +1,547 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta name="viewport" content="width=device-width ,initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="../css/home_page.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/slider.css" />
+    <link href="img/favicon.html" rel="icon" />
 
-<head>
-    <title>Home </title>
-    <link rel="stylesheet" href="../css/home_page.css">
-    <link rel="stylesheet" href="../css/global.css">
-    <meta name="viewport" content="width=device-width ,initial-scale=1.0">
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;500;900&family=Montserrat:wght@300;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-<body>
-    <div class="curousel">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link href="../css/footer.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/modal.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+  </head>
+
+  <body>
+    <div style="height: 50px; position: relative; opacity: 0"></div>
+    <nav class="navbar" style="padding: 3% 2%">
+      <div class="navbar-logo">
+        <img src="../img/logo.svg" alt="Logo" />
+        <h1 class="navbar-title"><a href="#">Addis House</a></h1>
+      </div>
+      <div class="link-container">
+        <div class="navbar-links">
+          <a
+            href="http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend//pages/home_page.html"
+            >Home</a
+          >
+          <a
+            href="http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend//pages/properties.html"
+            >House Lists</a
+          >
+          <a
+            href="http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend//pages/home_page.html"
+            >About Us</a
+          >
+          <a
+            href="http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend//pages/home_page.html"
+            >Contact Us</a
+          >
+        </div>
+        <button class="navbar-login">Login</button>
+      </div>
+    </nav>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h1>Create a house</h1>
+        <h4 id="error_header" class="status"></h4>
+        <form id="addHouse" class="">
+          <div>
+            <label for="">House tag</label>
+            <select class="form-input" name="house_tag" id="" required>
+              <option value="Apartment">Apartment</option>
+              <option value="Villa">Villa</option>
+              <option value="Home" selected>Home</option>
+              <option value="Office">Office</option>
+              <option value="Building">Building</option>
+              <option value="Shop">Shop</option>
+            </select>
+          </div>
+          <div>
+            <label for="">Location</label>
+            <input
+              class="form-input"
+              type="text"
+              name="location"
+              placeholder="4 Kilo|Mexico|Bole"
+              required
+            /><br />
+          </div>
+          <div class="hidden" id="no_rooms">
+            <label for="">Rooms</label>
+            <input class="form-input" type="number" min="0" name="no_rooms" />
+          </div>
+          <div id="bed_rooms">
+            <label for="">Bed Rooms</label>
+            <input class="form-input" type="number" min="0" name="bed_rooms" />
+          </div>
+          <div id="bath_rooms">
+            <label for="">Bath Rooms</label>
+            <input class="form-input" type="number" min="0" name="bath_rooms" />
+          </div>
+          <div>
+            <label for="">Price</label>
+            <input class="form-input" type="text" name="price" />
+          </div>
+          <div>
+            <label for="main_pic">Main House picture</label>
+            <input
+              class="form-input"
+              type="file"
+              name="main_pic"
+              id="main_pic"
+            />
+          </div>
+          <div>
+            <label for="other_pics">Other pictures</label>
+            <input
+              class="form-input"
+              type="file"
+              name="other_pics"
+              id="other_pics"
+              multiple
+            />
+          </div>
+          <div>
+            <label for="">Write a house description</label>
+            <textarea
+              class="form-input"
+              name="house_desc"
+              id="desc"
+              cols="30"
+              rows="5"
+              required
+            ></textarea
+            ><br />
+          </div>
+          <input id="submit" class="cbtn" type="submit" value="Create" />
+        </form>
+      </div>
+    </div>
+    <main>
+      <div class="curousel">
         <div class="container">
-            <ul class="bannerContent">
-                <li id="img1" class="slide" ><img src="../img/carousel-1.jpg" width="" height=""></li>
-                <li id="img2" class="slide"><img src="../img/carousel-2 (1).jpg" width="" height=""></li>
-                <li id="img3" class="slide"><img src="https://images8.alphacoders.com/541/541822.jpg" width="" height=""></li>
-            </ul>
+          <div class="carousel">
+            <div class="carousel_inner">
+              <div class="carousel_item carousel_item__active">
+                <img
+                  src="../img/property-5 copy.jpg"
+                  alt=""
+                  class="carousel_img"
+                />
+              </div>
+              <div class="carousel_item">
+                <img src="../img/property-7.jpg" alt="" class="carousel_img" />
+              </div>
+              <div class="carousel_item">
+                <img src="../img/carousel-1.jpg" alt="" class="carousel_img" />
+              </div>
+            </div>
+
+            <div class="carousel_indicator">
+              <button class="carousel_dot carousel_dot__active"></button>
+              <button class="carousel_dot"></button>
+              <button class="carousel_dot"></button>
+            </div>
+
+            <div class="carousel_control">
+              <button class="carousel_button carousel_button__prev">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="carousel_button carousel_button__next">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
         </div>
         <div class="scroll">
-            <button id="forward-button" class="forward-buttons">&lt;</button><br><br>
-            <button id="backward-button" class="backward-buttons">&gt;</button>
+          <button id="forward-button" class="forward-buttons">
+            <i class="fas fa-chevron-left" style="font-size: 12px"></i></button
+          ><br /><br />
+          <button id="backward-button" class="backward-buttons">
+            <i class="fas fa-chevron-right" style="font-size: 12px"></i>
+          </button>
         </div>
-        <div class="center_form  wid">
-            <div class="discription">
-                <h1>Find A Perfect Home To Live With Your Family</h1>
-                <p>Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo
-                    clita
-                    et
-                    kasd rebum sea elitr.</p>
-                <button id="start" class="disc_b">Get Started</button>
-                
+        <div class="center_form wid">
+          <div class="discription">
+            <h1>Find A Perfect Home To Live With Your Family</h1>
+            <p>
+              Welcome to our house rental website, where you can discover an
+              extensive collection of beautiful and well-maintained homes
+              available for rent.
+            </p>
+            <button id="start" class="disc_b">Get Started</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="center_form" style="background-color: #00b98e">
+        <div class="discription types">
+          <h1 style="color: white">Property Types</h1>
+          <p style="color: white">
+            Whether you're searching for a cozy apartment, a spacious villa, or
+            a charming house, our platform offers a diverse selection to suit
+            your needs.
+          </p>
+        </div>
+      </div>
+
+      <div class="men">
+        <div class="menus">
+          <div class="menu">
+            <div class="icon_div">
+              <img
+                class="icons"
+                src="../img/apartment.png"
+                width="70"
+                height="70"
+              />
             </div>
+            <p class="icon_label">Appartment</p>
+            <p class="prorperties">123 properties</p>
+          </div>
+          <div class="menu">
+            <div class="icon_div">
+              <img
+                class="icons"
+                src="../img/townhouse.png"
+                width="70"
+                height="70"
+              />
+            </div>
+            <p class="icon_label">Town hall</p>
+            <p class="prorperties">123 properties</p>
+          </div>
+          <div class="menu">
+            <div class="icon_div">
+              <img
+                class="icons"
+                src="../img/villa.png"
+                width="70"
+                height="70"
+              />
+            </div>
+            <p class="icon_label">Home</p>
+            <p class="prorperties">123 properties</p>
+          </div>
+          <div class="menu">
+            <div class="icon_div">
+              <img
+                class="icons"
+                src="../img/house.png"
+                width="70"
+                height="70"
+              />
+            </div>
+            <p class="icon_label">Villa</p>
+            <p class="prorperties">123 properties</p>
+          </div>
+          <div class="menu">
+            <div class="icon_div">
+              <img
+                class="icons"
+                src="../img/workspace.png"
+                width="70"
+                height="70"
+              />
+            </div>
+            <p class="icon_label">Office</p>
+            <p class="prorperties">123 properties</p>
+          </div>
+          <div class="menu">
+            <div class="icon_div">
+              <img
+                class="icons"
+                src="../img/skyline.png"
+                width="70"
+                height="70"
+              />
+            </div>
+            <p class="icon_label">Building</p>
+            <p class="prorperties">123 properties</p>
+          </div>
+          <div class="menu">
+            <div class="icon_div">
+              <img
+                class="icons"
+                src="../img/store.png"
+                width="70"
+                height="70"
+              />
+            </div>
+            <p class="icon_label">Shop</p>
+            <p class="prorperties">123 properties</p>
+          </div>
+          <div class="menu">
+            <div class="icon_div">
+              <img
+                class="icons"
+                src="../img/garage.png"
+                width="70"
+                height="70"
+              />
+            </div>
+            <p class="icon_label">Garage</p>
+            <p class="prorperties">123 properties</p>
+            <div></div>
+          </div>
         </div>
-    </div>
+      </div>
 
-
-    <div class="form_div center_form">
-        <div class="">
-            <form class="formm">
-                <input class="form_content" type="text" id="" name="" placeholder="Search keyword"><br>
-                <select class="form_content">
-                    <option>property type 1</option>
-                    <option>property type 2</option>
-                    <option>property type 3</option>
-                    <option>property type 4</option>
-                </select>
-                <br>
-                <select class="form_content">
-                    <option>location 1</option>
-                    <option>location 2</option>
-                    <option>location 3</option>
-                    <option>location 4</option>
-                </select>
-                <br>
-                <input class="form_content form_button" type="button" name="" id="" value="Search">
-            </form>
-        </div>
-    </div>
-
-
-    <div class="center_form">
+      <div class="center_form">
         <div class="discription types">
-            <h1>Property Types</h1>
-            <p>Eirmod sed ipsum dolor sit rebum labore magna erat.
-                Tempor ut dolore lorem kasd vero ipsum sit eirmod sit.
-                Ipsum diam justo sed rebum vero dolor duo.</p>
+          <h1>#1 Place To Find The Perfect Property</h1>
+          <p>
+            Explore our website today and embark on a journey to find the
+            perfect dwelling that will provide comfort, security, and cherished
+            memories for you and your loved ones.
+          </p>
+          <br />
 
+          <button class="disc_b">Read more</button>
         </div>
-    </div>
-   
-            <div class="men">
-                <div class="menus">
-                    <div class="menu">
-                        <div class="icon_div"><img class="icons" src="../img/apartment.png" width="70" height="70"></div>
-                        <p class="icon_label">Apartment</p>
-                        <p class="prorperties">123 properties</p>
-                    </div>
-                    <div class="menu">
-                        <div class="icon_div"> <img class="icons" src="../img/villa.png" width="70" height="70"> </div>
-                        <p class="icon_label">Apartment</p>
-                        <p class="prorperties">123 properties</p>
-        
-                    </div>
-                    <div class="menu">
-                        <div class="icon_div"><img class="icons" src="../img/house.png" width="70" height="70"></div>
-                        <p class="icon_label">Apartment</p>
-                        <p class="prorperties">123 properties</p>
-                    </div>
-                    <div class="menu">
-                        <div class="icon_div"> <img class="icons" src="../img/workspace.png" width="70" height="70"> </div>
-                        <p class="icon_label">Apartment</p>
-                        <p class="prorperties">123 properties</p>
-        
-                    </div>
-                    <div class="menu">
-                        <div class="icon_div"><img class="icons" src="../img/skyline.png" width="70" height="70"></div>
-                        <p class="icon_label">Apartment</p>
-                        <p class="prorperties">123 properties</p>
-                    </div>
-                    <div class="menu">
-                        <div class="icon_div"> <img class="icons" src="../img/townhouse.png" width="70" height="70"> </div>
-                        <p class="icon_label">Apartment</p>
-                        <p class="prorperties">123 properties</p>
-        
-                    </div>
-                    <div class="menu">
-                        <div class="icon_div"> <img class="icons" src="../img/store.png" width="70" height="70"> </div>
-                        <p class="icon_label">Apartment</p>
-                        <p class="prorperties">123 properties</p>
-        
-                    </div>
-                    <div class="menu">
-                        <div class="icon_div"> <img class="icons" src="../img/garage.png" width="70" height="70"> </div> 
-                        <p class="icon_label">Apartment</p>
-                        <p class="prorperties">123 properties</p><div>
-                        </div>
-                    </div>
-                </div>
-        
-
-
-    <div class="center_form">
+      </div>
+      <div class="center_form">
         <div class="discription types">
-            <h1>#1 Place To Find The Perfect Property</h1>
-            <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat
-                ipsum et
-                lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p><br>
-
-
-            <button class="disc_b">read more</button>
+          <h1>Property Listing</h1>
+          <p>
+            With user-friendly search filters and detailed property listings,
+            finding your ideal home has never been easier.
+          </p>
+          <br />
         </div>
-    </div>
-    <div class="center_form">
-        <div class="discription types">
-            <h1>Property Listing</h1>
-            <p>Tempor erat elitr rebum fuisl wljB DBVIULV EUVBLEVB nlej,bv bvelv bh vnjwlv vbwvjl at clita. Diam dolor
-                diam
-                ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et
-                lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p><br>
-        </div>
-    </div>
+      </div>
 
+      <div class="butns">
+        <button id="apartment" class="button-featured">Apartment</button>
+        <button id="villa" class="button-featured">Villa</button>
+        <button id="house" class="button-featured">House</button>
+      </div>
 
-
-    <div class="butns">
-        <button class="listing">Featured</button>
-        <button class="listing"> for Sell</button>
-        <button class="listing"> For Rent</button>
-    </div>
-   
-<!-- ............................................................................................................... -->
-<div class="card_div">
-    <div class="card hidden">
-        <div class="cardimg"> <img src="" height="200" width="300"></div>
-        <div class="card_discription">
+      <!-- ............................................................................................................... -->
+      <div class="card_div">
+        <div class="card hidden">
+          <div class="cardimg">
+            <img src="../img/property-3 copy.jpg" height="" width="" />
+          </div>
+          <div class="card_discription">
+            <div class="tag">House type</div>
             <h1 class="card_text1">$12,000</h1>
             <h1 class="card_text2">Golden Urban House For Sell</h1>
-            <h4 class="card_text3">123 street , new york,usa</h4>
-            <div class="card-foot">
-                <div class="card-foot-c">1000 Sqft</div>
-                <div class="card-foot-c">3 Bed</div>
-                <div class="card-foot-c">2 Bath</div>
-            </div>
-        </div>
-    </div>
-
-    </div>
-   
-<!-- .................................................................................................................... -->
-
-    <br><br> <br> <br> <br> <br> <br>
-    <footer>
-        <div class="f_content">
-            <h4 class="white">get in Touch</h4><br>
-            <p>123 Street, New York, USA</p>
-            <p>012 345 67890</p>
-            <p>info@example.com</p>
-            <button class="contact">m</button>
-            <button class="contact">m</button>
-            <button class="contact">m</button>
-            <button class="contact">m</button>
-        </div>
-
-
-        <div class="f_content">
-            <h4 class="white">Quick Links</h4><br>
-            <p>about us</p>
-            <p>contact us</p>
-            <p>our services</p>
-            <p>privecy policy</p>
-            <p>terms and condition</p>
-        </div>
-
-
-        <!-- <div  class="f_content">
-            <h4 class="white">photo gallery
+            <h4 class="card_text3">
+              <i
+                class="fa-sharp fa-solid fa-location-dot small-icons bigger-icons"
+              ></i>
+              <span>123 street , new york,usa</span>
             </h4>
-        </div> -->
-
-
-        <div class="f_content">
-            <h4 class="white">Newsletter</h4>
-            <p>vnda;vndfjknvjvndjkl ndvajlnvjdfal vvnjfld</p><br>
-            <input class="tex" type="text" placeholder="Your email">
-            <button class="tex texb"> SignUp</button>
+            <div class="card-foot">
+              <div class="card-foot-c">
+                <i class="fa-solid fa-ruler-combined small-icons"></i>
+                <span>1000 Sqft</span>
+              </div>
+              <div class="card-foot-c">
+                <i class="fa-sharp fa-solid fa-bed small-icons"></i>
+                <span>3 Bed</span>
+              </div>
+              <div class="card-foot-c">
+                <i class="fa-solid fa-bath small-icons"></i> <span>2 Bath</span>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+      <div class="button-div">
+        <button class="button-active" style="width: auto; padding: 20px">
+          Browse more houses
+        </button>
+      </div>
+    </main>
 
-
-        <hr>
-        <div class="f_content2">
-            <p><span class="white">© Your Site Name</span>, All Right Reserved. Designed By <span class="white">HTML
-                    Codex</span>
-                Distributed By <span class="white">ThemeWagon</span>
-            </p>
+    <!-- .................................................................................................................... -->
+    <footer>
+      <div class="cont">
+        <div class="f-container">
+          <div class="m-row">
+            <div style="margin-right: 0; width: 200px">
+              <dl>
+                <dd>
+                  <h5 class="custom-heading">Get In Touch</h5>
+                </dd>
+                <dd>
+                  <p class="custom-element">
+                    <i class="fa fa-map-marker-alt" style="margin-right: 2%"></i
+                    >AddisAbaba, Ethiopia
+                  </p>
+                </dd>
+                <dd>
+                  <p class="custom-element">
+                    <i class="fa fa-phone-alt" style="margin-right: 2%"></i>+251
+                    345 67890
+                  </p>
+                </dd>
+                <dd>
+                  <p class="custom-element">
+                    <i class="fa fa-envelope" style="margin-right: 2%"></i
+                    >info@example.com
+                  </p>
+                </dd>
+              </dl>
+              <div class="">
+                <a href="#"><i class="fab fa-twitter s-button"></i></a>
+                <a href="#"><i class="fab fa-facebook-f s-button"></i></a>
+                <a href="#"><i class="fab fa-youtube s-button"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in s-button"></i></a>
+              </div>
+            </div>
+            <div class="">
+              <dl>
+                <dd>
+                  <h5 class="custom-heading">Quick Links</h5>
+                </dd>
+                <dd>
+                  <a class="custom-button" href="#">
+                    <i
+                      class="fas fa-chevron-right"
+                      style="font-size: 12px; margin-right: 2%"
+                    ></i>
+                    About Us</a
+                  >
+                </dd>
+                <dd>
+                  <a class="custom-button" href="#"
+                    ><i
+                      class="fas fa-chevron-right"
+                      style="font-size: 12px; margin-right: 2%"
+                    ></i>
+                    Contact Us</a
+                  >
+                </dd>
+                <dd>
+                  <a class="custom-button" href="#"
+                    ><i
+                      class="fas fa-chevron-right"
+                      style="font-size: 12px; margin-right: 2%"
+                    ></i>
+                    Our Services</a
+                  >
+                </dd>
+                <dd>
+                  <a class="custom-button" href="#"
+                    ><i
+                      class="fas fa-chevron-right"
+                      style="font-size: 12px; margin-right: 2%"
+                    ></i>
+                    Privacy Policy</a
+                  >
+                </dd>
+                <dd>
+                  <a class="custom-button" href="#"
+                    ><i
+                      class="fas fa-chevron-right"
+                      style="font-size: 12px; margin-right: 2%"
+                    ></i>
+                    Terms & Condition</a
+                  >
+                </dd>
+              </dl>
+            </div>
+            <div>
+              <h5 class="custom-heading">Photo Gallery</h5>
+              <div class="image-container">
+                <div class="">
+                  <img
+                    class="custom-image"
+                    src="../img/property-1.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="">
+                  <img
+                    class="custom-image"
+                    src="../img/property-2.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="">
+                  <img
+                    class="custom-image"
+                    src="../img/property-3.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="">
+                  <img
+                    class="custom-image"
+                    src="../img/property-4.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="">
+                  <img
+                    class="custom-image"
+                    src="../img/property-5.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="">
+                  <img
+                    class="custom-image"
+                    src="../img/property-6.jpg"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div>
+              <h5 class="custom-heading">Newsletter</h5>
+              <div class="">
+                <p>SignUp for our newsletter to get updates daily.</p>
+                <br />
+                <input class="tex" type="text" placeholder="Your email" />
+                <button class="tex texb">SignUp</button>
+              </div>
+            </div>
+          </div>
         </div>
-
+        <div class="end">
+          <div class="copyright">
+            <div class="">
+              <div>
+                <hr />
+                <div style="padding-top: 2%; margin: auto; width: 700px">
+                  &copy;
+                  <a href="#" style="color: aliceblue">AddisHouseRental</a>, All
+                  Right Reserved. Designed By
+                  <a href="#" style="color: aliceblue">Ebsa Tsegaye</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </footer>
     <script src="../js/home_page.js" type="module"></script>
-
-</body>
-
+    <script src="../js/slider.js"></script>
+    <script src="../js/jQuery-3.7.js"></script>
+  </body>
 </html>

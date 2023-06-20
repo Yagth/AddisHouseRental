@@ -62,15 +62,22 @@ class House {
                 FROM $this->house as H 
                     LEFT JOIN $this->rented_house as RH ON H.id = RH.house_id WHERE H.owner_id=$searchParam; ";
                 break;
-            case 4://Get all houses
+            case 4://Get all Not rented houses
                 $query = "SELECT H.id, H.owner_id, H.price, H.house_description, H.rooms, H.bed_rooms, H.bath_rooms, H.location, H.house_tag, H.status, RH.user_id, RH.start_date, RH.end_date
                 FROM $this->house as H 
-                    LEFT JOIN $this->rented_house as RH ON H.id = RH.house_id; ";
+                    LEFT JOIN $this->rented_house as RH ON H.id = RH.house_id WHERE H.status='NR';";
+                break;
+            case 5://Get HOuses matched all the search params
+                $searchParams = explode(",",$searchParam);//Location, HouseTag, Price
+                $query = "SELECT H.id, H.owner_id, H.price, H.house_description, H.rooms, H.bed_rooms, H.bath_rooms, H.location, H.house_tag, H.status, RH.user_id, RH.start_date, RH.end_date
+                FROM $this->house as H 
+                    LEFT JOIN $this->rented_house as RH ON H.id = RH.house_id 
+                    WHERE H.location='$searchParams[0]' AND H.house_tag='$searchParams[2]' AND H.price<=$searchParams[1] AND H.status='NR';";
                 break;
             default://Default is search by NOTHING
                 $query = "SELECT H.id, H.owner_id, H.price, H.house_description, H.rooms, H.bed_rooms, H.bath_rooms, H.location, H.house_tag, H.status, RH.user_id, RH.start_date, RH.end_date
                 FROM $this->house as H 
-                    LEFT JOIN $this->rented_house as RH ON H.id = RH.house_id WHERE H.status='NR';";
+                    LEFT JOIN $this->rented_house as RH ON H.id = RH.house_id; ";
                 break;
         }        
 
@@ -331,7 +338,6 @@ class House {
                 return false;
             }
             
-            echo $pic_desc;
             $stmt->bind_param("ssi", 
                 $pic_desc, 
                 $pic_url, 

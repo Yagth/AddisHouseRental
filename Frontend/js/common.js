@@ -15,6 +15,7 @@ const saveCookie = (name, jsonData) => {
 
 const getData = async (url, query = "") => {
   try {
+    console.log("Url form getData: " + url + "?" + query);
     const res = await fetch(url + "?" + query, { method: "GET" });
     const data = await res.json();
     return data;
@@ -23,4 +24,17 @@ const getData = async (url, query = "") => {
   }
 };
 
-export { shuffleArray, saveCookie, getData };
+async function postData(url, formData) {
+  try {
+    const res = await fetch(url, { method: "POST", body: formData });
+    const data = await res.json();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.log(error);
+
+    return { success: false, message: error };
+  }
+}
+
+export { shuffleArray, saveCookie, getData, postData };

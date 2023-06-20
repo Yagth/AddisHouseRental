@@ -7,19 +7,20 @@ include_once '../../config/Database.php';
 include_once '../../models/House.php';
 include_once '../../models/User.php';
 
-header("Content-Type: application/json");
 
 $database = new Database();
 $db = $database->connect();
 
 $house = new House($db);
 
-$error_json = json_encode(
-    array(
-     'sucess' => false,
-     'message' => 'No house'
-     )
-);
+function error_disp($message='House creation Failed'){
+    return json_encode(
+        array(
+         'success' => false,
+         'message' => $message
+         )
+    );
+}
 
 function image_upload($image){
     
@@ -63,7 +64,7 @@ function image_upload($image){
     }
 }
 
-if(isset($_POST['submit']) && isset($_FILES['main_pic'])){
+if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES['main_pic'])){
     $house->price = $_POST['price'];
     $house->house_desc = $_POST['house_desc'];
     $house->no_rooms = isset($_POST['no_rooms']) ? $_POST['no_rooms'] : null;
@@ -102,11 +103,15 @@ if(isset($_POST['submit']) && isset($_FILES['main_pic'])){
                              "status" => $house->status,
                              "pictures" => $house->house_pics
                             );
-        echo json_encode(array("data" => $house_array, "sucess" => true));
+        echo json_encode(array("data" => $house_array, "success" => true));
     }else{
-        echo $error_json;
+        echo error_disp("Database error on creating house");
     }
     
 } else {
-   echo $error_json;
+    if(!isset($_FILES['main_pic'])){
+        echo error_disp("Image upload failed");
+    } else{
+        echo error_disp();
+    }
 }

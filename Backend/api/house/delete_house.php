@@ -1,6 +1,7 @@
 <?php
 
 header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: DELETE');
 header('Content-Type: application/json');
 
 include_once '../../config/Database.php';
@@ -21,14 +22,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
 if($deleted){
     echo json_encode(
         array(
-         'sucess' => True,
+         'success' => True,
          'message' => 'Deleted Successfully'
          )
     );
 } else{
     echo json_encode(
         array(
-         'sucess' => False,
+         'success' => False,
          'message' => 'Delete Failed'
          )
     );

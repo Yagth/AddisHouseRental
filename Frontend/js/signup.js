@@ -21,8 +21,12 @@ const submitData = async () => {
     if (data.success) {
       errorHeader.textContent = "Signup successful";
       errorHeader.style.backgroundColor = "green";
-      saveCookie("User", data.data);
+      saveCookie("email", data.data.email);
       form.reset();
+      setTimeout(() => {
+        window.location =
+          "http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend//pages/login_page.html";
+      }, 50);
     } else {
       errorHeader.textContent = data.error;
       errorHeader.style.backgroundColor = "red";
