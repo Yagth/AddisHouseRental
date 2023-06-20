@@ -97,6 +97,8 @@ if (user) {
           console.log(res);
           if (res.success) {
             alert("House deleted successfully");
+            window.location.href =
+              "http://127.0.0.1:5500/Frontend/pages/properties.html";
           } else {
             // console.log(await res.text());
             alert("House can't be deleted for some reason");
