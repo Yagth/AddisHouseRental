@@ -40,7 +40,8 @@ if($num > 0){
            'location'   => $location,
            'status' => $status,
            'pics' => array(),
-           'owner' => array()
+           'owner' => array(),
+           'owner_id' => $owner_id
        );
 
        $user = new User($db);

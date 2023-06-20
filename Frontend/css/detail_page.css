@@ -38,6 +38,7 @@
   width: 95%;
   margin: auto;
   margin-top: 200px;
+  min-height: 100vh;
 }
 
 .info-container {

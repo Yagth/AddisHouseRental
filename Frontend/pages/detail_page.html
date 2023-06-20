@@ -153,15 +153,17 @@
             <div>
               <h4>House information</h4>
               <dl>
-                <dt>Location</dt>
+                <dt id="location">Location</dt>
                 <dd>Addis ababa</dd>
-                <dt>House type</dt>
+                <dt id="tag">House type</dt>
                 <dd>Apartment</dd>
-                <dt>Rooms:</dt>
+                <dt id="price">Price</dt>
+                <dd>$3000</dd>
+                <dt id="no_rooms">Rooms:</dt>
                 <dd>3</dd>
-                <dt>Bedrooms</dt>
+                <dt id="bed_rooms">Bedrooms</dt>
                 <dd>4</dd>
-                <dt>Bathrooms</dt>
+                <dt id="bath_rooms">Bathrooms</dt>
                 <dd>3</dd>
               </dl>
             </div>
@@ -174,13 +176,13 @@
                     style="margin-right: 2%"
                   ></i>
                 </dt>
-                <dt>+251911233423</dt>
+                <dt id="phonenumber">+251911233423</dt>
                 <dd>
                   <i class="fa-brands fa-telegram small-icons bigger-icons"></i>
                 </dd>
-                <dt>@username</dt>
+                <dt id="username">@username</dt>
                 <dt>Name:</dt>
-                <dd>Some one</dd>
+                <dd id="name">Some one</dd>
               </dl>
             </div>
           </div>
@@ -188,6 +190,7 @@
       </div>
       <!-- ............................................................................................................... -->
       <div class="property-div" style="padding-top: 3%">
+        <h1 style="margin-left: 35px">Property List</h1>
         <div class="card_div property-div">
           <div class="card hidden">
             <div class="cardimg">
@@ -387,7 +390,7 @@
       </div>
     </footer>
     <script src="../js/property_page.js" type="module"></script>
-    <script type="module" src="../js/createHouse.js"></script>
+    <script src="../js/detail_page.js"></script>
     <script src="../js/jQuery-3.7.js"></script>
   </body>
 </html>
