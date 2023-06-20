@@ -5,6 +5,7 @@
     <title>Home</title>
     <link rel="stylesheet" href="../css/home_page.css" />
     <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/slider.css" />
     <link href="img/favicon.html" rel="icon" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -140,15 +141,38 @@
     <main>
       <div class="curousel">
         <div class="container">
-          <ul class="bannerContent">
-            <li id="img1" class="slide"><img src="../img/carousel-1.jpg" /></li>
-            <li id="img2" class="slide">
-              <img src="../img/carousel-2 (1).jpg" />
-            </li>
-            <li id="img3" class="slide">
-              <img src="https://images8.alphacoders.com/541/541822.jpg" />
-            </li>
-          </ul>
+          <div class="carousel">
+            <div class="carousel_inner">
+              <div class="carousel_item carousel_item__active">
+                <img
+                  src="../img/property-5 copy.jpg"
+                  alt=""
+                  class="carousel_img"
+                />
+              </div>
+              <div class="carousel_item">
+                <img src="../img/property-7.jpg" alt="" class="carousel_img" />
+              </div>
+              <div class="carousel_item">
+                <img src="../img/carousel-1.jpg" alt="" class="carousel_img" />
+              </div>
+            </div>
+
+            <div class="carousel_indicator">
+              <button class="carousel_dot carousel_dot__active"></button>
+              <button class="carousel_dot"></button>
+              <button class="carousel_dot"></button>
+            </div>
+
+            <div class="carousel_control">
+              <button class="carousel_button carousel_button__prev">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="carousel_button carousel_button__next">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
         </div>
         <div class="scroll">
           <button id="forward-button" class="forward-buttons">
@@ -516,6 +540,7 @@
       </div>
     </footer>
     <script src="../js/home_page.js" type="module"></script>
+    <script src="../js/slider.js"></script>
     <script src="../js/jQuery-3.7.js"></script>
   </body>
 </html>
