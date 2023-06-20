@@ -11,18 +11,19 @@ let rentedP = $("#rented");
 let rented = false;
 rentButton.click(async function () {
   if (this) rentedP.html(rented ? "Rented" : "Not Rented");
-  if (rented) {
+  if (!rented) {
     let house = JSON.parse(getCookie("House"));
     let formData = new FormData();
     formData.append("house_id", house.id);
     formData.append("user_id", 43);
-    formData.append("end_date", new Date());
+    formData.append("end_date", "");
     $(this).toggleClass("active");
     rented = !rented;
-    const res = await postData(
+    const _ = await postData(
       "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/rent_house.php",
       formData
     );
+    console.log(_);
   }
 });
 
