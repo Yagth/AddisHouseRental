@@ -1,5 +1,6 @@
 . body {
   background-color: #effdf5;
+  font-family: "Montserrat", sans-serif;
 }
 
 .navbar {
@@ -14,7 +15,11 @@
 
 .detail-div {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  margin: auto;
+  padding-right: 5%;
+  font-weight: 300;
+  font-size: 16px;
 }
 
 #image-div {
@@ -33,4 +38,25 @@
   width: 95%;
   margin: auto;
   margin-top: 200px;
+}
+
+.info-container {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+}
+
+h4 {
+  color: #0e2e50;
+}
+
+.info-container dl {
+  display: grid;
+  box-sizing: border-box;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: 1fr 1fr;
+}
+
+.info-container dt,
+dd {
+  padding: 1%;
 }
