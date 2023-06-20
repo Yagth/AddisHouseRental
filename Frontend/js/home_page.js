@@ -15,7 +15,7 @@ const loadHouses = async () => {
   let data = await getData(
     "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php"
   );
-  if (data.success) {
+  if (data.ccess) {
     let houses = shuffleArray(data.data);
     if (houses.length > 6) {
       houses = houses.slice(0, 6); //Take the first 6 elements of the array
@@ -41,6 +41,15 @@ const loadHouses = async () => {
       card.classList.add("visible-card");
       container.appendChild(card);
       card.classList.remove("hidden");
+      card.addEventListener("click", async () => {
+        const data = await getData(
+          "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php",
+          "id=" + house.id
+        );
+        saveCookie("House", data.data);
+        window.location.href =
+          "http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend//pages/detail_page.html";
+      });
       card = newCard;
     });
   } else {
