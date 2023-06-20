@@ -90,12 +90,13 @@ houseB.on("click", () => {
 
 startButton.addEventListener("click", () => {
   window.location.href =
-    "http://127.0.0.1:8080/Frontend/pages/signup_page.html";
+    "http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend//pages/signup_page.html";
 });
 
 browseB.click(() => {
   console.log("inside button");
-  window.location.href = "http://127.0.0.1:8080/Frontend/pages/properties.html";
+  window.location.href =
+    "http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend//pages/properties.html";
 });
 
 window.addEventListener("scroll", () => {
@@ -131,14 +132,14 @@ if (user) {
     navButton.html("login");
     navButton.click(function () {
       window.location.href =
-        "http://127.0.0.1:8080/Frontend/pages/login_page.html";
+        "http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend//pages/login_page.html";
     });
   }
 } else {
   navButton.html("login");
   navButton.on("click", function () {
     window.location.href =
-      "http://127.0.0.1:8080/Frontend/pages/login_page.html";
+      "http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend//pages/login_page.html";
   });
 }
 

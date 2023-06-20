@@ -61,7 +61,7 @@ const searchAndLoad = async (option = 4, query = "") => {
         );
         saveCookie("House", data.data);
         window.location.href =
-          "http://127.0.0.1:8080/Frontend/pages/detail_page.html";
+          "http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend//pages/detail_page.html";
       });
       card = newCard;
     });
@@ -229,14 +229,14 @@ if (user) {
     navButton.html("login");
     navButton.click(function () {
       window.location.href =
-        "http://127.0.0.1:8080/Frontend/pages/login_page.html";
+        "http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend//pages/login_page.html";
     });
   }
 } else {
   navButton.html("login");
   navButton.on("click", function () {
     window.location.href =
-      "http://127.0.0.1:8080/Frontend/pages/login_page.html";
+      "http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend//pages/login_page.html";
   });
 }
 

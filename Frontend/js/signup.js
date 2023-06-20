@@ -25,7 +25,7 @@ const submitData = async () => {
       form.reset();
       setTimeout(() => {
         window.location =
-          "http://127.0.0.1:8080/Frontend/pages/login_page.html";
+          "http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend//pages/login_page.html";
       }, 50);
     } else {
       errorHeader.textContent = data.error;

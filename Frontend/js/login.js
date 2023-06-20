@@ -30,7 +30,7 @@ const submitData = async () => {
       saveCookie("User", data.data);
       setTimeout(() => {
         window.location.href =
-          "http://127.0.0.1:8080/Frontend/pages/home_page.html";
+          "http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend//pages/home_page.html";
       }, 1500);
     } else {
       errorHeader.textContent = data.error;
