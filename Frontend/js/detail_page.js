@@ -8,9 +8,9 @@ let container = document.querySelector(".card_div");
 let card = document.querySelector(".card_div .card");
 let rentButton = $(".toggle-switch");
 let rentedP = $("#rented");
-let rented = false;
 rentButton.click(async function () {
-  rentedP.html(rented ? "Rented" : "Not Rented");
+  let house = JSON.parse(getCookie("House"));
+  if (house) rentedP.html(rented ? "Rented" : "Not Rented");
   if (!rented) {
     let house = JSON.parse(getCookie("House"));
     let formData = new FormData();

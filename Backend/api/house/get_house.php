@@ -30,6 +30,7 @@ if(isset($_GET['op'])){
             'rooms' => $house->no_rooms,
             'bed_rooms' => $house->bed_rooms,
             'bath_rooms' => $house->bath_rooms,
+            'status' => $house->status,
             'pics' => array(),
             'owner' => array()
         );
