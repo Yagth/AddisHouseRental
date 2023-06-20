@@ -8,7 +8,7 @@
 
 .detail-container {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 1fr 1fr;
   min-height: 500px;
 }
 
@@ -18,10 +18,15 @@
 }
 
 #image-div {
-  justify-content: center;
   background-image: url("../img/background.drawio.svg");
   background-repeat: no-repeat;
   background-size: cover;
+  height: 600px;
+}
+
+#image-div img {
+  max-width: 80%;
+  margin: auto;
 }
 
 .container {
