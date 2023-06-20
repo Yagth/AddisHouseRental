@@ -24,7 +24,7 @@ const getData = async (url, query = "") => {
   }
 };
 
-const postData = async (url, formData) => {
+async function postData(url, formData) {
   try {
     const res = await fetch(url, { method: "POST", body: formData });
     const data = await res.json();
@@ -35,6 +35,6 @@ const postData = async (url, formData) => {
 
     return { success: false, message: error };
   }
-};
+}
 
 export { shuffleArray, saveCookie, getData, postData };
