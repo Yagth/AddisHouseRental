@@ -68,7 +68,7 @@ if (user) {
   user = JSON.parse(user);
   console.log(user.status);
   if (user.status == "L") {
-    navButton.html("Add House");
+    navButton.html("Edit House");
     navButton.on("click", function () {
       $("#modal").toggle(".flex");
     });
@@ -152,5 +152,10 @@ document.querySelector(".property-div h1").textContent += " " + owner_name;
 searchAndLoad(3, ownerId);
 
 //Filling the form for editing the house
-document.querySelector("#modal #house_tag #" + house.house_tag).selected = true;
-console.log("#modal #house_tag #" + house.house_tag);
+document.querySelector(".modal #house_tag #" + house.house_tag).selected = true;
+document.querySelector(".modal #desc").value = house.house_description;
+document.querySelector(".modal #location").value = house.location;
+document.querySelector(".modal #price").value = house.price;
+document.querySelector(".modal #no_rooms_input").value = house.no_rooms;
+document.querySelector(".modal #bed_rooms_input").value = house.bed_rooms;
+document.querySelector(".modal #bath_rooms_input").value = house.bath_rooms;

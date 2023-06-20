@@ -76,6 +76,7 @@
             <input
               class="form-input"
               type="text"
+              id="location"
               name="location"
               placeholder="4 Kilo|Mexico|Bole"
               required
@@ -83,19 +84,19 @@
           </div>
           <div class="hidden" id="no_rooms">
             <label for="">Rooms</label>
-            <input class="form-input" type="number" min="0" name="no_rooms" />
+            <input class="form-input" type="number" min="0" name="no_rooms" id="no_rooms_input" />
           </div>
           <div id="bed_rooms">
             <label for="">Bed Rooms</label>
-            <input class="form-input" type="number" min="0" name="bed_rooms" />
+            <input class="form-input" type="number" min="0" name="bed_rooms" id="bed_rooms_input" />
           </div>
           <div id="bath_rooms">
             <label for="">Bath Rooms</label>
-            <input class="form-input" type="number" min="0" name="bath_rooms" />
+            <input class="form-input" type="number" min="0" name="bath_rooms" id="bath_rooms_input" />
           </div>
           <div>
             <label for="">Price</label>
-            <input class="form-input" type="text" name="price" />
+            <input class="form-input" type="text" id="price" name="price" />
           </div>
           <div>
             <label for="main_pic">Main House picture</label>
@@ -128,14 +129,14 @@
             ></textarea
             ><br />
           </div>
-          <input id="submit" class="cbtn" type="submit" value="Create" />
+          <input id="submit" class="cbtn" type="submit" value="Update" />
         </form>
       </div>
     </div>
     <main class="main-container">
       <div class="detail-container">
         <div id="image-div" class="detail-div">
-          <img id="image" src="" alt="house image" />
+          <img id="image" src="" alt="" />
           </button>
         </div>
         <div class="detail-div">
@@ -152,15 +153,15 @@
                 <dt id="location">Location</dt>
                 <dd>Addis ababa</dd>
                 <dt>House type</dt>
-                <dd >Apartment</dd>
-                <dt id="price">Price</dt>
-                <dd>$3000</dd>
-                <dt id="no_rooms">Rooms:</dt>
-                <dd>3</dd>
-                <dt id="bed_rooms">Bedrooms</dt>
-                <dd>4</dd>
-                <dt id="bath_rooms">Bathrooms</dt>
-                <dd>3</dd>
+                <dd id="tag" >Apartment</dd>
+                <dt >Price</dt>
+                <dd id="price">$3000</dd>
+                <dt>Rooms:</dt>
+                <dd id="no_rooms">3</dd>
+                <dt>Bedrooms</dt>
+                <dd id="bed_rooms">4</dd>
+                <dt >Bathrooms</dt>
+                <dd id="bath_rooms">3</dd>
               </dl>
             </div>
             <div style="margin: 5% 0; margin-bottom: 3%">
