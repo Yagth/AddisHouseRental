@@ -72,15 +72,10 @@ if (user) {
   if (user.status == "L") {
     navButton.html("Add House");
     navButton.on("click", function () {
-      $("#modal").toggle(".flex");
+      $("#add-modal").toggle(".flex");
     });
     editButton.show();
     deleteButton.show();
-    navButton.html("logout");
-    navButton.on("click", async (event) => {
-      deleteCookie("User");
-      location.reload();
-    });
     deleteButton.on("click", async () => {
       let choice = confirm("Are you sure you want to delete it?");
       if (choice) {
@@ -114,11 +109,11 @@ if (user) {
     });
 
     editButton.on("click", function () {
-      $("#modal").toggle(".flex");
+      $("#edit-modal").toggle(".flex");
     });
 
     $(".close, .modal").on("click", function () {
-      $("#modal").css("display", "none");
+      $("#edit-modal").css("display", "none");
       loadInformation();
     });
 
