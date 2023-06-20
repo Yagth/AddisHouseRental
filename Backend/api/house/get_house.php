@@ -19,8 +19,36 @@ if(isset($_GET['op'])){
 }else if(isset($_GET['id'])){
     $id = $_GET['id'];
     $result = $house->get_single_house($id);
+    if(isset($house->id)){
+        $house_info = array(
+            'id' => $house->id,
+            'owner_id' => $house->owner_id,
+            'price' => $house->price,
+            'house_description' => $house->house_desc,
+            'user_id' => $house->rentee_user_id,
+            'start_data' => $house->rent_start_day,
+            'end_date' => $house->rent_end_day,
+            'location' => $house->location,
+            'house_tag' => $house->house_tag,
+            'rooms' => $house->no_rooms,
+            'bed_rooms' => $house->bed_rooms,
+            'bath_rooms' => $house->bath_rooms
+        );
+
+        echo json_encode(array('success' => true, 'data' => $house_info));
+    }else{
+        echo json_encode(
+            array(
+             'sucess' => false,
+             'message' => 'No house'
+             )
+        );
+    }
+    echo "House found";
+    exit;
 } else{
-    $result = $house->get_houses();
+    $house->get_houses();
+
 }
 $num  = $result->num_rows;
 
