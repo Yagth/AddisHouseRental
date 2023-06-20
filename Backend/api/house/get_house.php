@@ -16,6 +16,9 @@ if(isset($_GET['op'])){
     $OPTION = $_GET['op'];//Stands for option
     $param  = $_GET['q'];//Stands for query
     $result = $house->get_houses($OPTION, $param);
+}else if(isset($_GET['id'])){
+    $id = $_GET['id'];
+    $result = $house->get_single_house($id);
 } else{
     $result = $house->get_houses();
 }

@@ -1,6 +1,8 @@
 import { deleteCookie, getCookie } from "./cookie.js";
 import { getData } from "./common.js";
 
+let navbar = document.querySelector(".navbar");
+let navButton = $(".navbar-login");
 let container = document.querySelector(".card_div");
 let card = document.querySelector(".card_div .card");
 
@@ -52,12 +54,12 @@ const getOwner = async (ownerId) => {
     return null;
   }
 };
+let user = getCookie("User");
 
 if (user) {
   user = JSON.parse(user);
   console.log(user.status);
   if (user.status == "L") {
-    yourPropsB.show();
     navButton.html("Add House");
     navButton.on("click", function () {
       $("#modal").toggle(".flex");
@@ -100,6 +102,8 @@ house = JSON.parse(house);
 
 let ownerId = house.owner_id;
 let owner = getOwner(ownerId);
+
+console.log(house);
 
 //Filling in the information of the house from the cookie stored.
 document.querySelector("houseDesc").textContent = house.house_description

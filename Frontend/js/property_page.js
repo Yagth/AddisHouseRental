@@ -8,7 +8,6 @@ let villaB = $("#villa");
 let houseB = $("#house");
 let yourPropsB = $("#yourprops");
 
-const searchForm = document.querySelector(".formm");
 const searchInput = document.querySelector("#search");
 const propertyTypeSelect = document.querySelector("#property_type");
 const priceInput = document.querySelector("#price");
@@ -30,10 +29,11 @@ const addListnerToCards = () => {
     tempCard.addEventListener("click", async () => {
       const data = await getData(
         "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php",
-        card.attributes.id
+        "id=" + card.attributes.id
       );
       saveCookie("House", data.data);
-      window.href;
+      window.location.href =
+        "http://127.0.0.1:5500/Frontend/pages/detail_page.html";
     });
   }
 };
@@ -251,3 +251,4 @@ if (user) {
 }
 
 searchAndLoad();
+addListnerToCards();
