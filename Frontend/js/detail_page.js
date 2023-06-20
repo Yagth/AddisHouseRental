@@ -98,12 +98,12 @@ if (user) {
 }
 
 let house = getCookie("House");
+
+console.log(house);
 house = JSON.parse(house);
 
 let ownerId = house.owner_id;
 let owner = getOwner(ownerId);
-
-console.log(house);
 
 //Filling in the information of the house from the cookie stored.
 document.querySelector("houseDesc").textContent = house.house_description

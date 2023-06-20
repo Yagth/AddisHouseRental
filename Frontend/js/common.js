@@ -15,6 +15,7 @@ const saveCookie = (name, jsonData) => {
 
 const getData = async (url, query = "") => {
   try {
+    console.log("Url form getData: " + url + "?" + query);
     const res = await fetch(url + "?" + query, { method: "GET" });
     const data = await res.json();
     return data;
