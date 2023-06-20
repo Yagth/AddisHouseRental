@@ -25,7 +25,10 @@ const loadHouses = async () => {
       let isHouse = ["Apartment", "Villa", "Home"].includes(house.house_tag);
 
       card.querySelector(".card_text1").textContent = "$" + house.price;
-      card.querySelector(".card_text2").textContent = house.house_description;
+      card.querySelector(".card_text2").textContent = house.house_description
+        .split(" ")
+        .splice(0, 4)
+        .join(" ");
       card.querySelector(".card_text3 span").textContent = house.location;
       card.querySelector(".tag").textContent = house.house_tag;
 
