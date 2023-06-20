@@ -5,7 +5,6 @@ let navButton = $(".navbar-login");
 let container = document.querySelector(".card_div");
 let card = document.querySelector(".card_div .card");
 let tagName = document.querySelector(".tag");
-let imageDiv = document.querySelector("image-div");
 
 const searchAndLoad = async (option = 4, query = "") => {
   // Add event listener to the search button
@@ -109,7 +108,8 @@ if (user) {
 let house = getCookie("House");
 
 house = JSON.parse(house);
-console.log(house);
+let picUrls = house.pics[0];
+console.log(house.pics[0]);
 
 let ownerId = house.owner_id;
 let owner = await getOwner(ownerId);
@@ -134,6 +134,10 @@ document.querySelector("#phonenumber").textContent = owner.phonenumber;
 document.querySelector("#email").textContent = owner.email;
 document.querySelector("#username").textContent = "@" + owner.telegram_username;
 document.querySelector("#name").textContent = owner_name;
+document.querySelector("#image").src =
+  "http://127.0.0.1:5500/Backend/uploads/img/houses/" + picUrls[0].photo_url;
+console.log("Updated image");
+
 document.querySelector(".property-div h1").textContent += " " + owner_name;
 
 searchAndLoad(3, ownerId);
