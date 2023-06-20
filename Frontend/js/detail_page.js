@@ -104,6 +104,7 @@ console.log(house);
 let ownerId = house.owner_id;
 let owner = await getOwner(ownerId);
 owner = owner[0];
+let owner_name = owner.firstname + " " + owner.lastname;
 console.log(owner);
 
 //Filling in the information of the house from the cookie stored.
@@ -122,8 +123,7 @@ document.querySelector("#bath_rooms").textContent = house.bath_rooms;
 document.querySelector("#phonenumber").textContent = owner.phonenumber;
 document.querySelector("#email").textContent = owner.email;
 document.querySelector("#username").textContent = "@" + owner.telegram_username;
-document.querySelector("#name").textContent =
-  owner.firstname + " " + owner.lastname;
-document.querySelector(".property-div h1").textContent += " " + house.owner;
+document.querySelector("#name").textContent = owner_name;
+document.querySelector(".property-div h1").textContent += " " + owner_name;
 
 searchAndLoad(3, ownerId);
