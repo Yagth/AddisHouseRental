@@ -66,7 +66,7 @@ const searchAndLoad = async (option = 4, query = "") => {
       foots[1].textContent = house.bed_rooms + " Beds";
       foots[2].textContent = house.bath_rooms + " Baths";
       card.querySelector("img").src =
-        "http://127.0.0.1:5500/Backend/uploads/img/houses/" +
+        "http://127.0.0.1:8080/Backend/uploads/img/houses/" +
         house.pics[0][0]?.photo_url;
       card.classList.add("visible-card");
       container.appendChild(card);
@@ -78,7 +78,7 @@ const searchAndLoad = async (option = 4, query = "") => {
         );
         saveCookie("House", data.data);
         window.location.href =
-          "http://127.0.0.1:5500/Frontend/pages/detail_page.html";
+          "http://127.0.0.1:8080/Frontend/pages/detail_page.html";
       });
       card = newCard;
     });
@@ -131,7 +131,7 @@ if (user) {
           if (res.success) {
             alert("House deleted successfully");
             window.location.href =
-              "http://127.0.0.1:5500/Frontend/pages/properties.html";
+              "http://127.0.0.1:8080/Frontend/pages/properties.html";
           } else {
             // console.log(await res.text());
             alert("House can't be deleted for some reason");
@@ -169,14 +169,14 @@ if (user) {
     navButton.html("login");
     navButton.click(function () {
       window.location.href =
-        "http://127.0.0.1:5500/Frontend/pages/login_page.html";
+        "http://127.0.0.1:8080/Frontend/pages/login_page.html";
     });
   }
 } else {
   navButton.html("login");
   navButton.on("click", function () {
     window.location.href =
-      "http://127.0.0.1:5500/Frontend/pages/login_page.html";
+      "http://127.0.0.1:8080/Frontend/pages/login_page.html";
   });
 }
 
@@ -217,9 +217,9 @@ const loadInformation = async () => {
     "@" + owner.telegram_username;
   document.querySelector(".detail-container #name").textContent = owner_name;
   document.querySelector(".detail-container #image").src =
-    "http://127.0.0.1:5500/Backend/uploads/img/houses/" + picUrls[0]?.photo_url;
+    "http://127.0.0.1:8080/Backend/uploads/img/houses/" + picUrls[0]?.photo_url;
   console.log(
-    "http://127.0.0.1:5500/Backend/uploads/img/houses/" + picUrls[0]?.photo_url
+    "http://127.0.0.1:8080/Backend/uploads/img/houses/" + picUrls[0]?.photo_url
   );
 
   document.querySelector(".property-div h1").textContent += " " + owner_name;
