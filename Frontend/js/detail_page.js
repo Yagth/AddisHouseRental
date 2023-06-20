@@ -78,9 +78,34 @@ if (user) {
       deleteCookie("User");
       location.reload();
     });
-    deleteButton.on("click", () => {
+    deleteButton.on("click", async () => {
       let choice = confirm("Are you sure you want to delete it?");
-      console.log(choice);
+      if (choice) {
+        let house = getCookie("House");
+        house = JSON.parse(house);
+        try {
+          let res = await fetch(
+            "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/delete_house.php?id=" +
+              house.id,
+            { method: "Delete" }
+          );
+          console.log(
+            "Delete url: http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/delete_house.php?id=" +
+              house.id
+          );
+          res = await res.json();
+          console.log(res);
+          if (res.success) {
+            alert("House deleted successfully");
+          } else {
+            // console.log(await res.text());
+            alert("House can't be deleted for some reason");
+          }
+        } catch (error) {
+          console.log(error);
+          console.log("Delete failed");
+        }
+      }
     });
 
     editButton.on("click", function () {

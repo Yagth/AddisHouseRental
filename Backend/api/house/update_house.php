@@ -1,6 +1,7 @@
 <?php
 
 header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: DELETE');
 header('Content-Type: application/json');
 
 include_once '../../config/Database.php';
