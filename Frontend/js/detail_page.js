@@ -83,10 +83,6 @@ if (user) {
   } else if (user.status == "N") {
     navButton.html("logout");
     navButton.on("click", async (event) => {
-      const res = await getData(
-        "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php",
-        ""
-      );
       deleteCookie("User");
       location.reload();
     });
