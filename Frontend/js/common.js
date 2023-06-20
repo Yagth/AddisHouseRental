@@ -32,6 +32,7 @@ const postData = async (url, formData) => {
     return data;
   } catch (error) {
     console.log(error);
+
     return { success: false, message: error };
   }
 };

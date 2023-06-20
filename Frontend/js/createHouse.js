@@ -71,14 +71,10 @@ form.submit(async (event) => {
     //   console.log(entry[0] + ": " + entry[1]);
     // }
     console.log(res);
-
     errorHeader.style.backgroundColor = res.success ? "green" : "red";
     errorHeader.innerHTML = res.success
-      ? "House created successfully"
-      : res.message
-      ? res.message
-      : res.error;
-    document.querySelector("#addHouse").reset();
+      ? "House Created successfully"
+      : res.message;
   } else {
     errorHeader.style.backgroundColor = validForm.error ? "red" : "green";
     errorHeader.innerHTML = validForm.message;
