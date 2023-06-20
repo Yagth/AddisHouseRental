@@ -36,7 +36,7 @@ const loadHouses = async () => {
       foots[1].textContent = house.bed_rooms + " Beds";
       foots[2].textContent = house.bath_rooms + " Baths";
       card.querySelector("img").src =
-        "http://127.0.0.1:8080/Backend/uploads/img/houses/" +
+        "http://127.0.0.1:8080/PHP/AddisHouseRental/Backend//uploads/img/houses/" +
         house.pics[0][0]?.photo_url;
       card.classList.add("visible-card");
       container.appendChild(card);
