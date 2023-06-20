@@ -123,18 +123,25 @@ document.querySelector("#houseDesc").textContent = house.house_description
   .splice(0, 4)
   .join(" "); //Take the# first four words from the house description
 
-document.querySelector("#description").textContent = house.house_description;
-document.querySelector("#location").textContent = house.location;
-document.querySelector("#tag").textContent = house.house_tag;
-document.querySelector("#price").textContent = house.price;
-document.querySelector("#no_rooms").textContent = house.no_rooms;
-document.querySelector("#bed_rooms").textContent = house.bed_rooms;
-document.querySelector("#bath_rooms").textContent = house.bath_rooms;
-document.querySelector("#phonenumber").textContent = owner.phonenumber;
-document.querySelector("#email").textContent = owner.email;
-document.querySelector("#username").textContent = "@" + owner.telegram_username;
-document.querySelector("#name").textContent = owner_name;
-document.querySelector("#image").src =
+document.querySelector(".detail-container #description").textContent =
+  house.house_description;
+document.querySelector(".detail-container #location").textContent =
+  house.location;
+document.querySelector(".detail-container #tag").textContent = house.house_tag;
+document.querySelector(".detail-container #price").textContent = house.price;
+document.querySelector(".detail-container #no_rooms").textContent =
+  house.no_rooms;
+document.querySelector(".detail-container #bed_rooms").textContent =
+  house.bed_rooms;
+document.querySelector(".detail-container #bath_rooms").textContent =
+  house.bath_rooms;
+document.querySelector(".detail-container #phonenumber").textContent =
+  owner.phonenumber;
+document.querySelector(".detail-container #email").textContent = owner.email;
+document.querySelector(".detail-container #username").textContent =
+  "@" + owner.telegram_username;
+document.querySelector(".detail-container #name").textContent = owner_name;
+document.querySelector(".detail-container #image").src =
   "http://127.0.0.1:5500/Backend/uploads/img/houses/" + picUrls[0].photo_url;
 console.log("Updated image");
 
