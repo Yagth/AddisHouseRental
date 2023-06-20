@@ -38,7 +38,7 @@ if($updated){
 
    echo json_encode(
     array(
-     'sucess' => True,
+     'success' => True,
      'message' => 'Update Success'
     )
 );
@@ -46,7 +46,7 @@ if($updated){
 }else{
    echo json_encode(
        array(
-        'sucess' => False,
+        'success' => False,
         'message' => 'Update Failed'
         )
    );
