@@ -8,10 +8,18 @@ let container = document.querySelector(".card_div");
 let card = document.querySelector(".card_div .card");
 let rentButton = $(".toggle-switch");
 let rentedP = $("#rented");
+let house = JSON.parse(getCookie("House"));
+let rented = house.status === "R";
+
+if (rented) {
+  rentButton.toggleClass("active");
+  rentedP.html("Rented");
+}
+
 rentButton.click(async function () {
-  let house = JSON.parse(getCookie("House"));
-  if (house) rentedP.html(rented ? "Rented" : "Not Rented");
+  console.log(rented);
   if (!rented) {
+    rentedP.html("Rented");
     let house = JSON.parse(getCookie("House"));
     let formData = new FormData();
     formData.append("house_id", house.id);
@@ -23,9 +31,12 @@ rentButton.click(async function () {
       formData
     );
     if (_.success) {
-      rented = true;
+      house.status = "R";
+      console.log(house);
+      saveCookie("House", house);
     }
   } else {
+    rentedP.html("Rented");
     return;
   }
 });
