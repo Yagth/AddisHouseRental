@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Overpass+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/navbar.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+
+    <script
+      src="https://kit.fontawesome.com/1315b34d39.js"
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="../js/script_contact.js"></script>
+    <script defer src="../js/Scripts_COntact.js"></script>
+    <script src="../js/script_map.js"></script>
+
+    <title>Contact Page</title>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="left-side">
+        <div class="logo">
+          <img src="../img/logo.svg" alt="Logo" />
+        </div>
+
+        <ul class="navbar-main-ul hide-burger-menu burger-menu-dropdown">
+          <a
+            href="http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend//pages/home_page.html"
+            ><li>Home</li></a
+          >
+          <a
+            href="http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend//pages/properties.html"
+            ><li>House Lists</li></a
+          >
+          <a
+            href="http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend//pages/contact_page.html"
+            ><li>Contact</li></a
+          >
+        </ul>
+      </div>
+
+      <div class="right-side">
+        <div class="account">
+          <i class="fa-sharp fa-solid fa-bars fa-beat-fade fa-2xl"></i>
+        </div>
+
+        <div class="dropdown hide">
+          <ul>
+            <a href="#"><li>Home</li></a>
+            <a href="#"><li>About</li></a>
+            <a href="#"><li>Property</li></a>
+            <a href="#"><li>Contact</li></a>
+            <a href="#"><li>Pages</li></a>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <div class="main-total">
+        <div class="main-left">
+          <h1>Contact us</h1>
+          <div class="title-info">
+            Eirmod sed ipsum dolor sit rebum labore magna erat.<br />
+            Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. <br />Ipsum
+            diam justo sed rebum vero dolor duo.
+          </div>
+
+          <form action="" method="" class="form">
+            <div class="input-group">
+              <input
+                type="text"
+                name="first_name"
+                id="first-name"
+                placeholder="First name"
+              />
+              <label for="first-name">First name</label>
+            </div>
+
+            <div class="input-group">
+              <input
+                type="text"
+                name="last_name"
+                id="last-name"
+                placeholder="Last Name"
+              />
+              <label for="last-name">Last name</label>
+            </div>
+
+            <div class="input-group">
+              <input
+                type="email"
+                name="e-mail"
+                id="e-mail"
+                placeholder="e-mail"
+              />
+              <label for="e-mail">e-mail</label>
+            </div>
+
+            <div class="textarea-group">
+              <textarea
+                name="message"
+                id="message"
+                rows="5"
+                placeholder="Message"
+              ></textarea>
+              <label for="message">Message</label>
+            </div>
+
+            <div class="button-div">
+              <button type="submit">Send</button>
+            </div>
+          </form>
+        </div>
+        <div class="main-right">
+          <img src="./images/home/property-2.jpg" alt="" />
+        </div>
+      </div>
+    </main>
+    <div id="map"></div>
+    <footer>
+      <a href="#" target="_blank"
+        ><i class="fa-brands fa-facebook fa-beat-fade">Facebook</i></a
+      >
+      <a href="#" target="_blank">
+        <i class="fa-brands fa-github fa-beat-fade">Github</i>
+      </a>
+      <a href="#" target="_blank"
+        ><i class="fa-brands fa-square-instagram fa-beat-fade">Instagram</i></a
+      >
+
+      <a href="#" target="_blank"
+        ><i class="fa-brands fa-linkedin fa-beat-fade">Linkedin</i></a
+      >
+      <a href="#" target="_blank">
+        <i class="fa-brands fa-twitter fa-beat-fade">Twitter</i></a
+      >
+      <a href="#" target="_blank"
+        ><i class="fa-brands fa-youtube fa-beat-fade 5s">YouTube</i></a
+      >
+    </footer>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRm3LGD9O_ZDgO8iZM4BM0NZjAEtKCqv0&callback=initMap"></script>
+  </body>
+</html>
