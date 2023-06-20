@@ -26,7 +26,7 @@ if(isset($_POST['house_id'])){
 if($rented){
    echo json_encode(
     array(
-     'sucess' => True,
+     'success' => True,
      'message' => 'Rent Successfull'
     )
 );
@@ -34,7 +34,7 @@ if($rented){
 }else{
    echo json_encode(
        array(
-        'sucess' => False,
+        'success' => False,
         'message' => 'Renting Failed. Possibly because house already rented'
         )
    );
