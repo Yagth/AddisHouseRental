@@ -14,7 +14,7 @@ $house = new House($db);
 $updated = False;
 $rented  = False;
 
-if(isset($_POST['submit']) && isset($_POST['house_id'])){
+if(isset($_POST['house_id'])){
     $house_id = $_POST['house_id'];
     $house->get_single_house($house_id);
     
