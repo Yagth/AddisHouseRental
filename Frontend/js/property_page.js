@@ -23,21 +23,6 @@ const clearContainer = () => {
   container.children[0].classList.add("hidden");
 };
 
-const addListnerToCards = () => {
-  for (let i = 0; i < container.childElementCount; i++) {
-    let tempCard = container.children[i];
-    tempCard.addEventListener("click", async () => {
-      const data = await getData(
-        "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php",
-        "id=" + tempCard.attributes.id
-      );
-      saveCookie("House", data.data);
-      window.location.href =
-        "http://127.0.0.1:5500/Frontend/pages/detail_page.html";
-    });
-  }
-};
-
 const searchAndLoad = async (option = 4, query = "") => {
   // Add event listener to the search button
   query = "op=" + option + "&q=" + query;
@@ -69,6 +54,15 @@ const searchAndLoad = async (option = 4, query = "") => {
       card.classList.add("visible-card");
       container.appendChild(card);
       card.classList.remove("hidden");
+      card.addEventListener("click", async () => {
+        const data = await getData(
+          "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php",
+          "id=" + card.attributes.id
+        );
+        saveCookie("House", data.data);
+        window.location.href =
+          "http://127.0.0.1:5500/Frontend/pages/detail_page.html";
+      });
       card = newCard;
     });
   } else {
@@ -251,4 +245,3 @@ if (user) {
 }
 
 searchAndLoad();
-addListnerToCards();
