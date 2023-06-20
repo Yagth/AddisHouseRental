@@ -338,7 +338,6 @@ class House {
                 return false;
             }
             
-            echo $pic_desc;
             $stmt->bind_param("ssi", 
                 $pic_desc, 
                 $pic_url, 
