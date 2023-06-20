@@ -107,7 +107,6 @@ class User{
             $this->phonenumber = $row['phonenumber'];
             $this->telegram_username = $row['telegram_username'];
             $this->status = $row['status'];
-
         }
 
     }

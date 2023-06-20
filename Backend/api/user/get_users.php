@@ -14,20 +14,18 @@ $user = new User($db);
 if(isset($_GET['id'])){
     $user->id = $_GET['id'];
     $result = $user->get_single_user_by_id();
-    
     if(isset($user->email)){
     
         $user_arr = array();
         $user_arr['data'] = array();
         $user_arr['success'] = false;
-    
         $user_item = array(
-               'id' => $user->$id,
-               'firstname' => $user->$firstname,
-               'lastname' => $user->$lastname,
-               'email' => html_entity_decode($user->$email),
+               'id' => $user->id,
+               'firstname' => $user->firstname,
+               'lastname' => $user->lastname,
+               'email' => $user->email,
                'telegram_username' => $user->telegram_username,
-               'status' => $user->$status
+               'status' => $user->status
            );
            
         array_push($user_arr['data'], $user_item);
