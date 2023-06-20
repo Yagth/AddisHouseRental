@@ -25,9 +25,6 @@ if(isset($_GET['op'])){
             'owner_id' => $house->owner_id,
             'price' => $house->price,
             'house_description' => $house->house_desc,
-            'user_id' => $house->rentee_user_id,
-            'start_data' => $house->rent_start_day,
-            'end_date' => $house->rent_end_day,
             'location' => $house->location,
             'house_tag' => $house->house_tag,
             'rooms' => $house->no_rooms,
@@ -44,7 +41,6 @@ if(isset($_GET['op'])){
              )
         );
     }
-    echo "House found";
     exit;
 } else{
     $house->get_houses();
