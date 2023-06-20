@@ -102,8 +102,18 @@ if (user) {
   });
 }
 
-const loadInformation = () => {
+const loadInformation = async () => {
   //Filling in the information of the house from the cookie stored.
+  let house = getCookie("House");
+  house = JSON.parse(house);
+  console.log(house);
+  let picUrls = house.pics[0];
+  // console.log(house.pics[0]);
+
+  let ownerId = house.owner_id;
+  let owner = await getOwner(ownerId);
+  owner = owner[0];
+  let owner_name = owner.firstname + " " + owner.lastname;
   document.querySelector("#houseDesc").textContent = house.house_description
     .split(" ")
     .splice(0, 4)
@@ -135,28 +145,19 @@ const loadInformation = () => {
   );
 
   document.querySelector(".property-div h1").textContent += " " + owner_name;
+
+  //Filling the form for editing the house
+  document.querySelector(
+    ".modal #house_tag #" + house.house_tag
+  ).selected = true;
+  document.querySelector(".modal #desc").value = house.house_description;
+  document.querySelector(".modal #location").value = house.location;
+  document.querySelector(".modal #price").value = house.price;
+  document.querySelector(".modal #no_rooms_input").value = house.no_rooms;
+  document.querySelector(".modal #bed_rooms_input").value = house.bed_rooms;
+  document.querySelector(".modal #bath_rooms_input").value = house.bath_rooms;
+
+  searchAndLoad(3, ownerId);
 };
 
-let house = getCookie("House");
-console.log(house);
-house = JSON.parse(house);
-let picUrls = house.pics[0];
-console.log(house.pics[0]);
-
-let ownerId = house.owner_id;
-let owner = await getOwner(ownerId);
-owner = owner[0];
-let owner_name = owner.firstname + " " + owner.lastname;
-console.log(house);
-
 loadInformation();
-searchAndLoad(3, ownerId);
-
-//Filling the form for editing the house
-document.querySelector(".modal #house_tag #" + house.house_tag).selected = true;
-document.querySelector(".modal #desc").value = house.house_description;
-document.querySelector(".modal #location").value = house.location;
-document.querySelector(".modal #price").value = house.price;
-document.querySelector(".modal #no_rooms_input").value = house.no_rooms;
-document.querySelector(".modal #bed_rooms_input").value = house.bed_rooms;
-document.querySelector(".modal #bath_rooms_input").value = house.bath_rooms;

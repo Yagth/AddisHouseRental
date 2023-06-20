@@ -27,7 +27,7 @@ if(isset($_POST['house_id'])){
     
     $updated = $house->update_house($house_id);
     
-    if(isset($_POST['pic_id']) && isset($_FILES['new_image'])){
+    if(isset($_POST['pic_id']) && isset($_FILES['new_image']) && $_FILES['new_image']['name'] !== ""){
         $pic_id = $_POST['pic_id'];
         $pic_desc = $_POST['pic_desc'];
         $pic_url = $house->image_upload($_FILES['new_image']);
