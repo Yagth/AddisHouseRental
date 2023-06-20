@@ -1,7 +1,9 @@
 import { deleteCookie, getCookie } from "./cookie.js";
 import { getData, saveCookie } from "./common.js";
 
-let navButton = $(".navbar-login");
+let navButton = $("nav .navbar-login");
+let editButton = $("#editButton");
+let deleteButton = $("#deleteButton");
 let container = document.querySelector(".card_div");
 let card = document.querySelector(".card_div .card");
 
@@ -68,8 +70,20 @@ if (user) {
   user = JSON.parse(user);
   console.log(user.status);
   if (user.status == "L") {
-    navButton.html("Edit House");
-    navButton.on("click", function () {
+    navButton.html("Logout");
+    editButton.show();
+    deleteButton.show();
+    navButton.html("logout");
+    navButton.on("click", async (event) => {
+      deleteCookie("User");
+      location.reload();
+    });
+    deleteButton.on("click", () => {
+      let choice = confirm("Are you sure you want to delete it?");
+      console.log(choice);
+    });
+
+    editButton.on("click", function () {
       $("#modal").toggle(".flex");
     });
 
@@ -82,12 +96,16 @@ if (user) {
       event.stopPropagation();
     });
   } else if (user.status == "N") {
+    editButton.hide();
+    deleteButton.hide();
     navButton.html("logout");
     navButton.on("click", async (event) => {
       deleteCookie("User");
       location.reload();
     });
   } else {
+    editButton.hide();
+    deleteButton.hide();
     navButton.html("login");
     navButton.click(function () {
       window.location.href =
@@ -108,7 +126,7 @@ const loadInformation = async () => {
   house = JSON.parse(house);
   console.log(house);
   let picUrls = house.pics[0];
-  // console.log(house.pics[0]);
+  console.log(house.pics[0]);
 
   let ownerId = house.owner_id;
   let owner = await getOwner(ownerId);

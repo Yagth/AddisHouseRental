@@ -1,5 +1,5 @@
 import { getData, postData, saveCookie } from "./common.js";
-import { getCookie } from "./cookie.js";
+import { deleteCookie, getCookie } from "./cookie.js";
 let roomsI = document.getElementById("no_rooms");
 let bedRoomsI = document.getElementById("bed_rooms");
 let bathRoomsI = document.getElementById("bath_rooms");
@@ -86,6 +86,7 @@ form.submit(async (event) => {
       "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php",
       "id=" + house.id
     );
+    deleteCookie("House");
     saveCookie("House", res.data);
     console.log("Saving cookie");
     document.querySelector("#editHouse").reset();
