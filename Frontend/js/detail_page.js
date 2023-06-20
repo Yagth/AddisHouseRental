@@ -1,10 +1,10 @@
 import { deleteCookie, getCookie } from "./cookie.js";
 import { getData } from "./common.js";
 
-let navbar = document.querySelector(".navbar");
 let navButton = $(".navbar-login");
 let container = document.querySelector(".card_div");
 let card = document.querySelector(".card_div .card");
+let tagName = document.querySelector(".tag");
 
 const searchAndLoad = async (option = 4, query = "") => {
   // Add event listener to the search button
@@ -14,8 +14,7 @@ const searchAndLoad = async (option = 4, query = "") => {
     query
   );
   if (data.success) {
-    clearContainer();
-    let houses = shuffleArray(data.data);
+    let houses = data.data;
     houses.forEach((house) => {
       let newCard = card.cloneNode(true);
       let isHouse = ["Apartment", "Villa", "Home"].includes(house.house_tag);
@@ -46,7 +45,7 @@ const searchAndLoad = async (option = 4, query = "") => {
 const getOwner = async (ownerId) => {
   let data = await getData(
     "http://localhost:8080/PHP/AddisHouseRental/Backend/api/user/get_users.php",
-    ownerId
+    "id=" + ownerId
   );
   if (data.success) {
     return data.data;
@@ -99,28 +98,29 @@ if (user) {
 
 let house = getCookie("House");
 
-console.log(house);
 house = JSON.parse(house);
+console.log(house);
 
 let ownerId = house.owner_id;
-let owner = getOwner(ownerId);
+let owner = await getOwner(ownerId);
+console.log(owner);
 
 //Filling in the information of the house from the cookie stored.
-document.querySelector("houseDesc").textContent = house.house_description
+document.querySelector("#houseDesc").textContent = house.house_description
   .split(" ")
   .splice(0, 4)
-  .join(" "); //Take the first four words from the house description
+  .join(" "); //Take the# first four words from the house description
 
-document.querySelector("description").textContent = house.house_description;
-document.querySelector("location").textContent = house.location;
-document.querySelector("tag").textContent = house.house_tag;
-document.querySelector("price").textContent = house.price;
-document.querySelector("no_rooms").textContent = house.no_rooms;
-document.querySelector("bed_rooms").textContent = house.bed_rooms;
-document.querySelector("bath_rooms").textContent = house.bath_rooms;
-document.querySelector("phonenumber").textContent = owner.phonenumber;
-document.querySelector("username").textContent = owner.username;
-document.querySelector("name").textContent = house.owner;
+document.querySelector("#description").textContent = house.house_description;
+document.querySelector("#location").textContent = house.location;
+document.querySelector("#tag").textContent = house.house_tag;
+document.querySelector("#price").textContent = house.price;
+document.querySelector("#no_rooms").textContent = house.no_rooms;
+document.querySelector("#bed_rooms").textContent = house.bed_rooms;
+document.querySelector("#bath_rooms").textContent = house.bath_rooms;
+document.querySelector("#phonenumber").textContent = owner.phonenumber;
+document.querySelector("#username").textContent = owner.username;
+document.querySelector("#name").textContent = house.owner;
 document.querySelector(".property-div h1").textContent += " " + house.owner;
 
 searchAndLoad(3, ownerId);

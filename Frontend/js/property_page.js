@@ -31,7 +31,6 @@ const addListnerToCards = () => {
         "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php",
         "id=" + tempCard.attributes.id
       );
-      console.log(data);
       saveCookie("House", data.data);
       window.location.href =
         "http://127.0.0.1:5500/Frontend/pages/detail_page.html";

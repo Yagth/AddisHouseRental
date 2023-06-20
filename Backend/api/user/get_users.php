@@ -15,7 +15,7 @@ if(isset($_GET['id'])){
     $user->id = $_GET['id'];
     $result = $user->get_single_user_by_id();
     
-    if($isset($user->email)){
+    if(isset($user->email)){
     
         $user_arr = array();
         $user_arr['data'] = array();
