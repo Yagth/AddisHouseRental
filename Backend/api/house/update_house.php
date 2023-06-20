@@ -13,7 +13,7 @@ $db = $database->connect();
 $house = new House($db);
 $updated = False;
 
-if(isset($_POST['submit']) && isset($_POST['house_id'])){
+if(isset($_POST['house_id'])){
     $house_id = $_POST['house_id'];
     $house->get_single_house($house_id);
     
@@ -31,8 +31,7 @@ if(isset($_POST['submit']) && isset($_POST['house_id'])){
         $pic_id = $_POST['pic_id'];
         $pic_desc = $_POST['pic_desc'];
         $pic_url = $house->image_upload($_FILES['new_image']);
-
-        $updated |= $house->update_house_pics($pic_id, $pic_desc, $pic_url);
+        $updated= $house->update_house_pics($pic_id, $pic_desc, $pic_url);
     }
 }
 if($updated){
