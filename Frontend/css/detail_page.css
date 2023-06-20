@@ -1,0 +1,31 @@
+. body {
+  background-color: #effdf5;
+}
+
+.navbar {
+  width: 91%;
+}
+
+.detail-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  min-height: 500px;
+}
+
+.detail-div {
+  display: flex;
+  align-items: center;
+}
+
+#image-div {
+  justify-content: center;
+  background-image: url("../img/background.drawio.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  width: 95%;
+  margin: auto;
+  margin-top: 200px;
+}
