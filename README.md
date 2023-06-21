@@ -2,7 +2,7 @@
 
 ## Set up the database as follows
 
-Step 1: Start apache server and go to http://192.168.43.61//phpmyadmin
+Step 1: Start apache server and go to http://192.168.43.61/phpmyadmin
 
 Step 2: Click the 'Import' button from the Navbar option
 

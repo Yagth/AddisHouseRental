@@ -15,7 +15,7 @@ const submitData = async () => {
     }
     const formData = new FormData(form);
     const res = await fetch(
-      "http://192.168.43.61//PHP/AddisHouseRental/Backend/api/auth/login.php",
+      "http://192.168.43.61/PHP/AddisHouseRental/Backend/api/auth/login.php",
       {
         method: "post",
         body: formData,
@@ -30,7 +30,7 @@ const submitData = async () => {
       saveCookie("User", data.data);
       setTimeout(() => {
         window.location.href =
-          "http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend//pages/home_page.html";
+          "http://192.168.43.61/PHP/AddisHouseRental/Frontend/pages/home_page.html";
       }, 1500);
     } else {
       errorHeader.textContent = data.error;

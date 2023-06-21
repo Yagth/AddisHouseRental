@@ -11,7 +11,7 @@ const submitData = async () => {
     }
     const formData = new FormData(form);
     const res = await fetch(
-      "http://192.168.43.61//PHP/AddisHouseRental/Backend/api/auth/signup.php",
+      "http://192.168.43.61/PHP/AddisHouseRental/Backend/api/auth/signup.php",
       {
         method: "post",
         body: formData,
@@ -25,7 +25,7 @@ const submitData = async () => {
       form.reset();
       setTimeout(() => {
         window.location =
-          "http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend//pages/login_page.html";
+          "http://192.168.43.61/PHP/AddisHouseRental/Frontend/pages/login_page.html";
       }, 50);
     } else {
       errorHeader.textContent = data.error;
