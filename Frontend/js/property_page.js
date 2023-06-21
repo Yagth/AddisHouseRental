@@ -28,7 +28,7 @@ const searchAndLoad = async (option = 4, query = "") => {
   query = "op=" + option + "&q=" + query;
   console.log(query);
   let data = await getData(
-    "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php",
+    "http://192.168.43.61//PHP/AddisHouseRental/Backend/api/house/get_house.php",
     query
   );
   if (data.success) {
@@ -56,7 +56,7 @@ const searchAndLoad = async (option = 4, query = "") => {
       card.classList.remove("hidden");
       card.addEventListener("click", async () => {
         const data = await getData(
-          "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php",
+          "http://192.168.43.61//PHP/AddisHouseRental/Backend/api/house/get_house.php",
           "id=" + house.id
         );
         saveCookie("House", data.data);

@@ -13,7 +13,7 @@ const loadHouses = async () => {
   let container = document.querySelector(".card_div");
   let card = document.querySelector(".card_div .card");
   let data = await getData(
-    "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php"
+    "http://192.168.43.61//PHP/AddisHouseRental/Backend/api/house/get_house.php"
   );
   if (data.success) {
     let houses = shuffleArray(data.data);
@@ -43,7 +43,7 @@ const loadHouses = async () => {
       card.classList.remove("hidden");
       card.addEventListener("click", async () => {
         const data = await getData(
-          "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php",
+          "http://192.168.43.61//PHP/AddisHouseRental/Backend/api/house/get_house.php",
           "id=" + house.id
         );
         saveCookie("House", data.data);

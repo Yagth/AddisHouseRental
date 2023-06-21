@@ -28,7 +28,7 @@ rentButton.click(async function () {
     formData.append("end_date", "");
     $(this).toggleClass("active");
     const _ = await postData(
-      "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/rent_house.php",
+      "http://192.168.43.61//PHP/AddisHouseRental/Backend/api/house/rent_house.php",
       formData
     );
     if (_.success) {
@@ -46,7 +46,7 @@ const searchAndLoad = async (option = 4, query = "") => {
   // Add event listener to the search button
   query = "op=" + option + "&q=" + query;
   let data = await getData(
-    "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php",
+    "http://192.168.43.61//PHP/AddisHouseRental/Backend/api/house/get_house.php",
     query
   );
   if (data.success) {
@@ -74,7 +74,7 @@ const searchAndLoad = async (option = 4, query = "") => {
       card.classList.remove("hidden");
       card.addEventListener("click", async () => {
         const data = await getData(
-          "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php",
+          "http://192.168.43.61//PHP/AddisHouseRental/Backend/api/house/get_house.php",
           "id=" + house.id
         );
         saveCookie("House", data.data);
@@ -90,7 +90,7 @@ const searchAndLoad = async (option = 4, query = "") => {
 
 const getOwner = async (ownerId) => {
   let data = await getData(
-    "http://localhost:8080/PHP/AddisHouseRental/Backend/api/user/get_users.php",
+    "http://192.168.43.61//PHP/AddisHouseRental/Backend/api/user/get_users.php",
     "id=" + ownerId
   );
   if (data.success) {
@@ -112,6 +112,7 @@ if (user) {
     });
     editButton.show();
     deleteButton.show();
+    rentButton.show();
     deleteButton.on("click", async () => {
       let choice = confirm("Are you sure you want to delete it?");
       if (choice) {
@@ -119,12 +120,12 @@ if (user) {
         house = JSON.parse(house);
         try {
           let res = await fetch(
-            "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/delete_house.php?id=" +
+            "http://192.168.43.61//PHP/AddisHouseRental/Backend/api/house/delete_house.php?id=" +
               house.id,
             { method: "Delete" }
           );
           console.log(
-            "Delete url: http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/delete_house.php?id=" +
+            "Delete url: http://192.168.43.61//PHP/AddisHouseRental/Backend/api/house/delete_house.php?id=" +
               house.id
           );
           res = await res.json();
@@ -159,6 +160,8 @@ if (user) {
   } else if (user.status == "N") {
     editButton.hide();
     deleteButton.hide();
+    rentButton.hide();
+
     navButton.html("logout");
     navButton.on("click", async (event) => {
       deleteCookie("User");
@@ -179,6 +182,7 @@ if (user) {
     window.location.href =
       "http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend//pages/login_page.html";
   });
+  rentButton.hide();
 }
 
 const loadInformation = async () => {

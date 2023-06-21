@@ -64,7 +64,7 @@ form.submit(async (event) => {
     userId = userId.id;
     formData.append("owner_id", userId);
     res = await postData(
-      "http://localhost:8080/PHP/AddisHouseRental/Backend/api/house/create_house.php",
+      "http://192.168.43.61//PHP/AddisHouseRental/Backend/api/house/create_house.php",
       formData
     );
     // for (var entry of formData.entries()) {

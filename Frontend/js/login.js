@@ -15,7 +15,7 @@ const submitData = async () => {
     }
     const formData = new FormData(form);
     const res = await fetch(
-      "http://localhost:8080/PHP/AddisHouseRental/Backend/api/auth/login.php",
+      "http://192.168.43.61//PHP/AddisHouseRental/Backend/api/auth/login.php",
       {
         method: "post",
         body: formData,
