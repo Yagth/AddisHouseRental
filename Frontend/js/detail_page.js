@@ -28,7 +28,7 @@ rentButton.click(async function () {
     formData.append("end_date", "");
     $(this).toggleClass("active");
     const _ = await postData(
-      "http://192.168.43.61/PHP/AddisHouseRental/Backend/api/house/rent_house.php",
+      "http://127.0.0.1:8080/PHP/AddisHouseRental/Backend/api/house/rent_house.php",
       formData
     );
     if (_.success) {
@@ -46,7 +46,7 @@ const searchAndLoad = async (option = 4, query = "") => {
   // Add event listener to the search button
   query = "op=" + option + "&q=" + query;
   let data = await getData(
-    "http://192.168.43.61/PHP/AddisHouseRental/Backend/api/house/get_house.php",
+    "http://127.0.0.1:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php",
     query
   );
   if (data.success) {
@@ -67,19 +67,19 @@ const searchAndLoad = async (option = 4, query = "") => {
       foots[1].textContent = house.bed_rooms + " Beds";
       foots[2].textContent = house.bath_rooms + " Baths";
       card.querySelector("img").src =
-        "http://192.168.43.61/PHP/AddisHouseRental/Backend/uploads/img/houses/" +
+        "http://127.0.0.1:8080/PHP/AddisHouseRental/Backend/uploads/img/houses/" +
         house.pics[0][0]?.photo_url;
       card.classList.add("visible-card");
       container.appendChild(card);
       card.classList.remove("hidden");
       card.addEventListener("click", async () => {
         const data = await getData(
-          "http://192.168.43.61/PHP/AddisHouseRental/Backend/api/house/get_house.php",
+          "http://127.0.0.1:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php",
           "id=" + house.id
         );
         saveCookie("House", data.data);
         window.location.href =
-          "http://192.168.43.61/PHP/AddisHouseRental/Frontend/pages/detail_page.html";
+          "http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend/pages/detail_page.html";
       });
       card = newCard;
     });
@@ -90,7 +90,7 @@ const searchAndLoad = async (option = 4, query = "") => {
 
 const getOwner = async (ownerId) => {
   let data = await getData(
-    "http://192.168.43.61/PHP/AddisHouseRental/Backend/api/user/get_users.php",
+    "http://127.0.0.1:8080/PHP/AddisHouseRental/Backend/api/user/get_users.php",
     "id=" + ownerId
   );
   if (data.success) {
@@ -120,12 +120,12 @@ if (user) {
         house = JSON.parse(house);
         try {
           let res = await fetch(
-            "http://192.168.43.61/PHP/AddisHouseRental/Backend/api/house/delete_house.php?id=" +
+            "http://127.0.0.1:8080/PHP/AddisHouseRental/Backend/api/house/delete_house.php?id=" +
               house.id,
             { method: "Delete" }
           );
           console.log(
-            "Delete url: http://192.168.43.61/PHP/AddisHouseRental/Backend/api/house/delete_house.php?id=" +
+            "Delete url: http://127.0.0.1:8080/PHP/AddisHouseRental/Backend/api/house/delete_house.php?id=" +
               house.id
           );
           res = await res.json();
@@ -133,7 +133,7 @@ if (user) {
           if (res.success) {
             alert("House deleted successfully");
             window.location.href =
-              "http://192.168.43.61/PHP/AddisHouseRental/Frontend/pages/properties.html";
+              "http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend/pages/properties.html";
           } else {
             // console.log(await res.text());
             alert("House can't be deleted for some reason");
@@ -173,14 +173,14 @@ if (user) {
     navButton.html("login");
     navButton.click(function () {
       window.location.href =
-        "http://192.168.43.61/PHP/AddisHouseRental/Frontend/pages/login_page.html";
+        "http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend/pages/login_page.html";
     });
   }
 } else {
   navButton.html("login");
   navButton.on("click", function () {
     window.location.href =
-      "http://192.168.43.61/PHP/AddisHouseRental/Frontend/pages/login_page.html";
+      "http://127.0.0.1:8080/PHP/AddisHouseRental/Frontend/pages/login_page.html";
   });
   rentButton.hide();
 }
@@ -222,10 +222,10 @@ const loadInformation = async () => {
     "@" + owner.telegram_username;
   document.querySelector(".detail-container #name").textContent = owner_name;
   document.querySelector(".detail-container #image").src =
-    "http://192.168.43.61/PHP/AddisHouseRental/Backend/uploads/img/houses/" +
+    "http://127.0.0.1:8080/PHP/AddisHouseRental/Backend/uploads/img/houses/" +
     picUrls[0]?.photo_url;
   console.log(
-    "http://192.168.43.61/PHP/AddisHouseRental/Backend/uploads/img/houses/" +
+    "http://127.0.0.1:8080/PHP/AddisHouseRental/Backend/uploads/img/houses/" +
       picUrls[0]?.photo_url
   );
 

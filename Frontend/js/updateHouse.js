@@ -70,7 +70,7 @@ form.submit(async (event) => {
     formData.append("pic_desc", house.pics[0][0]?.pic_desc);
     formData.append("house_id", house.id);
     res = await postData(
-      "http://192.168.43.61/PHP/AddisHouseRental/Backend/api/house/update_house.php",
+      "http://127.0.0.1:8080/PHP/AddisHouseRental/Backend/api/house/update_house.php",
       formData
     );
     // for (var entry of formData.entries()) {
@@ -85,7 +85,7 @@ form.submit(async (event) => {
       ? res.message
       : res.error;
     res = await getData(
-      "http://192.168.43.61/PHP/AddisHouseRental/Backend/api/house/get_house.php",
+      "http://127.0.0.1:8080/PHP/AddisHouseRental/Backend/api/house/get_house.php",
       "id=" + house.id
     );
     deleteCookie("House");

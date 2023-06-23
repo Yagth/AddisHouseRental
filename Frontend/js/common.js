@@ -17,7 +17,7 @@ const getData = async (url, query = "") => {
   try {
     console.log("Url form getData: " + url + "?" + query);
     const res = await fetch(url + "?" + query, { method: "GET" });
-    const data = await res.text();
+    const data = await res.json();
     console.log(data);
     return data;
   } catch (error) {
@@ -28,7 +28,7 @@ const getData = async (url, query = "") => {
 async function postData(url, formData) {
   try {
     const res = await fetch(url, { method: "POST", body: formData });
-    const data = await res.text();
+    const data = await res.json();
     console.log(data);
     return data;
   } catch (error) {
